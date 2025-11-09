@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Somos mente y cuerpo</title>
+  </head>
+
+  <body>
+    <!-- NAVBAR con logo -->
+    <header class="navbar">
+      <!-- Logo -->
+      <a href="#" class="logo">
+        <img src="./assets/logoSMYC.png" alt="Somos Mente y Cuerpo Logo" />
+      </a>
+
+      <!-- Menú principal -->
+      <nav class="menu">
+        <a class="link" href="#">
+          SERVICIOS
+          <span class="underline" aria-hidden="true"></span>
+        </a>
+
+        <a class="link" href="#">
+          EQUIPO
+          <span class="underline" aria-hidden="true"></span>
+        </a>
+
+        <a class="link" href="#">
+          FORMACIONES
+          <span class="underline" aria-hidden="true"></span>
+        </a>
+
+        <a class="link" href="#">
+          CONTACTO
+          <span class="underline" aria-hidden="true"></span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <img src="./assets/hero_ilustracion.png" alt="Somos Mente y Cuerpo" />
+      <div class="hero-text1">Somos <br />mente<br />y cuerpo</div>
+
+      <div class="hero-text2">
+        Apoyo integral para pacientes, familias <br />
+        y profesionales <br />
+        de la salud mental.
+      </div>
+    </section>
+    <!-- SERVICIOS -->
+    <section class="servicios">
+      <div class="servicios-text">
+        Brindamos distintos servicios para acompañar fortalecer y potenciar los
+        recursos tanto de profesionales de la salud mental como de consultantes
+        y sus familias.<br />
+      </div>
+      <div class="pill-container">
+        <img src="./assets/pill_1.png" alt="" />
+        <img src="./assets/pill_2.png" alt="" />
+        <img src="./assets/pill_3.png" alt="" />
+        <img src="./assets/pill_4.png" alt="" />
+        <img src="./assets/pill_5.png" alt="" />
+        <img src="./assets/pill_6.png" alt="" />
+        <img src="./assets/pill_7.png" alt="" />
+        <img src="./assets/pill_8.png" alt="" />
+        <img src="./assets/pill_9.png" alt="" />
+      </div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section class="equipo">
+      <div class="equipo-title">Quiénes somos</div>
+      <div class="equipo-text">
+        Somos un equipo dedicado a la formación, prevención y asistencia en
+        Salud mental. Nuestras prácticas clínicas y educativas se encuentran
+        fundamentadas en las terapias basadas en la evidencia científica lo cual
+        hace que nos actualicemos de manera continua con la finalidad de ofrecer
+        atención de calidad.
+      </div>
+      <div class="psico-container">
+        <div class="psico-card">
+          <img src="./assets/psico_img1.png" />
+          <div class="psico-title">Lic. <br />Sol de Giuli</div>
+          <div class="psico-subtitle">Directora del equipo</div>
+        </div>
+        <div class="psico-card">
+          <img src="./assets/psico_img2.png" />
+          <div class="psico-title">Lic. <br />Florencia Zara</div>
+          <div class="psico-subtitle">Psiquiatra</div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // ========== ANIMACIÓN HERO TEXTS ==========
+      const heroText1 = document.querySelector(".hero-text1");
+      const heroText2 = document.querySelector(".hero-text2");
+
+      // Esperar 2 segundos, luego hacer la transición
+      setTimeout(() => {
+        heroText1.classList.add("fade-out");
+
+        // Medio segundo después de que empiece a desaparecer, mostrar el texto 2
+        setTimeout(() => {
+          heroText2.classList.add("fade-in");
+        }, 400);
+      }, 2000);
+      // Observador para detectar cuando los elementos entran en viewport
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Agregar clase 'animate' a todas las pills
+              const pills = entry.target.querySelectorAll("img");
+              pills.forEach((pill) => {
+                pill.classList.add("animate");
+              });
+              // Dejar de observar después de animar
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.2, // Se activa cuando el 20% es visible
+        }
+      );
+
+      // Observar el contenedor de pills
+      const pillContainer = document.querySelector(".pill-container");
+      if (pillContainer) {
+        observer.observe(pillContainer);
+      }
+    </script>
+  </body>
+</html>
