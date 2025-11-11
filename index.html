@@ -17,35 +17,35 @@
 
   <body>
     <!-- NAVBAR con logo -->
-    <header class="navbar">
-      <!-- Logo -->
-      <a href="#" class="logo">
-        <img src="./assets/logoSMYC.png" alt="Somos Mente y Cuerpo Logo" />
-      </a>
+<header class="navbar">
+  <!-- Logo -->
+  <a href="#" class="logo">
+    <img src="./assets/logoSMYC.png" alt="Somos Mente y Cuerpo Logo" />
+  </a>
 
-      <!-- Menú principal -->
-      <nav class="menu">
-        <a class="link" href="#">
-          SERVICIOS
-          <span class="underline" aria-hidden="true"></span>
-        </a>
+  <!-- Menú principal -->
+  <nav class="menu">
+    <a class="link" href="#servicios">
+      SERVICIOS
+      <span class="underline" aria-hidden="true"></span>
+    </a>
 
-        <a class="link" href="#">
-          EQUIPO
-          <span class="underline" aria-hidden="true"></span>
-        </a>
+    <a class="link" href="#equipo">
+      EQUIPO
+      <span class="underline" aria-hidden="true"></span>
+    </a>
 
-        <a class="link" href="#">
-          FORMACIONES
-          <span class="underline" aria-hidden="true"></span>
-        </a>
+    <a class="link" href="#formaciones">
+      FORMACIONES
+      <span class="underline" aria-hidden="true"></span>
+    </a>
 
-        <a class="link" href="#">
-          CONTACTO
-          <span class="underline" aria-hidden="true"></span>
-        </a>
-      </nav>
-    </header>
+    <a class="link" href="#contacto">
+      CONTACTO
+      <span class="underline" aria-hidden="true"></span>
+    </a>
+  </nav>
+</header>
 
     <!-- HERO -->
     <section class="hero">
@@ -59,7 +59,7 @@
       </div>
     </section>
     <!-- SERVICIOS -->
-    <section class="servicios">
+    <section class="servicios" id="servicios">
       <div class="servicios-text">
         Brindamos distintos servicios para acompañar fortalecer y potenciar los
         recursos tanto de profesionales de la salud mental como de consultantes
@@ -79,7 +79,8 @@
     </section>
 
     <!-- EQUIPO -->
-    <section class="equipo">
+
+    <section class="equipo" id="equipo">
       <div class="equipo-title">Quiénes somos</div>
       <div class="equipo-text">
         Somos un equipo dedicado a la formación, prevención y asistencia en
@@ -89,17 +90,163 @@
         atención de calidad.
       </div>
       <div class="psico-container">
+        <!-- Card 1 - Sol de Giuli -->
         <div class="psico-card">
-          <img src="./assets/psico_img1.png" />
-          <div class="psico-title">Lic. <br />Sol de Giuli</div>
-          <div class="psico-subtitle">Directora del equipo</div>
+          <img
+            src="./assets/psico_img1.png"
+            alt="Lic. Sol de Giuli"
+            class="psico-img-clickable"
+            data-target="sol-formacion"
+          />
+          <div class="psico-info">
+            <div class="psico-title">Lic. Sol de Giuli</div>
+            <div class="psico-subtitle">Directora del equipo</div>
+          </div>
         </div>
+
+        <!-- Formación expandible de Sol -->
+        <div class="psico-formacion-component" id="sol-formacion">
+          <div class="psico-text-conteiner">
+            <div class="psico-formacion-text-izquierda">
+              Licenciatura en Psicología
+              <img
+                class="trazo-inline"
+                src="./assets/psico/trazo-psico.png"
+                alt=""
+              />
+              Magíster en Trastornos de la Conducta Alimentaria y Obesidad.
+              <img
+                class="trazo-inline"
+                src="./assets/psico/trazo-psico.png"
+                alt=""
+              />
+              Especialización en Terapia Dialéctica Conductual (DBT) y sus
+              protocolos adaptados (DBT ED. DBT Skills).
+              <img
+                class="trazo-inline"
+                src="./assets/psico/trazo-psico.png"
+                alt=""
+              />
+              Formación en Terapia Dialéctica Conductual Radicalmente Abierta
+              (RO-DBT) y protocolos adaptados en TCA, adolescencia y duelo.
+              <img
+                class="trazo-inline"
+                src="./assets/psico/trazo-psico.png"
+                alt=""
+              />
+              Posgrado en Psicoterapia Infantojuvenil.
+              <img
+                class="trazo-inline"
+                src="./assets/psico/trazo-psico.png"
+                alt=""
+              />
+              Especialización transdiagnostica en intervenciones funcionales.
+            </div>
+
+            <div class="psico-formacion-text-derecha">
+              Diversas formaciones complementarias en Trastornos de la Conducta
+              Alimentaria.
+              <img
+                class="trazo-inline"
+                src="./assets/psico/trazo-psico.png"
+                alt=""
+              />
+              Experiencia clínica en el abordaje de adolescentes y adultos con
+              problemáticas alimentarias.
+              <img
+                class="trazo-inline"
+                src="./assets/psico/trazo-psico.png"
+                alt=""
+              />
+              Trabajo en equipos DBT y RO-DBT como terapeuta individual y
+              entrenadora de talleres para consultantes, familias y
+              adolescentes.
+              <img
+                class="trazo-inline"
+                src="./assets/psico/trazo-psico.png"
+                alt=""
+              />
+              Docente en programas de formación profesional en instituciones de
+              Latinoamérica y españa.
+              <img
+                class="trazo-inline"
+                src="./assets/psico/trazo-psico.png"
+                alt=""
+              />
+              Participación en investigaciones y publicaciones científicas
+              relacionadas con la adolescencia.
+            </div>
+          </div>
+          <img
+            src="./assets/psico/button-cv.png"
+            alt="CV completo"
+            class="cv-button"
+          />
+        </div>
+
+        <!-- Card 2 - Florencia Zara -->
         <div class="psico-card">
-          <img src="./assets/psico_img2.png" />
-          <div class="psico-title">Lic. <br />Florencia Zara</div>
-          <div class="psico-subtitle">Psiquiatra</div>
+          <img
+            src="./assets/psico_img2.png"
+            alt="Lic. flor"
+            class="psico-img-clickable"
+            data-target="flor-formacion"
+          />
+          <div class="psico-info">
+            <div class="psico-title">Lic. Florencia Zara</div>
+            <div class="psico-subtitle">Directora del equipo</div>
+          </div>
         </div>
+        <div class="psico-formacion-component" id="flor-formacion">
+          <div class="psico-text-conteiner">
+            <div class="psico-formacion-text-izquierda">Licenciatura en Psicología. <img
+              class="trazo-inline"
+              src="./assets/psico/trazo-psico.png"
+              alt=""
+            />Especialista en Terapia Cognitivo Conductual y Psicología Clínica. <img
+            class="trazo-inline"
+            src="./assets/psico/trazo-psico.png"
+            alt=""
+          />Especialización en Terapia Dialéctica Conductual (DBT) y Terapia diálectico conductual para Trastornos de la Conducta Alimentaria (DBT- ED). <img
+          class="trazo-inline"
+          src="./assets/psico/trazo-psico.png"
+          alt=""
+        />Formación en Terapia Dialéctica Conductual Radicalmente Abierta (RO-DBT) y protocolos adaptados en trastornos de la conducta alimentaria. <img
+        class="trazo-inline"
+        src="./assets/psico/trazo-psico.png"
+        alt=""
+      />Formación en Terapia de aceptación y compromiso (ACT). <img
+      class="trazo-inline"
+      src="./assets/psico/trazo-psico.png"
+      alt=""
+    />Especialización en Psicoterapia Infantojuvenil.
+            </div>
+            <div class="psico-formacion-text-derecha">Formación en manejo de trauma (EMDR).<img
+              class="trazo-inline"
+              src="./assets/psico/trazo-psico.png"
+              alt=""
+            />Diversas formaciones complementarias en Trastornos de la Conducta Alimentaria (TCA)  y trastornos de la imagen corporal.<img
+            class="trazo-inline"
+            src="./assets/psico/trazo-psico.png"
+            alt=""
+          />Experiencia clínica en el trabajo con consultantes de clínica general, desregulación emocional y trastornos de la conducta alimentaria.<img
+          class="trazo-inline"
+          src="./assets/psico/trazo-psico.png"
+          alt=""
+        />Trabajo en equipos DBT y en equipos dedicados a TCA como terapeuta individual y entrenadora de talleres para consultantes y familias.<img
+        class="trazo-inline"
+        src="./assets/psico/trazo-psico.png"
+        alt=""
+      />Docente en programas de formación profesional en instituciones de Latinoamérica.
+              
+            </div>
       </div>
+      <img
+            src="./assets/psico/button-cv.png"
+            alt="CV completo"
+            class="cv-button"
+          />
+        </div>
     </section>
 
     <script>
@@ -141,6 +288,84 @@
       if (pillContainer) {
         observer.observe(pillContainer);
       }
+      // ========== ACORDEÓN FORMACIÓN PSICÓLOGA ==========
+      const psicoImgClickable = document.querySelectorAll(
+        ".psico-img-clickable"
+      );
+
+      psicoImgClickable.forEach((img) => {
+        img.addEventListener("click", () => {
+          const targetId = img.getAttribute("data-target");
+          const formacionSection = document.getElementById(targetId);
+
+          if (formacionSection) {
+            formacionSection.classList.toggle("expanded");
+
+            // Scroll suave hacia la sección expandida
+            if (formacionSection.classList.contains("expanded")) {
+              setTimeout(() => {
+                formacionSection.scrollIntoView({
+                  behavior: "smooth",
+                  block: "nearest",
+                });
+              }, 300);
+            }
+          }
+        });
+      });
+      // ========== SCROLL SUAVE NAVBAR ==========
+const navLinks = document.querySelectorAll('.menu .link');
+
+navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    const href = link.getAttribute('href');
+    
+    // Solo aplicar scroll suave si es un anchor link (#)
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      
+      const targetId = href.substring(1);
+      const targetSection = document.getElementById(targetId);
+      
+      if (targetSection) {
+        // Remover clase active de todos los links
+        navLinks.forEach(l => l.classList.remove('active'));
+        
+        // Agregar clase active al link clickeado
+        link.classList.add('active');
+        
+        // Scroll suave a la sección
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  });
+});
+
+// ========== HIGHLIGHT NAVBAR EN SCROLL ==========
+window.addEventListener('scroll', () => {
+  let current = '';
+  
+  const sections = document.querySelectorAll('section[id]');
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    
+    if (window.pageYOffset >= (sectionTop - 200)) {
+      current = section.getAttribute('id');
+    }
+  });
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
+});
     </script>
   </body>
 </html>

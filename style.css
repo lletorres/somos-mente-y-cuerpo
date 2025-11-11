@@ -36,6 +36,20 @@ body {
   object-fit: contain;
   display: block;
 }
+/* Smooth scroll para todo el documento */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilo para link activo en navbar */
+.link.active {
+  color: var(--color-texto-activo);
+}
+
+/* Offset para que las secciones no queden pegadas al navbar */
+section[id] {
+  scroll-margin-top: 60px;
+}
 
 /* --- Menú --- */
 .menu {
@@ -47,7 +61,8 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.2px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Aeonik Trial", sans-serif;
+  src: url("./assets/fonts/AeonikTRIAL-Regular.otf") format("opentype");
 }
 
 /* --- Enlaces --- */
@@ -102,8 +117,9 @@ body {
   justify-content: center;
   gap: 2rem;
   padding: 1rem 8rem;
-  position: relative; /* nuevo */
-  z-index: 2; /* nuevo: hero por encima del verde */
+  position: relative;
+  z-index: 2;
+  min-height: 800px; /* Altura mínima para contener todo */
 }
 
 /* Ilustración */
@@ -111,12 +127,15 @@ body {
   width: 710px;
   height: 737.09px;
   object-fit: contain;
+  position: absolute;
+  left: 4rem;
 }
 
 /* Texto principal */
 .hero-text1 {
   position: absolute;
-  right: 8rem;
+  right: 14rem;
+  bottom: 20rem;
   width: 491px;
   height: 294.72px;
   color: #f3ccd8;
@@ -134,8 +153,11 @@ body {
   opacity: 0;
 }
 
-/* Texto secundario*/
+/* Texto secundario */
 .hero-text2 {
+  position: absolute;
+  right: 12rem;
+  bottom: 21rem;
   width: 615.34px;
   height: 258.91px;
   color: #f3ccd8;
@@ -153,7 +175,6 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
-
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1400px) {
   .navbar {
@@ -392,12 +413,14 @@ body {
 }
 
 .servicios-text {
-  max-width: 600px;
+  width: 560.9px;
+  height: 86.4px;
   text-align: center;
   color: #575757;
-  font-size: 15px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-size: 20px;
+  font-family: "Aeonik Trial", sans-serif;
+  src: url("./assets/fonts/AeonikTRIAL-Regular.otf") format("opentype");
+  font-weight: 300;
   line-height: 26px;
   letter-spacing: 1px;
   word-wrap: break-word;
@@ -493,6 +516,7 @@ body {
   }
 }
 /* -----------EQUIPO----------- */
+/* -----------EQUIPO----------- */
 
 .equipo {
   display: flex;
@@ -516,38 +540,51 @@ body {
   line-height: 70px;
   word-wrap: break-word;
 }
+
 .equipo-text {
   width: 714.09px;
   height: 138.09px;
   text-align: center;
   color: #575757;
+  font-weight: 300;
   font-size: 20px;
-  font-family: poppins, sans-serif;
-  font-weight: 400;
+  font-family: "Aeonik Trial", sans-serif;
+  src: url("./assets/fonts/AeonikTRIAL-Regular.otf") format("opentype");
   line-height: 26px;
   letter-spacing: 1px;
   word-wrap: break-word;
 }
+
 /* Container de las cards */
 .psico-container {
   display: flex;
-  gap: 12rem;
+  flex-direction: column;
+  gap: 6rem;
   justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
 }
 
 /* Card individual */
 .psico-card {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-  max-width: 350px;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+  max-width: 800px;
+  width: 100%;
 }
+
+/* Contenedor de textos */
+.psico-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .psico-title {
-  width: 259.5px;
-  height: 70px;
+  width: auto;
+  height: auto;
   color: #575757;
   font-size: 36px;
   font-family: Literata;
@@ -555,17 +592,20 @@ body {
   line-height: 38px;
   word-wrap: break-word;
 }
+
 .psico-subtitle {
-  width: 263.33px;
-  height: 31px;
+  width: auto;
+  height: auto;
   color: #575757;
   font-size: 20px;
-  font-family: poppins, sans-serif;
-  font-weight: 400;
+  font-family: "Aeonik Trial", sans-serif;
+  src: url("./assets/fonts/AeonikTRIAL-Regular.otf") format("opentype");
+  font-weight: 300;
   line-height: 32px;
   letter-spacing: 1px;
   word-wrap: break-word;
 }
+
 /* Responsive para equipo */
 @media (max-width: 1024px) {
   .equipo {
@@ -581,11 +621,14 @@ body {
     line-height: 24px;
   }
   .psico-container {
-    gap: 3rem;
+    gap: 4rem;
+  }
+  .psico-card {
+    gap: 2rem;
   }
   .psico-card img {
-    width: 280px;
-    height: 280px;
+    width: 220px;
+    height: 220px;
   }
   .psico-title {
     font-size: 32px;
@@ -602,22 +645,31 @@ body {
   .equipo-title {
     font-size: 36px;
     line-height: 45px;
+    width: 100%;
   }
   .equipo-text {
     font-size: 16px;
     line-height: 22px;
+    width: 100%;
   }
   .psico-container {
+    gap: 3rem;
+  }
+  .psico-card {
     flex-direction: column;
-    gap: 2.5rem;
+    text-align: center;
+    gap: 1.5rem;
   }
   .psico-card img {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
   }
   .psico-title {
     font-size: 28px;
     line-height: 34px;
+  }
+  .psico-subtitle {
+    font-size: 16px;
   }
 }
 
@@ -634,14 +686,185 @@ body {
     line-height: 20px;
   }
   .psico-card img {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
   }
   .psico-title {
     font-size: 24px;
     line-height: 30px;
   }
   .psico-subtitle {
-    font-size: 16px;
+    font-size: 14px;
+  }
+}
+
+/* ---------- FORMACION PSICOLOGA ---------- */
+.psico-formacion-component {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0 8rem;
+  background: var(--color-fondo);
+  transition: max-height 0.6s ease, opacity 0.5s ease, padding 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.psico-formacion-component.expanded {
+  max-height: 1000px;
+  opacity: 1;
+  padding: 4rem 8rem;
+  margin: 2rem auto;
+}
+
+.psico-img-clickable {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 50%;
+}
+
+.psico-img-clickable:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.psico-text-conteiner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  align-items: start;
+  width: 100%;
+}
+
+.psico-formacion-text-izquierda,
+.psico-formacion-text-derecha {
+  width: 100%;
+  max-width: 400px;
+  color: #575757;
+  font-size: 16px;
+  font-family: "Aeonik Trial", sans-serif;
+  font-weight: 300;
+  line-height: 21px;
+  word-wrap: break-word;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.psico-formacion-text-izquierda {
+  justify-self: end;
+}
+
+.psico-formacion-text-derecha {
+  justify-self: start;
+}
+
+.trazo-inline {
+  width: 80px;
+  height: auto;
+  margin: 8px 0;
+  display: block;
+}
+
+.cv-button {
+  width: auto;
+  max-width: 200px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  margin-top: 1rem;
+}
+
+.cv-button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .psico-formacion-component {
+    padding: 0 3rem;
+  }
+
+  .psico-formacion-component.expanded {
+    padding: 3rem 3rem;
+  }
+
+  .psico-text-conteiner {
+    gap: 4rem;
+  }
+
+  .psico-formacion-text-izquierda,
+  .psico-formacion-text-derecha {
+    font-size: 15px;
+    line-height: 20px;
+    max-width: 350px;
+  }
+
+  .trazo-inline {
+    width: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .psico-formacion-component {
+    padding: 0 2rem;
+  }
+
+  .psico-formacion-component.expanded {
+    padding: 2rem 2rem;
+    max-height: 1500px;
+  }
+
+  .psico-text-conteiner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .psico-formacion-text-izquierda,
+  .psico-formacion-text-derecha {
+    justify-self: center;
+    max-width: 100%;
+  }
+
+  .trazo-inline {
+    width: 70px;
+    margin: 6px 0;
+  }
+
+  .cv-button {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .psico-formacion-component {
+    padding: 0 1.5rem;
+  }
+
+  .psico-formacion-component.expanded {
+    padding: 2rem 1.5rem;
+  }
+
+  .psico-formacion-text-izquierda,
+  .psico-formacion-text-derecha {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .trazo-inline {
+    width: 50px;
+    margin: 5px 0;
+  }
+
+  .cv-button {
+    max-width: 150px;
   }
 }
