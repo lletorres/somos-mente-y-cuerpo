@@ -559,7 +559,7 @@ section[id] {
 .psico-container {
   display: flex;
   flex-direction: column;
-  gap: 6rem;
+  gap: 3rem;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -719,14 +719,14 @@ section[id] {
 .psico-formacion-component.expanded {
   max-height: 1000px;
   opacity: 1;
-  padding: 4rem 8rem;
-  margin: 2rem auto;
+  padding: 2rem 4rem;
+  margin: 0rem auto;
 }
 
 .psico-img-clickable {
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 50%;
+  border-radius: 38% / 60%;
 }
 
 .psico-img-clickable:hover {
