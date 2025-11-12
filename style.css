@@ -48,7 +48,16 @@ html {
 
 /* Offset para que las secciones no queden pegadas al navbar */
 section[id] {
-  scroll-margin-top: 60px;
+  scroll-margin-top: 100px; /* Ajusta este valor según necesites */
+}
+
+/* O específicamente para servicios */
+#servicios {
+  scroll-margin-top: -100px;
+}
+
+#equipo {
+  scroll-margin-top: -50px;
 }
 
 /* --- Menú --- */
@@ -406,8 +415,9 @@ section[id] {
   position: relative;
   z-index: 1;
   width: 100vw;
+  height: 924px;
   margin: 0 calc(50% - 50vw);
-  background: #bfe3d6;
+  background: #d3ede1;
   margin-top: -110px;
   padding: 120px 4rem 80px 4rem;
 }
