@@ -4,6 +4,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+@font-face {
+  font-family: "Aeonik Trial";
+  src: url("./assets/fonts/AeonikTRIAL-Regular.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
 :root {
   --color-fondo: #fcfaf5;
   --color-texto: #949494;
@@ -71,7 +77,6 @@ section[id] {
   text-transform: uppercase;
   letter-spacing: 1.2px;
   font-family: "Aeonik Trial", sans-serif;
-  src: url("./assets/fonts/AeonikTRIAL-Regular.otf") format("opentype");
 }
 
 /* --- Enlaces --- */
@@ -429,7 +434,6 @@ section[id] {
   color: #575757;
   font-size: 20px;
   font-family: "Aeonik Trial", sans-serif;
-  src: url("./assets/fonts/AeonikTRIAL-Regular.otf") format("opentype");
   font-weight: 300;
   line-height: 26px;
   letter-spacing: 1px;
@@ -549,6 +553,7 @@ section[id] {
   font-weight: 500;
   line-height: 70px;
   word-wrap: break-word;
+  margin-bottom: -45px;
 }
 
 .equipo-text {
@@ -559,7 +564,6 @@ section[id] {
   font-weight: 300;
   font-size: 20px;
   font-family: "Aeonik Trial", sans-serif;
-  src: url("./assets/fonts/AeonikTRIAL-Regular.otf") format("opentype");
   line-height: 26px;
   letter-spacing: 1px;
   word-wrap: break-word;
@@ -609,7 +613,6 @@ section[id] {
   color: #575757;
   font-size: 20px;
   font-family: "Aeonik Trial", sans-serif;
-  src: url("./assets/fonts/AeonikTRIAL-Regular.otf") format("opentype");
   font-weight: 300;
   line-height: 32px;
   letter-spacing: 1px;
@@ -877,4 +880,51 @@ section[id] {
   .cv-button {
     max-width: 150px;
   }
+}
+
+.formaciones-a-profesionales {
+  width: 100vw;
+  height: 2114px;
+  background: #caacee;
+}
+
+.formaciones-text-conteiner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding: 2rem 4rem;
+  margin: 0rem auto;
+}
+
+.formaciones-title {
+  width: 535.88px;
+  height: 166px;
+  color: white;
+  font-size: 55px;
+  font-family: Literata;
+  font-weight: 600;
+  line-height: 61px;
+  word-wrap: break-word;
+}
+.formaciones-text {
+  width: 509.03px;
+  height: 286.59px;
+  color: white;
+  font-size: 20px;
+  font-family: "Aeonik Trial", sans-serif;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 1px;
+  word-wrap: break-word;
+}
+.formaciones-email {
+  color: white;
+  font-size: 20px;
+  font-family: "Aeonik Trial", sans-serif;
+  font-weight: 700;
+  text-decoration: underline;
+  line-height: 30px;
+  letter-spacing: 1px;
+  word-wrap: break-word;
 }
