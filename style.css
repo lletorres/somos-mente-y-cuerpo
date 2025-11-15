@@ -65,6 +65,9 @@ section[id] {
 #equipo {
   scroll-margin-top: -50px;
 }
+#formaciones {
+  scroll-margin-top: -50px;
+}
 
 /* --- Menú --- */
 .menu {
@@ -1072,4 +1075,139 @@ section[id] {
     font-size: 13px;
     line-height: 18px;
   }
+}
+.como-trabaja-conteiner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 35px;
+  padding-top: 125px;
+}
+.como-trabaja-title {
+  width: 714.8px;
+  height: 92.18px;
+  text-align: center;
+  color: #638c6b;
+  font-size: 55px;
+  font-family: "Literata";
+  font-weight: 600;
+  line-height: 70px;
+  word-wrap: break-word;
+}
+.como-trabaja-text {
+  width: 854.05px;
+  height: 199.09px;
+  text-align: center;
+  color: #575757;
+  font-size: 20px;
+  font-family: "Aeonik TRIAL", sans-serif;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 1px;
+  word-wrap: break-word;
+}
+
+.como-trabaja-cards-conteiner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 0rem;
+}
+.como-trabaja-card-formacion-conteiner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+
+  overflow: hidden; /* IMPORTANTE: Evita que el overlay se salga */
+  border-radius: 20px; /* Si tu imagen tiene bordes redondeados */
+}
+.como-trabaja-card1 {
+  width: 410px;
+  height: 725px;
+  display: block;
+  object-fit: cover;
+}
+.como-trabaja-card2 {
+  width: 410px;
+  height: 612px;
+  display: block;
+  object-fit: cover;
+}
+.como-trabaja-card3 {
+  width: 410px;
+  height: 450px;
+  display: block;
+  object-fit: cover;
+}
+.como-trabaja-card-title {
+  width: 192.57px;
+  height: 46.44px;
+  color: #638c6b;
+  font-size: 55px;
+  font-family: "Literata";
+  font-weight: 600;
+  line-height: 35px;
+  word-wrap: break-word;
+}
+.como-trabaja-card-subtitle {
+  width: 313.11px;
+  height: 107.03px;
+  color: #638c6b;
+  font-size: 32px;
+  font-family: "Literata";
+  font-weight: 400;
+  line-height: 35px;
+  word-wrap: break-word;
+}
+.como-trabaja-card-body {
+  align-self: stretch;
+  height: 372.61px;
+  color: #575757;
+  font-size: 16px;
+  font-family: "Aeonik Trial", sans-serif;
+  font-weight: 400;
+  line-height: 21px;
+  word-wrap: break-word;
+}
+/* Overlay base (común para todas) */
+.como-trabaja-card-overlay {
+  position: absolute;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Card 1 - Vertical alta */
+.como-trabaja-card1-overlay {
+  top: 10%;
+  right: 10%;
+  left: 10%;
+  bottom: 10%;
+}
+
+/* Card 2 - Más horizontal/ovalada */
+.como-trabaja-card2-overlay {
+  top: 15%;
+  right: 12%;
+  left: 12%;
+  bottom: 15%;
+}
+
+/* Card 3 - Horizontal ancha */
+.como-trabaja-card3-overlay {
+  top: 18%;
+  right: 15%;
+  left: 15%;
+  bottom: 18%;
 }
