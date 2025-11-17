@@ -23,6 +23,13 @@
         <img src="./assets/logoSMYC.png" alt="Somos Mente y Cuerpo Logo" />
       </a>
 
+      <!-- Botón hamburguesa (solo visible en móvil) -->
+      <button class="hamburger" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <!-- Menú principal -->
       <nav class="menu">
         <a class="link" href="#servicios">
@@ -99,7 +106,13 @@
             data-target="sol-formacion"
           />
           <div class="psico-info">
-            <div class="psico-title">Lic. Sol de Giuli</div>
+            <div class="psico-title">Lic. <br />Sol de Giuli</div>
+            <img
+              src="./assets/psico/trazo-formacion-psicologa.png"
+              alt=""
+              class="trazo-formacion"
+              style="display: none"
+            />
             <div class="psico-subtitle">Directora del equipo</div>
           </div>
         </div>
@@ -193,7 +206,16 @@
             data-target="flor-formacion"
           />
           <div class="psico-info">
-            <div class="psico-title">Lic. Florencia Zara</div>
+            <div class="psico-title">
+              Lic. <br />
+              Florencia Zara
+            </div>
+            <img
+              src="./assets/psico/trazo-formacion-psicologa.png"
+              alt=""
+              class="trazo-formacion"
+              style="display: none"
+            />
             <div class="psico-subtitle">Directora del equipo</div>
           </div>
         </div>
@@ -464,6 +486,14 @@
             </p>
           </div>
         </div>
+        <!-- FLECHA 1 - Entre card 1 y 2 -->
+        <!-- <img
+          src="./assets/como-trabaja/row-paso1-paso2.png"
+          alt=""
+          class="flecha-paso"
+        /> -->
+
+        <!-- Card 2 -->
         <div class="como-trabaja-card-formacion-conteiner">
           <img
             src="./assets/como-trabaja/card-paso2.png"
@@ -485,6 +515,14 @@
             </p>
           </div>
         </div>
+        <!-- FLECHA 2 - Entre card 2 y 3 -->
+        <!-- <img
+          src="./assets/como-trabaja/row-paso2-paso3.png"
+          alt=""
+          class="flecha-paso"
+        /> -->
+
+        <!-- Card 3 -->
         <div class="como-trabaja-card-formacion-conteiner">
           <img
             src="./assets/como-trabaja/card-paso3.png"
@@ -503,7 +541,120 @@
           </div>
         </div>
       </div>
+      <div class="como-trabaja-bottom-conteiner">
+        <div class="como-trabaja-bottom-text">
+          Nos comprometemos a acompañarte en cada paso de tu proceso
+          terapéutico, asegurando que recibas el apoyo adecuado para superar tus
+          dificultades y construir la vida que vos quieras vivir.
+        </div>
+        <div class="como-trabaja-bottom-equipo-conteiner">
+          <div class="como-trabaja-bottom-equipo-directoras-conteiner">
+            <img
+              src="./assets/como-trabaja/trazo-directoras.png"
+              alt=""
+              class="trazo-directoras"
+            />
+            <div class="como-trabaja-bottom-equipo-directoras">
+              <span
+                style="
+                  color: #caacee;
+                  font-size: 20px;
+                  font-family: Aeonik TRIAL;
+                  font-weight: 700;
+                  line-height: 32px;
+                  letter-spacing: 1px;
+                  word-wrap: break-word;
+                "
+                >Directoras</span
+              >
+              <br /><br />Lic florencia zara <br />Lic. Sol de Giuli
+            </div>
+          </div>
+          <div class="como-trabaja-bottom-equipo-psicologas-conteiner">
+            <img
+              src="./assets/como-trabaja/trazo-psico.png"
+              alt=""
+              class="trazo-psicologas"
+            />
+            <div class="como-trabaja-bottom-equipo-psicologas">
+              <span
+                style="
+                  color: #caacee;
+                  font-size: 20px;
+                  font-family: Aeonik TRIAL;
+                  font-weight: 700;
+                  line-height: 32px;
+                  letter-spacing: 1px;
+                  word-wrap: break-word;
+                "
+                >Psicólogas del equipo</span
+              >
+              <br /><br />Sol Aceto <br />Sabrina Belén Saavedra <br />Macarena
+              Cano<br />Macarena Alvarez<br />Florencia Varas<br />Carolina
+              Siles<br />Ámbar Serebriani<br />Laila Najjar<br />Ariadna
+              Alvarez<br />
+            </div>
+          </div>
+          <div class="como-trabaja-bottom-equipo-medica-conteiner">
+            <img
+              src="./assets/como-trabaja/trazo-medica.png"
+              alt=""
+              class="trazo-medica"
+            />
+            <div class="como-trabaja-bottom-equipo-medica">
+              <span
+                style="
+                  color: #caacee;
+                  font-size: 20px;
+                  font-family: Aeonik TRIAL;
+                  font-weight: 700;
+                  line-height: 32px;
+                  letter-spacing: 1px;
+                  word-wrap: break-word;
+                "
+                >Medica clínica</span
+              ><br /><br />Claudia Maroncelli
+            </div>
+          </div>
+          <div class="como-trabaja-bottom-equipo-nutricionista-conteiner">
+            <img
+              src="./assets/como-trabaja/trazo-nutri.png"
+              alt=""
+              class="trazo-nutricionista"
+            />
+            <div class="como-trabaja-bottom-equipo-nutricionista">
+              <span
+                style="
+                  color: #caacee;
+                  font-size: 20px;
+                  font-family: Aeonik TRIAL;
+                  font-weight: 700;
+                  line-height: 32px;
+                  letter-spacing: 1px;
+                  word-wrap: break-word;
+                "
+                >Nutricionista</span
+              >
+              <br /><br />Solana Nahir Benitez
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+    <section class="footer-page" id="footer">
+      <div class="footer-content">
+        <div class="image-button-conteiner">
+          <img
+            src="./assets/footer/image-footer.png"
+            alt="imagen footer"
+            class="footer-image"
+          />
+          <img src="./assets/footer/button-footer.png" alt="button footer" />
+        </div>
+        <img src="./assets/footer/rsss-footer.png" alt="redes sociales" />
+      </div>
+    </section>
+
     <script>
       // ========== ANIMACIÓN HERO TEXTS ==========
       const heroText1 = document.querySelector(".hero-text1");
@@ -552,18 +703,32 @@
         img.addEventListener("click", () => {
           const targetId = img.getAttribute("data-target");
           const formacionSection = document.getElementById(targetId);
+          const trazo = img.parentElement.querySelector(".trazo-formacion");
 
           if (formacionSection) {
             formacionSection.classList.toggle("expanded");
 
-            // Scroll suave hacia la sección expandida
+            // Mostrar/ocultar el trazo
             if (formacionSection.classList.contains("expanded")) {
+              if (trazo) {
+                trazo.style.display = "block";
+                // Reiniciar la animación
+                trazo.style.animation = "none";
+                setTimeout(() => {
+                  trazo.style.animation = "pincelada 0.6s ease-out forwards";
+                }, 10);
+              }
+              // Scroll suave hacia la sección expandida
               setTimeout(() => {
                 formacionSection.scrollIntoView({
                   behavior: "smooth",
                   block: "nearest",
                 });
               }, 300);
+            } else {
+              if (trazo) {
+                trazo.style.display = "none";
+              }
             }
           }
         });
@@ -619,6 +784,96 @@
           if (link.getAttribute("href") === `#${current}`) {
             link.classList.add("active");
           }
+        });
+      });
+      // ========== ANIMACIÓN FORMACIONES TEXT-IMAGE ==========
+      const formacionesObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate");
+              // Opcional: dejar de observar después de animar
+              // formacionesObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.2, // Se activa cuando el 20% es visible
+          rootMargin: "0px 0px -100px 0px", // Se activa un poco antes
+        }
+      );
+
+      // Observar el contenedor
+      const formacionesContainer = document.querySelector(
+        ".formaciones-text-image-conteiner"
+      );
+      if (formacionesContainer) {
+        formacionesObserver.observe(formacionesContainer);
+      }
+      // ========== NAVBAR TRANSLÚCIDO AL SCROLL ==========
+      const navbar = document.querySelector(".navbar");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+      // ========== ANIMACIÓN DE CARDS AL HACER SCROLL ==========
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: "0px",
+      };
+
+      const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Agregar clase 'animate' a la card
+            entry.target.classList.add("animate");
+
+            // Agregar clase 'animate' al overlay correspondiente
+            const overlay = entry.target.nextElementSibling;
+            if (
+              overlay &&
+              overlay.classList.contains("como-trabaja-card-overlay")
+            ) {
+              overlay.classList.add("animate");
+            }
+
+            // Dejar de observar después de animar
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observar todas las cards
+      const card1 = document.querySelector(".como-trabaja-card1");
+      const card2 = document.querySelector(".como-trabaja-card2");
+      const card3 = document.querySelector(".como-trabaja-card3");
+
+      if (card1) cardObserver.observe(card1);
+      if (card2) cardObserver.observe(card2);
+      if (card3) cardObserver.observe(card3);
+
+      // ========== MENÚ HAMBURGUESA ==========
+      const hamburger = document.querySelector(".hamburger");
+      const menu = document.querySelector(".menu");
+      const body = document.body;
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        menu.classList.toggle("active");
+        body.classList.toggle("menu-open");
+      });
+
+      // Cerrar menú al hacer click en un link
+      const menuLinks = document.querySelectorAll(".menu .link");
+      menuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          menu.classList.remove("active");
+          body.classList.remove("menu-open");
         });
       });
     </script>
