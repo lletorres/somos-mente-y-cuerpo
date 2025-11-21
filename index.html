@@ -46,6 +46,10 @@
           FORMACIONES
           <span class="underline" aria-hidden="true"></span>
         </a>
+        <a class="link" href="#como-trabaja">
+          COMO TRABAJAMOS
+          <span class="underline" aria-hidden="true"></span>
+        </a>
 
         <a class="link" href="#contacto">
           CONTACTO
@@ -73,15 +77,52 @@
         y sus familias.<br />
       </div>
       <div class="pill-container">
-        <img src="./assets/pill_1.png" alt="" />
-        <img src="./assets/pill_2.png" alt="" />
-        <img src="./assets/pill_3.png" alt="" />
-        <img src="./assets/pill_4.png" alt="" />
-        <img src="./assets/pill_5.png" alt="" />
-        <img src="./assets/pill_6.png" alt="" />
-        <img src="./assets/pill_7.png" alt="" />
-        <img src="./assets/pill_8.png" alt="" />
-        <img src="./assets/pill_9.png" alt="" />
+        <div class="pill-item">
+          <img src="./assets/pill_1.png" alt="" class="pill-bg" />
+          <div class="pill-text">Terapia psicológica <br />individual</div>
+        </div>
+
+        <div class="pill-item">
+          <img src="./assets/pill_2.png" alt="" class="pill-bg" />
+          <div class="pill-text">Clínica Médica</div>
+        </div>
+
+        <div class="pill-item">
+          <img src="./assets/pill_3.png" alt="" class="pill-bg" />
+          <div class="pill-text">Psiquiatría</div>
+        </div>
+
+        <div class="pill-item">
+          <img src="./assets/pill_4.png" alt="" class="pill-bg" />
+          <div class="pill-text">Nutrición</div>
+        </div>
+
+        <div class="pill-item">
+          <img src="./assets/pill_5.png" alt="" class="pill-bg" />
+          <div class="pill-text">Orientación a familiares</div>
+        </div>
+
+        <div class="pill-item">
+          <img src="./assets/pill_6.png" alt="" class="pill-bg" />
+          <div class="pill-text">Talleres <br />psicoeducativos</div>
+        </div>
+
+        <div class="pill-item">
+          <img src="./assets/pill_7.png" alt="" class="pill-bg" />
+          <div class="pill-text">Asesoría legal <br />para psicólogos</div>
+        </div>
+
+        <div class="pill-item">
+          <img src="./assets/pill_8.png" alt="" class="pill-bg" />
+          <div class="pill-text">Talleres de habilidades</div>
+        </div>
+
+        <div class="pill-item">
+          <img src="./assets/pill_9.png" alt="" class="pill-bg" />
+          <div class="pill-text">
+            Supervisiones <br />a profesionales <br />individuales y grupales
+          </div>
+        </div>
       </div>
     </section>
 
@@ -674,8 +715,8 @@
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              // Agregar clase 'animate' a todas las pills
-              const pills = entry.target.querySelectorAll("img");
+              // Agregar clase 'animate' a todos los pill-items
+              const pills = entry.target.querySelectorAll(".pill-item");
               pills.forEach((pill) => {
                 pill.classList.add("animate");
               });
