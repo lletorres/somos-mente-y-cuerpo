@@ -94,7 +94,7 @@ section[id] {
 #como-trabaja {
   scroll-margin-top: 100px;
 }
-#footer {
+#contacto {
   scroll-margin-top: 100px;
 }
 /* --- Menú --- */
@@ -134,7 +134,7 @@ section[id] {
   bottom: -3px;
   width: calc(100% + 12px);
   bottom: -0.2em;
-  height: 0.2em;
+  height: 0.5em;
   background: url("./assets/picenladanueva.png") no-repeat left bottom / 100%
     100%;
   pointer-events: none;
@@ -621,7 +621,7 @@ section[id] {
 @media (max-width: 768px) {
   .servicios {
     padding: 80px 2rem 50px 2rem;
-    margin-top: 30px;
+    margin-top: 15px;
   }
   .servicios-text {
     font-size: 14px;

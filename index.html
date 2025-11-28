@@ -51,7 +51,7 @@
           <span class="underline" aria-hidden="true"></span>
         </a>
 
-        <a class="link" href="#footer">
+        <a class="link" href="#contacto">
           CONTACTO
           <span class="underline" aria-hidden="true"></span>
         </a>
@@ -683,7 +683,7 @@
         </div>
       </div>
     </section>
-    <section class="footer-page" id="footer">
+    <section class="footer-page" id="contacto">
       <div class="footer-content">
         <div class="image-button-conteiner">
           <img
@@ -813,17 +813,29 @@
       // ========== HIGHLIGHT NAVBAR EN SCROLL ==========
       window.addEventListener("scroll", () => {
         let current = "";
+        const scrollPosition = window.pageYOffset + 300; // Offset para detectar antes
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
 
         const sections = document.querySelectorAll("section[id]");
 
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
+        // Si estamos cerca del final de la página (últimos 100px), activar el footer
+        if (window.pageYOffset + windowHeight >= documentHeight - 100) {
+          current = "contacto"; // Forzar contacto/footer cuando estamos al final
+        } else {
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
 
-          if (window.pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute("id");
-          }
-        });
+            // Detectar si estamos en esta sección
+            if (
+              scrollPosition >= sectionTop &&
+              scrollPosition < sectionTop + sectionHeight
+            ) {
+              current = section.getAttribute("id");
+            }
+          });
+        }
 
         navLinks.forEach((link) => {
           link.classList.remove("active");
