@@ -621,7 +621,7 @@ section[id] {
 @media (max-width: 768px) {
   .servicios {
     padding: 80px 2rem 50px 2rem;
-    margin-top: 15px;
+    margin-top: 30px;
   }
   .servicios-text {
     font-size: 14px;
