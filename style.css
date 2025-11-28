@@ -133,7 +133,8 @@ section[id] {
   left: -6px; /* corrimiento que estabas usando */
   bottom: -3px;
   width: calc(100% + 12px);
-  height: 10px;
+  bottom: -0.2em;
+  height: 0.2em;
   background: url("./assets/picenladanueva.png") no-repeat left bottom / 100%
     100%;
   pointer-events: none;
@@ -780,7 +781,7 @@ section[id] {
   .psico-card {
     gap: 2rem;
   }
-  .psico-card img {
+  .psico-card img:not(.trazo-formacion) {
     width: 220px;
     height: 220px;
   }
@@ -814,7 +815,7 @@ section[id] {
     text-align: center;
     gap: 1.5rem;
   }
-  .psico-card img {
+  .psico-card img:not(.trazo-formacion) {
     width: 200px;
     height: 200px;
   }
@@ -839,7 +840,7 @@ section[id] {
     font-size: 14px;
     line-height: 20px;
   }
-  .psico-card img {
+  .psico-card img:not(.trazo-formacion) {
     width: 180px;
     height: 180px;
   }
@@ -1930,12 +1931,12 @@ body.menu-open {
   }
 
   /* IMPORTANTE: Mantener el tamaño original de las fotos */
-  .psico-card img,
+  .psico-card img:not(.trazo-formacion),
   .psico-img-clickable {
-    width: 250px !important;
+    width: 300px !important;
     height: 250px !important;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 38% / 60%;
   }
 
   .psico-info {
@@ -2269,9 +2270,9 @@ body.menu-open {
     line-height: 32px;
   }
 
-  .psico-card img,
+  .psico-card img:not(.trazo-formacion),
   .psico-img-clickable {
-    width: 200px !important;
+    width: 300px !important;
     height: 200px !important;
   }
 
