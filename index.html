@@ -51,7 +51,7 @@
           <span class="underline" aria-hidden="true"></span>
         </a>
 
-        <a class="link" href="#contacto">
+        <a class="link" href="#footer">
           CONTACTO
           <span class="underline" aria-hidden="true"></span>
         </a>
@@ -351,15 +351,15 @@
         <div class="formaciones-text-conteiner">
           <div class="formaciones-title">Formaciones a profesionales</div>
           <div class="formaciones-text">
-            Formaciones para psicologos, nutricionistas, psiquiatras o
+            Formaciones para psicólogos, nutricionistas, psiquiatras o
             estudiantes de carreras a fines. Contamos con formaciones que se
             cursan de manera sincrónica (en vivo) o de manera asincrónica (de
             todos nuestros cursos podes acceder a grabaciones y materiales
-            extras offline). Escribinos a:<span class="formaciones-email"
-              >somosmenteycuerpo.zs@gmail.com</span
+            extras offline). Escribinos a:<span class="formaciones-email">
+              somosmenteycuerpo.zs@gmail.com</span
             >
-            para conocer acerca de la modalidad de cursada disponible, programa
-            y honorarios.
+            > para conocer acerca de la modalidad de cursada disponible,
+            programa y honorarios.
           </div>
         </div>
         <img
@@ -411,7 +411,7 @@
                 a utilizar registros, el análisis en cadena, estrategias
                 dialécticas, estilísticas, de resolución de problemas y manejo
                 de contingencias para el cese de atracones y conductas
-                compensatorias.Además, incluye el trabajo con mindful eating,
+                compensatorias. Además, incluye el trabajo con mindful eating,
                 autocompasión, habilidades DBT específicas para TCA y la
                 orientación a familiares desde la DBT y el Modelo Maudsley.
               </p>
@@ -503,7 +503,7 @@
             </div>
             <p class="como-trabaja-card-body">
               Para comenzar, es necesario realizar una entrevista de admisión
-              con una de las directoras de smc. Esta sesión tiene como objetivo
+              con una de las directoras de SMC. Esta sesión tiene como objetivo
               entender tu situación, necesidades y determinar lo más adecuado
               para tu tratamiento.
 
@@ -517,12 +517,13 @@
                   word-wrap: break-word;
                 "
                 >Importante:</span
-              >durante esta entrevista, se evaluará tu caso y se decidirá que
-              profesional del equipo se ajusta a tu motivo de consulta <br />y
-              lo evaluado en la sesión.
+              >
+              durante esta entrevista, se evaluará tu caso y se decidirá que
+              profesional del equipo se ajusta a tu motivo de consulta y lo
+              evaluado en la sesión.
 
               <br /><br />En este proceso también se te puede recomendar otro
-              dispositivo si es que nosotras en smc no contamos con las
+              dispositivo si es que nosotras en SMC no contamos con las
               herramientas para abordar tu caso.
             </p>
           </div>
@@ -548,11 +549,11 @@
             </div>
             <p class="como-trabaja-card-body">
               Luego de la entrevista de admisión, serás derivado/a a una
-              psicóloga especializada dentro del equipo , que se encargará de tu
+              psicóloga especializada dentro del equipo, que se encargará de tu
               tratamiento. Este profesional trabajará contigo de forma
-              personalizada, siguiendo el enfoque de terapia cognitivaconductual
-              contextual. <br /><br />Las sesiones de terapia son semanales y
-              tendrán lugar de forma virtual.
+              personalizada, siguiendo el enfoque de terapia cognitiva
+              conductual contextual. <br /><br />Las sesiones de terapia son
+              semanales y tendrán lugar de forma virtual.
             </p>
           </div>
         </div>
@@ -608,7 +609,7 @@
                 "
                 >Directoras</span
               >
-              <br /><br />Lic florencia zara <br />Lic. Sol de Giuli
+              <br /><br />Lic Florencia Zara <br />Lic. Sol de Giuli
             </div>
           </div>
           <div class="como-trabaja-bottom-equipo-psicologas-conteiner">
@@ -690,7 +691,11 @@
             alt="imagen footer"
             class="footer-image"
           />
-          <img src="./assets/footer/button-footer.png" alt="button footer" />
+          <img
+            src="./assets/footer/button-footer.png"
+            alt="button footer"
+            class="footer-button"
+          />
         </div>
         <img src="./assets/footer/rsss-footer.png" alt="redes sociales" />
       </div>
@@ -916,6 +921,15 @@
           menu.classList.remove("active");
           body.classList.remove("menu-open");
         });
+      });
+
+      // Cerrar menú al hacer click en el overlay (fuera del menú)
+      menu.addEventListener("click", (e) => {
+        if (e.target === menu) {
+          hamburger.classList.remove("active");
+          menu.classList.remove("active");
+          body.classList.remove("menu-open");
+        }
       });
     </script>
   </body>
