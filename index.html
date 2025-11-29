@@ -60,13 +60,14 @@
 
     <!-- HERO -->
     <section class="hero">
-      <img src="./assets/hero_ilustracion.png" alt="Somos Mente y Cuerpo" />
-      <div class="hero-text1">Somos <br />mente<br />y cuerpo</div>
-
-      <div class="hero-text2">
-        Apoyo integral para pacientes, familias <br />
-        y profesionales <br />
-        de la salud mental.
+      <div class="hero-content">
+        <img src="./assets/hero_ilustracion.png" alt="Somos Mente y Cuerpo" />
+        <div class="hero-text1">Somos <br />mente<br />y cuerpo</div>
+        <div class="hero-text2">
+          Apoyo integral para pacientes, familias <br />
+          y profesionales <br />
+          de la salud mental.
+        </div>
       </div>
     </section>
     <!-- SERVICIOS -->
@@ -701,6 +702,10 @@
       </div>
     </section>
 
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
     <script>
       // ========== ANIMACIÓN HERO TEXTS ==========
       const heroText1 = document.querySelector(".hero-text1");
@@ -942,6 +947,28 @@
           menu.classList.remove("active");
           body.classList.remove("menu-open");
         }
+      });
+
+      // ========== FIX 100VH EN MÓVILES ==========
+      function setViewportHeight() {
+        // Usar innerHeight real para evitar problemas con URL bar
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+      }
+
+      // Ejecutar al cargar
+      setViewportHeight();
+
+      // Ejecutar al hacer resize (cuando la URL bar aparece/desaparece)
+      let resizeTimer;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(setViewportHeight, 100);
+      });
+
+      // Ejecutar al cambiar orientación
+      window.addEventListener("orientationchange", () => {
+        setTimeout(setViewportHeight, 100);
       });
     </script>
   </body>
