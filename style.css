@@ -1842,7 +1842,7 @@ body.menu-open {
 
     /* Compensar navbar + padding */
     padding-top: calc(70px + 1rem);
-    padding-bottom: 2rem;
+    padding-bottom: 15rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 
@@ -1891,7 +1891,7 @@ body.menu-open {
 
   /* ---------- SERVICIOS MÓVIL ---------- */
   .servicios {
-    padding: 3rem 1.5rem 2rem 1.5rem;
+    padding: 3rem 1.5rem 14rem 1.5rem;
   }
 
   .servicios-text {
@@ -2297,7 +2297,7 @@ body.menu-open {
 
 @media (max-width: 480px) {
   .hero img {
-    max-width: 240px;
+    max-width: 350px;
   }
 
   .hero-text1 {
@@ -2306,9 +2306,10 @@ body.menu-open {
   }
 
   .hero-text2 {
-    font-size: 22px;
-    line-height: 26px;
+    font-size: 30px;
+    line-height: 35px;
     margin-top: -105px; /* Ajustar para texto más pequeño */
+    margin-left: -30px;
   }
 
   .servicios-text,
