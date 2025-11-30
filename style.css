@@ -187,11 +187,13 @@ section[id] {
 
 /* Ilustración */
 .hero img {
-  width: 710px;
-  height: 737.09px;
+  width: 750px; /* ✅ Mucho más grande */
+  height: 785px; /* ✅ Proporcionalmente más alto */
   object-fit: contain;
   position: absolute;
   left: 4rem;
+  bottom: 60px; /* ✅ Se superpone MUCHO a la franja verde */
+  z-index: 10; /* ✅ Asegura que esté por encima */
   animation: slideInLeft 1s ease-out;
 }
 @keyframes slideInLeft {
@@ -268,8 +270,11 @@ section[id] {
   }
 
   .hero img {
-    width: 600px;
+    width: 660px; /* ✅ Más grande */
+    height: 690px; /* ✅ Más alto */
     left: 3rem;
+    bottom: 25px; /* ✅ Se superpone MUCHO a la franja verde */
+    z-index: 10;
   }
 
   .hero-text1 {
@@ -302,8 +307,10 @@ section[id] {
     padding: 1rem 4rem;
   }
   .hero img {
-    width: 550px;
-    height: auto;
+    width: 670px; /* ✅ Más grande */
+    height: 718px; /* ✅ Más alto */
+    bottom: px; /* ✅ Se superpone a la franja verde */
+    z-index: 30;
   }
   .hero-text1 {
     right: 4rem;
