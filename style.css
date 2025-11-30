@@ -65,6 +65,12 @@ body {
   object-fit: contain;
   display: block;
 }
+
+/* Ocultar indicador de sección en desktop */
+.section-indicator {
+  display: none;
+}
+
 /* Smooth scroll para todo el documento */
 html {
   scroll-behavior: smooth;
@@ -1737,6 +1743,30 @@ body.menu-open {
     height: 60px;
   }
 
+  /* Indicador de sección en navbar (solo móvil) */
+  .section-indicator {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-rosa);
+    opacity: 0.9;
+
+    /* Animación suave al cambiar de sección */
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Animación al cambiar de sección (aplicada por JS) */
+  .section-indicator.changing {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-5px);
+  }
+
   /* Mostrar hamburguesa */
   .hamburger {
     display: flex;
@@ -1842,7 +1872,7 @@ body.menu-open {
 
     /* Compensar navbar + padding */
     padding-top: calc(70px + 1rem);
-    padding-bottom: 15rem;
+    padding-bottom: 2rem; /* ✅ Reducido de 15rem a 2rem */
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 
@@ -1891,7 +1921,7 @@ body.menu-open {
 
   /* ---------- SERVICIOS MÓVIL ---------- */
   .servicios {
-    padding: 3rem 1.5rem 14rem 1.5rem;
+    padding: 2rem 1.5rem;
   }
 
   .servicios-text {

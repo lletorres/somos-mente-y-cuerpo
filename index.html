@@ -23,6 +23,9 @@
         <img src="./assets/logoSMYC.png" alt="Somos Mente y Cuerpo Logo" />
       </a>
 
+      <!-- Indicador de sección (solo móvil) -->
+      <div class="section-indicator">Inicio</div>
+
       <!-- Botón hamburguesa (solo visible en móvil) -->
       <button class="hamburger" aria-label="Menú">
         <span></span>
@@ -71,7 +74,7 @@
       </div>
     </section>
     <!-- SERVICIOS -->
-    <section class="servicios" id="servicios">
+    <section class="servicios" id="servicios" data-section="Servicios">
       <div class="servicios-text">
         Brindamos distintos servicios para acompañar fortalecer y potenciar los
         recursos tanto de profesionales de la salud mental como de consultantes
@@ -129,7 +132,7 @@
 
     <!-- EQUIPO -->
 
-    <section class="equipo" id="equipo">
+    <section class="equipo" id="equipo" data-section="Equipo">
       <div class="equipo-title">Quiénes somos</div>
       <div class="equipo-text">
         Somos un equipo dedicado a la formación, prevención y asistencia en
@@ -347,7 +350,11 @@
 
     <!-- FORMACIONES A PROFESIONALES -->
 
-    <section class="formaciones-a-profesionales" id="formaciones">
+    <section
+      class="formaciones-a-profesionales"
+      id="formaciones"
+      data-section="Formaciones"
+    >
       <div class="formaciones-text-image-conteiner">
         <div class="formaciones-text-conteiner">
           <div class="formaciones-title">Formaciones a profesionales</div>
@@ -477,7 +484,11 @@
 
     <!-- COMO TRABAJA EL EQUIPO -->
 
-    <section class="como-trabaja" id="como-trabaja">
+    <section
+      class="como-trabaja"
+      id="como-trabaja"
+      data-section="Cómo trabajamos"
+    >
       <div class="como-trabaja-conteiner">
         <div class="como-trabaja-title">Cómo trabaja el equipo</div>
         <div class="como-trabaja-text">
@@ -684,7 +695,7 @@
         </div>
       </div>
     </section>
-    <section class="footer-page" id="contacto">
+    <section class="footer-page" id="contacto" data-section="Contacto">
       <div class="footer-content">
         <div class="image-button-conteiner">
           <img
@@ -702,10 +713,6 @@
       </div>
     </section>
 
-    <script
-      data-cfasync="false"
-      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
-    ></script>
     <script>
       // ========== ANIMACIÓN HERO TEXTS ==========
       const heroText1 = document.querySelector(".hero-text1");
@@ -816,6 +823,15 @@
       });
 
       // ========== HIGHLIGHT NAVBAR EN SCROLL ==========
+      const sectionIndicator = document.querySelector(".section-indicator");
+      const sectionNames = {
+        servicios: "Servicios",
+        equipo: "Equipo",
+        formaciones: "Formaciones",
+        "como-trabaja": "Cómo trabajamos",
+        contacto: "Contacto",
+      };
+
       window.addEventListener("scroll", () => {
         let current = "";
         const scrollPosition = window.pageYOffset + 300; // Offset para detectar antes
@@ -824,8 +840,12 @@
 
         const sections = document.querySelectorAll("section[id]");
 
+        // Si estamos al inicio (antes de servicios)
+        if (window.pageYOffset < 100) {
+          current = "inicio";
+        }
         // Si estamos cerca del final de la página (últimos 100px), activar el footer
-        if (window.pageYOffset + windowHeight >= documentHeight - 100) {
+        else if (window.pageYOffset + windowHeight >= documentHeight - 100) {
           current = "contacto"; // Forzar contacto/footer cuando estamos al final
         } else {
           sections.forEach((section) => {
@@ -840,6 +860,29 @@
               current = section.getAttribute("id");
             }
           });
+        }
+
+        // Actualizar indicador de sección en navbar (móvil) con animación
+        if (sectionIndicator) {
+          let newText = "";
+
+          if (current === "inicio") {
+            newText = "Inicio";
+          } else if (sectionNames[current]) {
+            newText = sectionNames[current];
+          }
+
+          // Solo animar si el texto cambió
+          if (sectionIndicator.textContent !== newText && newText !== "") {
+            // Activar animación de salida
+            sectionIndicator.classList.add("changing");
+
+            // Después de la animación de salida, cambiar el texto y volver a mostrar
+            setTimeout(() => {
+              sectionIndicator.textContent = newText;
+              sectionIndicator.classList.remove("changing");
+            }, 200); // La mitad de la duración de la transición (0.4s / 2)
+          }
         }
 
         navLinks.forEach((link) => {
