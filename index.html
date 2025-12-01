@@ -1013,6 +1013,27 @@
       window.addEventListener("orientationchange", () => {
         setTimeout(setViewportHeight, 100);
       });
+      // ========== ANIMACIÓN FOOTER AL HACER SCROLL ==========
+      const footerPage = document.querySelector(".footer-page");
+
+      if (footerPage) {
+        const footerObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // Cuando el footer es visible, agregar clase
+                entry.target.classList.add("animate-in");
+              }
+            });
+          },
+          {
+            threshold: 0.1, // Se activa con 10% visible
+            rootMargin: "0px",
+          }
+        );
+
+        footerObserver.observe(footerPage);
+      }
     </script>
   </body>
 </html>
