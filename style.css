@@ -540,7 +540,7 @@ section[id] {
   position: relative;
   z-index: 1;
   width: 100vw;
-  height: 924px;
+  height: 750px; /* ✅ Reducido de 924px a 750px */
   margin: 0 calc(50% - 50vw);
   background: #d3ede1;
   margin-top: -110px;
@@ -680,6 +680,7 @@ section[id] {
   .servicios {
     padding: 60px 1.5rem 40px 1.5rem;
     gap: 30px;
+    height: 650px; /* ✅ Altura ajustada para móviles pequeños */
   }
   .servicios-text {
     font-size: 13px;
@@ -1943,6 +1944,7 @@ body.menu-open {
   /* ---------- SERVICIOS MÓVIL ---------- */
   .servicios {
     padding: 2rem 1.5rem;
+    height: 700px; /* ✅ Altura específica para móvil */
   }
 
   .servicios-text {
@@ -2421,7 +2423,7 @@ body.menu-open {
     line-height: 22px;
   }
   .servicios-text {
-    margin-top: -300px;
+    margin-top: -40px;
   }
   .como-trabaja-text {
     margin-top: -22px;
@@ -2513,5 +2515,10 @@ body.menu-open {
   .card-body {
     font-size: 11.5px !important; /* ✅ Muy pequeño pero legible */
     line-height: 15px !important;
+  }
+
+  /* ✅ SERVICIOS para iPhone 14 Pro Max y similares */
+  .servicios {
+    height: 680px !important; /* ✅ Altura específica para iPhone 14 Pro Max */
   }
 }
