@@ -413,6 +413,19 @@ section[id] {
 }
 
 @media (max-width: 480px) {
+  #servicios {
+    scroll-margin-top: 60px;
+  }
+  #formaciones {
+    scroll-margin-top: 50px;
+  }
+  #como-trabaja {
+    scroll-margin-top: 60px;
+  }
+  .como-trabaja {
+    gap: 1rem;
+  }
+
   .logo img {
     width: 100px;
     height: 100px;
@@ -666,6 +679,7 @@ section[id] {
 @media (max-width: 480px) {
   .servicios {
     padding: 60px 1.5rem 40px 1.5rem;
+    gap: 30px;
   }
   .servicios-text {
     font-size: 13px;
@@ -1942,7 +1956,17 @@ body.menu-open {
   .pill-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    max-width: 100%;
+  }
+
+  .pill-item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 60%;
+    margin: 0 auto;
+  }
+
+  .pill-text {
+    font-size: 15px;
+    padding: 0.8rem 1rem;
   }
 
   .pill-bg {
@@ -2112,8 +2136,8 @@ body.menu-open {
   }
 
   .card-body {
-    font-size: 13px;
-    line-height: 17px;
+    font-size: 15px;
+    line-height: 19px;
     max-width: 100%;
     word-break: break-word;
     overflow-wrap: break-word;
@@ -2181,7 +2205,7 @@ body.menu-open {
   }
 
   .como-trabaja-card-body {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 19px;
     height: auto;
   }
@@ -2213,7 +2237,7 @@ body.menu-open {
   .como-trabaja-bottom-equipo-nutricionista {
     width: 100%;
     height: auto;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
   }
 
@@ -2333,6 +2357,46 @@ body.menu-open {
    ======================================== */
 
 @media (max-width: 480px) {
+  /* ===== AJUSTES PARA CARD-SOLO (Formaciones) ===== */
+  .formaciones-item {
+    min-height: 650px; /* ✅ Aumentado para iPhones */
+  }
+
+  .card-solo {
+    width: 100%;
+    height: auto;
+    min-height: 412px; /* ✅ Igual que formaciones-item */
+  }
+
+  .card-overlay {
+    width: 88%; /* ✅ Un poco más angosto */
+    padding: 1rem; /* ✅ Reducir padding */
+    gap: 0.4rem; /* ✅ Menos espacio entre elementos */
+    max-height: 88%; /* ✅ Más espacio disponible */
+    overflow-y: auto;
+  }
+
+  .card-title {
+    font-size: 18px; /* ✅ Más pequeño (antes 20px) */
+    line-height: 22px;
+    margin-bottom: 0.3rem;
+  }
+
+  .card-body {
+    font-size: 14px; /* ✅ Más pequeño (antes 13px) */
+    line-height: 16px; /* ✅ Más compacto */
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* ===== FIN AJUSTES CARD-SOLO ===== */
+
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: -120px;
+  }
   .hero img {
     max-width: 350px;
   }
@@ -2345,7 +2409,7 @@ body.menu-open {
   .hero-text2 {
     font-size: 30px;
     line-height: 35px;
-    margin-top: -105px; /* Ajustar para texto más pequeño */
+    margin-top: -120px; /* Ajustar para texto más pequeño */
     margin-left: -30px;
   }
 
@@ -2356,13 +2420,28 @@ body.menu-open {
     font-size: 20px;
     line-height: 22px;
   }
-
+  .servicios-text {
+    margin-top: -300px;
+  }
+  .como-trabaja-text {
+    margin-top: -22px;
+  }
+  .como-trabaja-cards-conteiner {
+    margin-top: 30px;
+  }
   .pill-container {
     gap: 0.75rem;
   }
 
+  .pill-item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 55%;
+    margin: 0 auto;
+  }
+
   .pill-text {
     font-size: 14px;
+    padding: 0.8rem 0.8rem;
   }
 
   .equipo-title,
@@ -2396,5 +2475,43 @@ body.menu-open {
   .como-trabaja-card2,
   .como-trabaja-card3 {
     min-height: 350px;
+  }
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    align-items: center;
+  }
+  .footer-image {
+    margin-left: 20px;
+  }
+  .footer-button {
+    margin-right: 94px;
+  }
+}
+
+/* ===== AJUSTE ESPECÍFICO PARA iPhone 14/16 Pro (390-393px ancho) ===== */
+@media (max-width: 400px) {
+  .formaciones-item,
+  .card-solo {
+    min-height: 390px !important; /* ✅ Aún más alto para iPhones específicos */
+  }
+
+  .card-overlay {
+    width: 85% !important;
+    padding: 0.9rem !important;
+    gap: 0.3rem !important;
+    max-height: 85% !important;
+  }
+
+  .card-title {
+    font-size: 17px !important;
+    line-height: 21px !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .card-body {
+    font-size: 11.5px !important; /* ✅ Muy pequeño pero legible */
+    line-height: 15px !important;
   }
 }
