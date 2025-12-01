@@ -207,6 +207,19 @@ section[id] {
   }
 }
 
+/* ✅ Animación táctil para móvil - indica que es tocable */
+@keyframes tapPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(99, 140, 107, 0.4);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 8px rgba(99, 140, 107, 0);
+  }
+}
+
 /* Texto principal */
 .hero-text1 {
   position: absolute;
@@ -1909,7 +1922,7 @@ body.menu-open {
     width: 100%;
     max-width: 280px;
     height: auto;
-    animation: none;
+    animation: slideInLeft 1s ease-out; /* ✅ Agregada animación */
     flex-shrink: 0;
     order: 1; /* ✅ Imagen PRIMERO */
     position: static; /* Quitar absolute si existía */
@@ -2023,6 +2036,38 @@ body.menu-open {
     height: 250px !important;
     object-fit: cover;
     border-radius: 38% / 60%;
+    /* ✅ Animación táctil que se repite para indicar que es tocable */
+    animation: tapPulse 2s ease-in-out infinite;
+    cursor: pointer;
+    position: relative;
+  }
+
+  /* ✅ Indicador visual de "tap" */
+  .psico-img-clickable::after {
+    content: "👆";
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 28px;
+    background: rgba(255, 255, 255, 0.9);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    animation: tapBounce 1.5s ease-in-out infinite;
+  }
+
+  @keyframes tapBounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
   }
 
   .psico-info {
@@ -2401,6 +2446,7 @@ body.menu-open {
   }
   .hero img {
     max-width: 350px;
+    animation: slideInLeft 1s ease-out; /* ✅ Agregada animación */
   }
 
   .hero-text1 {
@@ -2457,6 +2503,31 @@ body.menu-open {
   .psico-img-clickable {
     width: 300px !important;
     height: 200px !important;
+  }
+
+  /* ✅ Animación táctil para psico-img-clickable en móviles pequeños */
+  .psico-img-clickable {
+    animation: tapPulse 2s ease-in-out infinite;
+    cursor: pointer;
+    position: relative;
+  }
+
+  /* ✅ Indicador visual de "tap" en móviles pequeños */
+  .psico-img-clickable::after {
+    content: "👆";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 24px;
+    background: rgba(255, 255, 255, 0.9);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    animation: tapBounce 1.5s ease-in-out infinite;
   }
 
   .como-trabaja-card-title {
