@@ -1581,7 +1581,7 @@ section[id] {
 }
 .trazo-directoras {
   width: 4px;
-  height: 100%; /* Se adapta a la altura del contenido */
+  height: 98px; /* Se adapta a la altura del contenido */
   object-fit: fill;
   flex-shrink: 0;
 }
@@ -1601,8 +1601,8 @@ section[id] {
   align-items: stretch;
 }
 .trazo-psicologas {
-  width: 4px;
-  height: 100%; /* Se adapta a la altura del contenido */
+  width: 4.7px;
+  height: 277px; /* Se adapta a la altura del contenido */
   object-fit: fill;
   flex-shrink: 0;
 }
@@ -2582,6 +2582,12 @@ body.menu-open {
   .footer-button {
     margin-right: 94px;
   }
+  .trazo-psicologas {
+    width: 4.7px;
+    height: 248px;
+    object-fit: fill;
+    flex-shrink: 0;
+  }
 }
 
 /* ===== AJUSTE ESPECÍFICO PARA iPhone 14/16 Pro (390-393px ancho) ===== */
@@ -2612,5 +2618,11 @@ body.menu-open {
   /* ✅ SERVICIOS para iPhone 14 Pro Max y similares */
   .servicios {
     height: 680px !important; /* ✅ Altura específica para iPhone 14 Pro Max */
+  }
+  .trazo-psicologas {
+    width: 4.7px;
+    height: 242px;
+    object-fit: fill;
+    flex-shrink: 0;
   }
 }
