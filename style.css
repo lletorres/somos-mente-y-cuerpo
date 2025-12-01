@@ -20,7 +20,7 @@
   --color-fondo: #fcfaf5;
   --color-texto: #949494;
   --color-texto-activo: #374151;
-  --color-rosa: #f3ccd8;
+  --color-rosa: #f79db9;
 }
 
 /* ---------- BASE ---------- */
@@ -214,7 +214,7 @@ section[id] {
   bottom: 20rem;
   width: 491px;
   height: 294.72px;
-  color: #f3ccd8;
+  color: #f79db9;
   font-size: 85px;
   font-family: Literata;
   font-weight: 500;
@@ -247,7 +247,7 @@ section[id] {
   bottom: 21rem;
   width: 615.34px;
   height: 258.91px;
-  color: #f3ccd8;
+  color: #f79db9;
   font-size: 50px;
   font-family: Literata;
   font-weight: 500;
@@ -539,7 +539,7 @@ section[id] {
   height: 86.4px;
   text-align: center;
   color: #575757;
-  font-size: 20px;
+  font-size: 25px;
   font-family: "Lato", sans-serif;
   font-weight: 300;
   line-height: 26px;
@@ -590,7 +590,7 @@ section[id] {
   position: relative;
   z-index: 2;
   color: #638c6b;
-  font-size: 18px;
+  font-size: 23px;
   font-family: "Aeonik Trial", sans-serif;
   font-weight: 400;
   text-align: center;
@@ -690,7 +690,7 @@ section[id] {
   width: 481.51px;
   height: 92.18px;
   text-align: center;
-  color: #f3ccd8;
+  color: #f79db9;
   font-size: 55px;
   font-family: Literata;
   font-weight: 500;
@@ -1686,7 +1686,7 @@ section[id] {
   display: block;
   width: 100%;
   height: 3px;
-  background-color: #f3ccd8;
+  background-color: #f79db9;
   border-radius: 3px;
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform-origin: center;
@@ -1861,7 +1861,7 @@ body.menu-open {
   /* Hover effect en los links */
   .menu .link:hover {
     transform: scale(1.05);
-    color: #f3ccd8;
+    color: #f79db9;
   }
 
   /* ---------- HERO MÓVIL ---------- */
