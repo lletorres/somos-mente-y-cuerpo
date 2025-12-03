@@ -1285,11 +1285,6 @@ section[id] {
     font-size: 20px;
     line-height: 24px;
   }
-
-  .card-body {
-    font-size: 13px;
-    line-height: 18px;
-  }
 }
 .como-trabaja-conteiner {
   display: flex;
@@ -2417,14 +2412,12 @@ body.menu-open {
 
 @media (max-width: 480px) {
   /* ===== AJUSTES PARA CARD-SOLO (Formaciones) ===== */
-  .formaciones-item {
-    min-height: 650px; /* ✅ Aumentado para iPhones */
-  }
 
   .card-solo {
     width: 100%;
     height: auto;
     min-height: 412px; /* ✅ Igual que formaciones-item */
+    object-fit: contain;
   }
 
   .card-overlay {
@@ -2479,6 +2472,7 @@ body.menu-open {
   .como-trabaja-text {
     font-size: 20px;
     line-height: 22px;
+    letter-spacing: 0px;
   }
   .servicios-text {
     margin-top: -40px;
@@ -2487,7 +2481,7 @@ body.menu-open {
     margin-top: -22px;
   }
   .como-trabaja-cards-conteiner {
-    margin-top: 30px;
+    margin-top: 50px;
   }
   .pill-container {
     gap: 0.75rem;
