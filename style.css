@@ -1626,6 +1626,14 @@ section[id] {
   gap: 1rem;
   align-items: stretch;
 }
+.importante-como-trabaja {
+  color: #575757;
+  font-size: 16px;
+  font-family: Aeonik TRIAL;
+  font-weight: 700;
+  line-height: 21px;
+  word-wrap: break-word;
+}
 .trazo-nutricionista {
   width: 4px;
   height: 100%; /* Se adapta a la altura del contenido */
@@ -2676,6 +2684,28 @@ body.menu-open {
   }
 }
 
+@media (max-width: 425px) {
+  .footer-button {
+    margin-right: 45px;
+  }
+}
+@media (max-width: 412px) {
+  .footer-button {
+    margin-right: 53px;
+  }
+  .como-trabaja-card1-overlay {
+    top: 7%;
+    right: 10%;
+    left: 10%;
+    bottom: 10%;
+  }
+  .como-trabaja-card2-overlay {
+    top: 11%;
+    right: 12%;
+    left: 12%;
+    bottom: 15%;
+  }
+}
 /* ===== AJUSTE ESPECÍFICO PARA iPhone 14/16 Pro (390-393px ancho) ===== */
 @media (max-width: 400px) {
   .formaciones-item,
@@ -2765,5 +2795,24 @@ body.menu-open {
 
     /* Margen de separación */
     margin: 3px 0 3px 0; /* Margen superior para separación */
+  }
+  .como-trabaja-card-overlay {
+    width: 100%;
+  }
+  .como-trabaja-card-body {
+    font-size: 13px;
+    width: 80%;
+  }
+  .importante-como-trabaja {
+    font-size: 13px;
+  }
+  .footer-button {
+    margin-right: 45px;
+  }
+  .card-body {
+    font-size: 14px !important;
+  }
+  .card-title {
+    font-size: 17px !important;
   }
 }
