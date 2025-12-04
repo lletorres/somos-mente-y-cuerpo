@@ -2728,7 +2728,7 @@ body.menu-open {
 
   /* ✅ HERO para pantallas 412px (Samsung S20/S21, Pixel) */
   .hero {
-    min-height: 810px !important; /* ✅ Altura típica de estos dispositivos */
+    min-height: 760px !important; /* ✅ Altura típica de estos dispositivos */
   }
 }
 /* ===== AJUSTE ESPECÍFICO PARA iPhone 14/16 Pro (390-393px ancho) ===== */
