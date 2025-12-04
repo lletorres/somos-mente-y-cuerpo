@@ -164,7 +164,7 @@ section[id] {
 }
 /* ---------- HERO SECTION ---------- */
 .hero {
-  min-height: 800px; /* ✅ Altura mínima para ver contenido */
+  min-height: 850px; /* ✅ Altura suficiente para imagen + textos */
   padding: 2rem 1rem;
   display: flex;
   align-items: center;
@@ -278,13 +278,13 @@ section[id] {
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1512px) and (min-width: 1200px) {
   .hero {
-    min-height: 600px; /* ✅ Altura mínima */
+    min-height: 750px; /* ✅ Altura para MacBook */
     padding: 2rem 6rem;
   }
 
   .hero img {
-    width: 570px; /* ✅ Más grande */
-    height: 620px; /* ✅ Más alto */
+    width: 660px; /* ✅ Más grande */
+    height: 690px; /* ✅ Más alto */
     left: 3rem;
     bottom: 25px; /* ✅ Se superpone MUCHO a la franja verde */
     z-index: 10;
@@ -316,6 +316,7 @@ section[id] {
     font-size: 20px;
   }
   .hero {
+    min-height: 750px; /* ✅ Altura para pantallas medianas */
     gap: 1rem;
     padding: 1rem 4rem;
   }
@@ -354,6 +355,7 @@ section[id] {
     font-size: 18px;
   }
   .hero {
+    min-height: 550px; /* ✅ Altura para tablets */
     gap: 0.5rem;
     padding: 1rem 3rem;
   }
@@ -1929,7 +1931,7 @@ body.menu-open {
     align-items: center;
 
     /* Padding para separación */
-    padding-top: 160px; /* Espacio para navbar */
+    padding-top: 70px; /* Espacio para navbar */
     padding-bottom: 2rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -2691,14 +2693,6 @@ body.menu-open {
     margin: 3px 0 3px 0; /* Margen superior para separación */
   }
 }
-@media (max-width: 430px) {
-  .hero {
-    min-height: 252px;
-  }
-  /* .hero-content {
-    margin-top: 10px;
-  } */
-}
 
 @media (max-width: 425px) {
   .footer-content {
@@ -2730,6 +2724,11 @@ body.menu-open {
   .formaciones-text {
     width: 111%;
     text-align: center;
+  }
+
+  /* ✅ HERO para pantallas 412px (Samsung S20/S21, Pixel) */
+  .hero {
+    min-height: 810px !important; /* ✅ Altura típica de estos dispositivos */
   }
 }
 /* ===== AJUSTE ESPECÍFICO PARA iPhone 14/16 Pro (390-393px ancho) ===== */
@@ -2850,5 +2849,28 @@ body.menu-open {
   }
   .formaciones-text {
     width: 100%;
+  }
+}
+
+/* ===== HERO PANTALLA COMPLETA PARA MÓVILES PEQUEÑOS (Alturas fijas - Sin saltos) ===== */
+
+/* iPhone 14 Pro Max - 430x932px */
+@media (max-width: 430px) and (min-width: 413px) {
+  .hero {
+    min-height: 830px !important; /* ✅ Altura exacta del dispositivo */
+  }
+}
+
+/* iPhone 14/15/16 Pro - 393x852px */
+@media (max-width: 393px) and (min-width: 391px) {
+  .hero {
+    min-height: 750px !important; /* ✅ Altura exacta del dispositivo */
+  }
+}
+
+/* iPhone 14/15/16 - 390x844px */
+@media (max-width: 390px) and (min-width: 376px) {
+  .hero {
+    min-height: 740px !important; /* ✅ Altura exacta del dispositivo */
   }
 }
