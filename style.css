@@ -164,8 +164,8 @@ section[id] {
 }
 /* ---------- HERO SECTION ---------- */
 .hero {
-  min-height: 100vh;
-  padding: 0 1rem;
+  /* min-height removido para que se ajuste al contenido */
+  padding: 2rem 1rem; /* ✅ Padding en lugar de altura fija */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -278,8 +278,8 @@ section[id] {
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1512px) and (min-width: 1200px) {
   .hero {
-    min-height: 700px;
-    padding: 1rem 6rem;
+    /* min-height removido */
+    padding: 2rem 6rem;
   }
 
   .hero img {
@@ -1920,10 +1920,7 @@ body.menu-open {
 
   /* ---------- HERO MÓVIL ---------- */
   .hero {
-    /* Triple fallback para altura */
-    min-height: 100vh;
-    min-height: calc(var(--vh, 1vh) * 100);
-    min-height: 100dvh;
+    /* min-height removido para que se ajuste al contenido */
 
     /* Flexbox para centrado vertical */
     display: flex;
@@ -1931,8 +1928,9 @@ body.menu-open {
     justify-content: center;
     align-items: center;
 
-    /* Compensar navbar + padding */
-    padding-top: calc(70px + 1rem);
+    /* Padding para separación */
+    padding-top: 70px; /* Espacio para navbar */
+    padding-bottom: 2rem;
     padding-bottom: 2rem; /* ✅ Reducido de 15rem a 2rem */
     padding-left: 1.5rem;
     padding-right: 1.5rem;
