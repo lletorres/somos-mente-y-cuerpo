@@ -1112,7 +1112,7 @@ section[id] {
 }
 .formaciones-a-profesionales {
   width: 100vw;
-  height: 2114px;
+  height: 2730px;
   background: #caacee;
 }
 
@@ -1184,6 +1184,14 @@ section[id] {
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ✅ Quinta card centrada (ocupa 2 columnas) */
+.formacion-card:has(.card-centrada) {
+  grid-column: 1 / -1; /* Ocupa desde columna 1 hasta la última */
+  max-width: 600px; /* Ancho máximo igual a una card normal */
+  margin: 0 auto; /* Centrado horizontal */
+  justify-self: center; /* Centrado en el grid */
 }
 
 .card-image-container {
