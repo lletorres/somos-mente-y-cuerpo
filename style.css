@@ -2180,7 +2180,7 @@ body.menu-open {
   }
 
   .formaciones-email {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 24px;
     text-align: center;
   }
@@ -2525,6 +2525,7 @@ body.menu-open {
   }
   .servicios-text {
     margin-top: -40px;
+    width: 105%;
   }
   .como-trabaja-text {
     margin-top: -22px;
@@ -2633,8 +2634,8 @@ body.menu-open {
     margin-left: -17px;
     margin-top: 30px;
   }
-  .footer-button {
-    margin-right: 65px;
+  .footer-content {
+    align-items: center;
   }
 
   /* ✅ REDES SOCIALES CENTRADAS */
@@ -2685,14 +2686,14 @@ body.menu-open {
 }
 
 @media (max-width: 425px) {
-  .footer-button {
-    margin-right: 45px;
+  .footer-content {
+    align-items: center;
+  }
+  .hero-content {
+    align-items: center;
   }
 }
 @media (max-width: 412px) {
-  .footer-button {
-    margin-right: 53px;
-  }
   .como-trabaja-card1-overlay {
     top: 7%;
     right: 10%;
@@ -2704,6 +2705,16 @@ body.menu-open {
     right: 12%;
     left: 12%;
     bottom: 15%;
+  }
+  .footer-content {
+    align-items: center;
+  }
+  .hero-content {
+    align-items: center;
+  }
+  .formaciones-text {
+    width: 111%;
+    text-align: center;
   }
 }
 /* ===== AJUSTE ESPECÍFICO PARA iPhone 14/16 Pro (390-393px ancho) ===== */
@@ -2806,13 +2817,23 @@ body.menu-open {
   .importante-como-trabaja {
     font-size: 13px;
   }
-  .footer-button {
-    margin-right: 45px;
-  }
+
   .card-body {
     font-size: 14px !important;
   }
   .card-title {
     font-size: 17px !important;
+  }
+  .footer-content {
+    align-items: center;
+  }
+  .hero-content {
+    align-items: center;
+  }
+  .servicios-text {
+    width: 100%;
+  }
+  .formaciones-text {
+    width: 100%;
   }
 }
