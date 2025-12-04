@@ -1065,6 +1065,7 @@ section[id] {
 
   .cv-button {
     max-width: 150px;
+    margin-top: 40px;
   }
 }
 .formaciones-text-image-conteiner {
@@ -1693,6 +1694,15 @@ section[id] {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ===== REDES SOCIALES FOOTER ===== */
+.rrss-footer {
+  display: block;
+  margin: 0 auto; /* ✅ Centrado horizontal */
+  max-width: 100%;
+  height: auto;
+}
+
 /* ========================================
 
 /* ========================================
@@ -2108,6 +2118,23 @@ body.menu-open {
   .psico-formacion-text-derecha {
     font-size: 14px;
     line-height: 20px;
+    max-width: 100%; /* ✅ Ancho completo */
+  }
+
+  /* ✅ Eliminar margen entre los dos divs para que se vean continuos */
+  .psico-formacion-text-izquierda {
+    margin-bottom: 0 !important;
+  }
+
+  .psico-formacion-text-derecha {
+    margin-top: 0 !important;
+  }
+
+  /* ✅ Contenedor de texto sin gap */
+  .psico-text-conteiner {
+    gap: 0 !important; /* ✅ Sin espacio entre divs */
+    display: flex;
+    flex-direction: column;
   }
 
   /* ---------- FORMACIONES MÓVIL ---------- */
@@ -2161,14 +2188,14 @@ body.menu-open {
   .formaciones-cards-conteiner {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 1.5rem;
+    padding: 15px;
     column-gap: 0;
     row-gap: 2rem;
   }
 
   .formacion-card {
-    width: 100%;
-    min-height: 400px;
+    width: 112%;
+    min-height: 468px;
   }
 
   .card-image-container {
@@ -2204,6 +2231,7 @@ body.menu-open {
 
   .como-trabaja-conteiner {
     padding: 0;
+    margin-top: 20px;
   }
 
   .como-trabaja-title {
@@ -2228,7 +2256,7 @@ body.menu-open {
   }
 
   .como-trabaja-card-formacion-conteiner {
-    width: 100%;
+    width: 91%;
   }
 
   .como-trabaja-card1,
@@ -2330,8 +2358,8 @@ body.menu-open {
 
   .footer-image {
     position: static;
-    width: 85% !important;
-    max-width: 320px;
+    width: 107% !important;
+    max-width: 412px;
     height: auto !important;
     margin: 0 auto 1rem auto;
     object-fit: contain;
@@ -2351,6 +2379,14 @@ body.menu-open {
     width: 100%;
     height: auto;
     display: block;
+  }
+
+  /* ✅ REDES SOCIALES CENTRADAS */
+  .rrss-footer {
+    display: block;
+    margin: 1rem auto 0 auto; /* ✅ Centrado con margen superior */
+    max-width: 80%; /* ✅ Ancho controlado */
+    height: auto;
   }
 
   /* Si hay logo de redes sociales */
@@ -2414,18 +2450,23 @@ body.menu-open {
   /* ===== AJUSTES PARA CARD-SOLO (Formaciones) ===== */
 
   .card-solo {
-    width: 100%;
+    width: 93%;
     height: auto;
     min-height: 412px; /* ✅ Igual que formaciones-item */
     object-fit: contain;
   }
-
+  .card-image-container {
+    height: auto;
+    min-height: 412px; /* ✅ Igual que formaciones-item */
+  }
   .card-overlay {
-    width: 88%; /* ✅ Un poco más angosto */
-    padding: 1rem; /* ✅ Reducir padding */
+    width: 90%; /* ✅ Un poco más angosto */
+
     gap: 0.4rem; /* ✅ Menos espacio entre elementos */
     max-height: 88%; /* ✅ Más espacio disponible */
     overflow-y: auto;
+    margin-left: -15px;
+    margin-top: -7px;
   }
 
   .card-title {
@@ -2435,7 +2476,7 @@ body.menu-open {
   }
 
   .card-body {
-    font-size: 14px; /* ✅ Más pequeño (antes 13px) */
+    font-size: 15px; /* ✅ Más pequeño (antes 13px) */
     line-height: 16px; /* ✅ Más compacto */
     word-break: break-word;
     overflow-wrap: break-word;
@@ -2504,6 +2545,9 @@ body.menu-open {
     font-size: 32px;
     line-height: 32px;
   }
+  .como-trabaja-title {
+    width: 64%;
+  }
 
   .psico-card img:not(.trazo-formacion),
   .psico-img-clickable {
@@ -2548,6 +2592,7 @@ body.menu-open {
   .como-trabaja-bottom-text {
     font-size: 18px;
     line-height: 24px;
+    width: 115%;
   }
 
   .como-trabaja-card1,
@@ -2555,6 +2600,21 @@ body.menu-open {
   .como-trabaja-card3 {
     min-height: 350px;
   }
+
+  /* ✅ INFORMACIÓN DESPLEGABLE - Sin gap en móvil */
+  .psico-formacion-text-izquierda,
+  .psico-formacion-text-derecha {
+    font-size: 13px;
+    line-height: 19px;
+    max-width: 100%;
+  }
+
+  .psico-text-conteiner {
+    gap: 0 !important;
+    display: flex;
+    flex-direction: column;
+  }
+
   .footer-content {
     flex-direction: column;
     gap: 1.5rem;
@@ -2562,16 +2622,57 @@ body.menu-open {
     align-items: center;
   }
   .footer-image {
-    margin-left: 20px;
+    margin-left: -17px;
+    margin-top: 30px;
   }
   .footer-button {
-    margin-right: 94px;
+    margin-right: 65px;
   }
+
+  /* ✅ REDES SOCIALES CENTRADAS */
+  .rrss-footer {
+    display: block;
+    margin: 1rem auto 0 auto; /* ✅ Centrado */
+    max-width: 70%; /* ✅ Un poco más ancho */
+    height: auto;
+    margin-left: 75px;
+    margin-top: 60px;
+  }
+
   .trazo-psicologas {
     width: 4.7px;
     height: 248px;
     object-fit: fill;
     flex-shrink: 0;
+  }
+
+  /* ✅ ELIMINAR ESPACIO ENTRE DIVS DE PSICO */
+  .psico-text-conteiner {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .psico-formacion-text-izquierda,
+  .psico-formacion-text-derecha {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .psico-formacion-text-derecha::before {
+    content: ""; /* El contenido debe estar vacío */
+    display: block;
+    /* Insertar la imagen del trazo */
+    background-image: url("./assets/psico/trazo-psico.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center left;
+
+    /* Dimensiones de un trazo inline (ajusta si es necesario) */
+    width: 50px; /* Ancho del trazo en móvil */
+    height: 10px; /* Altura del trazo */
+
+    /* Margen de separación */
+    margin: 3px 0 3px 0; /* Margen superior para separación */
   }
 }
 
@@ -2609,5 +2710,60 @@ body.menu-open {
     height: 242px;
     object-fit: fill;
     flex-shrink: 0;
+  }
+
+  /* ✅ INFORMACIÓN DESPLEGABLE - Sin gap en móvil */
+  .psico-formacion-text-izquierda,
+  .psico-formacion-text-derecha {
+    font-size: 12px !important;
+    line-height: 18px !important;
+    max-width: 100% !important;
+  }
+
+  .psico-text-conteiner {
+    gap: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* ✅ REDES SOCIALES CENTRADAS */
+  .rrss-footer {
+    display: block !important;
+
+    max-width: 90% !important; /* ✅ Ancho para pantallas pequeñas */
+    height: auto !important;
+    margin-left: 45px !important;
+  }
+  .footer-button {
+    margin-right: 45px;
+  }
+
+  /* ✅ ELIMINAR ESPACIO ENTRE DIVS DE PSICO */
+  .psico-text-conteiner {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .psico-formacion-text-izquierda,
+  .psico-formacion-text-derecha {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .psico-formacion-text-derecha::before {
+    content: ""; /* El contenido debe estar vacío */
+    display: block;
+    /* Insertar la imagen del trazo */
+    background-image: url("./assets/psico/trazo-psico.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center left;
+
+    /* Dimensiones de un trazo inline (ajusta si es necesario) */
+    width: 50px; /* Ancho del trazo en móvil */
+    height: 10px; /* Altura del trazo */
+
+    /* Margen de separación */
+    margin: 3px 0 3px 0; /* Margen superior para separación */
   }
 }
