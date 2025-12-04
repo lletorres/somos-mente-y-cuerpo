@@ -1968,7 +1968,17 @@ body.menu-open {
     font-size: 42px;
     line-height: 40px;
     z-index: 2;
-    animation: none;
+    animation: fadeIn 1s ease-out; /* ✅ Solo fade, sin movimiento */
+  }
+
+  /* ✅ Animación simple solo con opacity */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   .hero-text2 {
