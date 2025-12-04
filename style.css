@@ -164,7 +164,7 @@ section[id] {
 }
 /* ---------- HERO SECTION ---------- */
 .hero {
-  min-height: 800px; /* ✅ Altura mínima para ver contenido */
+  min-height: 850px; /* ✅ Altura suficiente para imagen + textos */
   padding: 2rem 1rem;
   display: flex;
   align-items: center;
@@ -278,13 +278,13 @@ section[id] {
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1512px) and (min-width: 1200px) {
   .hero {
-    min-height: 600px; /* ✅ Altura mínima */
+    min-height: 750px; /* ✅ Altura para MacBook */
     padding: 2rem 6rem;
   }
 
   .hero img {
-    width: 570px; /* ✅ Más grande */
-    height: 620px; /* ✅ Más alto */
+    width: 660px; /* ✅ Más grande */
+    height: 690px; /* ✅ Más alto */
     left: 3rem;
     bottom: 25px; /* ✅ Se superpone MUCHO a la franja verde */
     z-index: 10;
@@ -316,6 +316,7 @@ section[id] {
     font-size: 20px;
   }
   .hero {
+    min-height: 750px; /* ✅ Altura para pantallas medianas */
     gap: 1rem;
     padding: 1rem 4rem;
   }
@@ -354,6 +355,7 @@ section[id] {
     font-size: 18px;
   }
   .hero {
+    min-height: 550px; /* ✅ Altura para tablets */
     gap: 0.5rem;
     padding: 1rem 3rem;
   }
@@ -1929,7 +1931,7 @@ body.menu-open {
     align-items: center;
 
     /* Padding para separación */
-    padding-top: 160px; /* Espacio para navbar */
+    padding-top: 70px; /* Espacio para navbar */
     padding-bottom: 2rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -2723,6 +2725,12 @@ body.menu-open {
     width: 111%;
     text-align: center;
   }
+
+  /* ✅ HERO para pantallas 412px (Samsung, Pixel) */
+  .hero {
+    min-height: 100vh !important; /* Ocupa pantalla completa */
+    min-height: 100dvh !important; /* Fallback para iOS */
+  }
 }
 /* ===== AJUSTE ESPECÍFICO PARA iPhone 14/16 Pro (390-393px ancho) ===== */
 @media (max-width: 400px) {
@@ -2842,5 +2850,31 @@ body.menu-open {
   }
   .formaciones-text {
     width: 100%;
+  }
+}
+
+/* ===== HERO PANTALLA COMPLETA PARA MÓVILES PEQUEÑOS ===== */
+
+/* iPhone 14 Pro Max - 430px */
+@media (max-width: 430px) and (min-width: 413px) {
+  .hero {
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+  }
+}
+
+/* iPhone 14/15/16 Pro - 393px */
+@media (max-width: 393px) and (min-width: 391px) {
+  .hero {
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+  }
+}
+
+/* iPhone 14/15/16 - 390px */
+@media (max-width: 390px) and (min-width: 376px) {
+  .hero {
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
   }
 }
