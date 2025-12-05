@@ -1,8 +1,26 @@
+/* ========== DESHABILITAR DARK MODE ========== */
+:root {
+  color-scheme: light only;
+  -webkit-color-scheme: light only;
+}
+
+html {
+  color-scheme: light only;
+  -webkit-color-scheme: light only;
+}
+
+body {
+  color-scheme: light only;
+  -webkit-color-scheme: light only;
+}
+
 /* ---------- VARIABLES ---------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color-scheme: light only;
+  -webkit-color-scheme: light only;
 }
 @font-face {
   font-family: "Aeonik Trial";
@@ -2720,6 +2738,8 @@ body.menu-open {
 
     width: 100%;
     box-sizing: border-box;
+    color-scheme: light only;
+    -webkit-color-scheme: light only;
   }
 
   .hero img {
@@ -3820,6 +3840,8 @@ body.menu-open {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color-scheme: light only;
+  -webkit-color-scheme: light only;
 }
 @font-face {
   font-family: "Aeonik Trial";
@@ -6535,6 +6557,8 @@ body.menu-open {
 
     width: 100%;
     box-sizing: border-box;
+    color-scheme: light only;
+    -webkit-color-scheme: light only;
   }
 
   .hero img {
