@@ -6826,6 +6826,7 @@ body.menu-open {
     padding: 15px;
     column-gap: 0;
     row-gap: 2rem;
+    margin-left: 5px;
   }
 
   .formacion-card {
@@ -7112,7 +7113,7 @@ body.menu-open {
   /* ===== AJUSTES PARA CARD-SOLO (Formaciones) ===== */
 
   .card-solo {
-    width: 93%;
+    width: 91%;
     height: auto;
     min-height: 412px; /* ✅ Igual que formaciones-item */
     object-fit: contain;
