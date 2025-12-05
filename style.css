@@ -1231,6 +1231,7 @@ section[id] {
   line-height: 35px;
   word-wrap: break-word;
   margin: 0;
+  text-align: left;
 }
 
 /* Cuerpo de texto */
@@ -1243,6 +1244,7 @@ section[id] {
   word-wrap: break-word;
   margin: 0;
   max-width: 422px;
+  text-align: left;
 }
 
 /* Hover effect */
@@ -5046,7 +5048,6 @@ section[id] {
   line-height: 35px;
   word-wrap: break-word;
   margin: 0;
-  text-align: center;
 }
 
 /* Cuerpo de texto */
@@ -5059,7 +5060,6 @@ section[id] {
   word-wrap: break-word;
   margin: 0;
   max-width: 422px;
-  text-align: center;
 }
 
 /* Hover effect */
