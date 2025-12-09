@@ -1,17 +1,17 @@
 /* ========== DESHABILITAR DARK MODE ========== */
 :root {
-  color-scheme: light only;
-  -webkit-color-scheme: light only;
+  color-scheme: light only !important;
+  -webkit-color-scheme: light only !important;
 }
 
 html {
-  color-scheme: light only;
-  -webkit-color-scheme: light only;
+  color-scheme: light only !important;
+  -webkit-color-scheme: light only !important;
 }
 
 body {
-  color-scheme: light only;
-  -webkit-color-scheme: light only;
+  color-scheme: light only !important;
+  -webkit-color-scheme: light only !important;
 }
 
 /* ---------- VARIABLES ---------- */
@@ -19,8 +19,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color-scheme: light only;
-  -webkit-color-scheme: light only;
+  color-scheme: light only !important;
+  -webkit-color-scheme: light only !important;
 }
 @font-face {
   font-family: "Aeonik Trial";
@@ -2738,8 +2738,8 @@ body.menu-open {
 
     width: 100%;
     box-sizing: border-box;
-    color-scheme: light only;
-    -webkit-color-scheme: light only;
+    color-scheme: light only !important;
+    -webkit-color-scheme: light only !important;
   }
 
   .hero img {
@@ -3840,8 +3840,8 @@ body.menu-open {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color-scheme: light only;
-  -webkit-color-scheme: light only;
+  color-scheme: light only !important;
+  -webkit-color-scheme: light only !important;
 }
 @font-face {
   font-family: "Aeonik Trial";
@@ -6557,8 +6557,8 @@ body.menu-open {
 
     width: 100%;
     box-sizing: border-box;
-    color-scheme: light only;
-    -webkit-color-scheme: light only;
+    color-scheme: light only !important;
+    -webkit-color-scheme: light only !important;
   }
 
   .hero img {

@@ -3,14 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- ✅ META TAGS PARA DESHABILITAR DARK MODE -->
+    <!-- ========================================
+       META TAGS ANTI DARK MODE - OBLIGATORIAS
+       ======================================== -->
+
+    <!-- Color scheme principal -->
     <meta name="color-scheme" content="light only" />
     <meta name="supported-color-schemes" content="light" />
 
-    <!-- Para navegadores Apple -->
+    <!-- Para navegadores Apple (iOS/Safari) -->
     <meta name="apple-mobile-web-app-status-bar-style" content="light" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <!-- Para Android Chrome -->
+    <!-- Para Android Chrome y Samsung Internet -->
     <meta name="theme-color" content="#fcfaf5" />
     <meta
       name="theme-color"
@@ -22,6 +27,9 @@
       media="(prefers-color-scheme: dark)"
       content="#fcfaf5"
     />
+
+    <!-- Deshabilitar traducción automática (puede interferir) -->
+    <meta name="google" content="notranslate" />
 
     <link rel="stylesheet" href="style.css" />
     <link
