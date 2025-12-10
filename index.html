@@ -887,8 +887,16 @@
           const formacionSection = document.getElementById(targetId);
           const trazo = img.parentElement.querySelector(".trazo-formacion");
 
+          // Buscar la flechita correspondiente
+          const arrow = img.parentElement.querySelector(".arrow-icon");
+
           if (formacionSection) {
             formacionSection.classList.toggle("expanded");
+
+            // Rotar la flechita también cuando se toca la foto
+            if (arrow) {
+              arrow.classList.toggle("rotated");
+            }
 
             // Mostrar/ocultar el trazo
             if (formacionSection.classList.contains("expanded")) {
