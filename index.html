@@ -232,7 +232,13 @@
             data-target="sol-formacion"
           />
           <div class="psico-info">
-            <div class="psico-title">Lic. <br />Sol de Giuli</div>
+            <div
+              class="psico-title psico-title-clickable"
+              data-target="sol-formacion"
+            >
+              Lic. <br />Sol de Giuli
+              <span class="arrow-icon" data-target="sol-formacion"></span>
+            </div>
             <img
               src="./assets/psico/trazo-formacion-psicologa.png"
               alt="trazo"
@@ -340,9 +346,13 @@
             data-target="flor-formacion"
           />
           <div class="psico-info">
-            <div class="psico-title">
+            <div
+              class="psico-title psico-title-clickable"
+              data-target="flor-formacion"
+            >
               Lic. <br />
               Florencia Zara
+              <span class="arrow-icon" data-target="flor-formacion"></span>
             </div>
             <img
               src="./assets/psico/trazo-formacion-psicologa.png"
@@ -879,6 +889,97 @@
 
           if (formacionSection) {
             formacionSection.classList.toggle("expanded");
+
+            // Mostrar/ocultar el trazo
+            if (formacionSection.classList.contains("expanded")) {
+              if (trazo) {
+                trazo.style.display = "block";
+                // Reiniciar la animación
+                trazo.style.animation = "none";
+                setTimeout(() => {
+                  trazo.style.animation = "pincelada 0.6s ease-out forwards";
+                }, 10);
+              }
+              // Scroll suave hacia la sección expandida
+              setTimeout(() => {
+                formacionSection.scrollIntoView({
+                  behavior: "smooth",
+                  block: "nearest",
+                });
+              }, 300);
+            } else {
+              if (trazo) {
+                trazo.style.display = "none";
+              }
+            }
+          }
+        });
+      });
+      // ========== TÍTULOS CLICKEABLES CON FLECHITA ==========
+      const psicoTitleClickable = document.querySelectorAll(
+        ".psico-title-clickable"
+      );
+
+      psicoTitleClickable.forEach((title) => {
+        title.addEventListener("click", () => {
+          const targetId = title.getAttribute("data-target");
+          const formacionSection = document.getElementById(targetId);
+          const trazo =
+            title.parentElement.parentElement.querySelector(".trazo-formacion");
+          const arrow = title.querySelector(".arrow-icon");
+
+          if (formacionSection) {
+            formacionSection.classList.toggle("expanded");
+
+            // Rotar la flecha
+            if (arrow) {
+              arrow.classList.toggle("rotated");
+            }
+
+            // Mostrar/ocultar el trazo
+            if (formacionSection.classList.contains("expanded")) {
+              if (trazo) {
+                trazo.style.display = "block";
+                // Reiniciar la animación
+                trazo.style.animation = "none";
+                setTimeout(() => {
+                  trazo.style.animation = "pincelada 0.6s ease-out forwards";
+                }, 10);
+              }
+              // Scroll suave hacia la sección expandida
+              setTimeout(() => {
+                formacionSection.scrollIntoView({
+                  behavior: "smooth",
+                  block: "nearest",
+                });
+              }, 300);
+            } else {
+              if (trazo) {
+                trazo.style.display = "none";
+              }
+            }
+          }
+        });
+      });
+
+      // ========== FLECHITAS TAMBIÉN CLICKEABLES ==========
+      const arrowIcons = document.querySelectorAll(".arrow-icon");
+
+      arrowIcons.forEach((arrow) => {
+        arrow.addEventListener("click", (e) => {
+          e.stopPropagation(); // Evitar doble trigger con el título
+          const targetId = arrow.getAttribute("data-target");
+          const formacionSection = document.getElementById(targetId);
+          const trazo =
+            arrow.parentElement.parentElement.parentElement.querySelector(
+              ".trazo-formacion"
+            );
+
+          if (formacionSection) {
+            formacionSection.classList.toggle("expanded");
+
+            // Rotar la flecha
+            arrow.classList.toggle("rotated");
 
             // Mostrar/ocultar el trazo
             if (formacionSection.classList.contains("expanded")) {

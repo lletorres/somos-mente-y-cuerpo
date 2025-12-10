@@ -790,6 +790,45 @@ section[id] {
   word-wrap: break-word;
 }
 
+/* ========== TÍTULO CLICKEABLE CON FLECHITA (MOBILE) ========== */
+.psico-title-clickable {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Flechita rosa con CSS puro (chevron down) */
+.arrow-icon {
+  display: none; /* Oculto por defecto en desktop */
+  position: absolute;
+  right: 5px;
+  top: 76%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border-right: 4px solid #f79db9;
+  border-bottom: 4px solid #f79db9;
+  transform: translateY(-70%) rotate(45deg); /* Apunta hacia abajo */
+  transition: transform 0.3s ease;
+  cursor: pointer; /* La flecha ahora es clickeable */
+}
+
+/* Cuando está expandido, rotar la flecha 180° (apunta hacia arriba) */
+.arrow-icon.rotated {
+  transform: translateY(-30%) rotate(-135deg);
+}
+
+/* Mostrar flecha solo en mobile */
+@media (max-width: 767px) {
+  .arrow-icon {
+    display: block;
+  }
+
+  .psico-title-clickable {
+    padding-right: 40px; /* Espacio para la flecha */
+  }
+}
+
 .psico-subtitle {
   width: auto;
   height: auto;
@@ -6450,6 +6489,7 @@ body.menu-open {
     font-size: 28px;
     line-height: 34px;
     text-align: center;
+    right: -20px;
   }
 
   .psico-subtitle {
