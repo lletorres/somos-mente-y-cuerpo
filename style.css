@@ -39,6 +39,7 @@ body {
   --color-texto: #949494;
   --color-texto-activo: #374151;
   --color-rosa: #f79db9;
+  --color-card-fondo: #caacee;
 }
 
 /* ---------- BASE ---------- */
@@ -180,150 +181,166 @@ section[id] {
   /* En hover sí activamos la transición de "dibujo" */
   transition: opacity 0.35s ease, transform 0.45s ease-out;
 }
-/* ---------- HERO SECTION ---------- */
+/* ---------- HERO SECTION (REFACTORIZADO) ---------- */
+
+/* 1. El contenedor principal de la sección */
 .hero {
-  min-height: 850px; /* ✅ Altura suficiente para imagen + textos */
-  padding: 2rem 1rem;
+  /* Usamos Flexbox para centrar todo el contenido en la pantalla */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  text-align: center;
-  overflow: hidden;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+
+  /* Altura mínima y fondo (tus estilos originales) */
+  min-height: 90vh; /* Usamos min-height por si el contenido es muy alto en móviles */
+  background: linear-gradient(
+    180deg,
+    rgba(254, 251, 243, 1) 0%,
+    rgba(254, 247, 231, 1) 50%,
+    rgba(254, 234, 242, 1) 100%
+  );
+
+  /* MARGEN EXTERNO REGULABLE: Controla el espacio alrededor de todo el contenido */
+  padding: 2rem; /* Ajusta este valor si quieres más o menos aire en los bordes */
+  box-sizing: border-box; /* Importante para que el padding no sume al ancho total */
 }
 
-.hero-content {
+/* 2. El envoltorio que contiene imagen y textos */
+.hero-content-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  text-align: center;
+  flex-wrap: wrap; /* CLAVE: Permite que los elementos bajen si no hay espacio (responsive) */
+  justify-content: center; /* Centra los elementos si sobran márgenes */
+  align-items: center; /* Alinea verticalmente imagen y texto */
+
+  gap: 3rem; /* Espacio limpio entre la imagen y el bloque de texto */
+
+  /* Límites para que no se desparrame en pantallas gigantes */
+  max-width: 1200px;
   width: 100%;
-  padding: 1rem;
+  position: relative; /* Necesario para tus elementos decorativos si los vuelves a agregar */
 }
 
-/* Ilustración */
-.hero img {
-  width: 750px; /* ✅ Mucho más grande */
-  height: 785px; /* ✅ Proporcionalmente más alto */
-  object-fit: contain;
-  position: absolute;
-  left: 4rem;
-  bottom: 60px; /* ✅ Se superpone MUCHO a la franja verde */
-  z-index: 10; /* ✅ Asegura que esté por encima */
-  animation: slideInLeft 1s ease-out;
-}
-@keyframes slideInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+/* --- BLOQUE DE IMAGEN --- */
+.hero-image-block {
+  /* Flexibilidad: base de 400px, puede crecer y encogerse */
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center; /* Centra la imagen en su propio bloque */
+  max-width: 600px; /* Límite máximo para la imagen */
 }
 
-/* ✅ Animación táctil para móvil - indica que es tocable */
-@keyframes tapPulse {
-  0%,
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(99, 140, 107, 0.4);
-  }
-  50% {
-    transform: scale(1.03);
-    box-shadow: 0 0 0 8px rgba(99, 140, 107, 0);
-  }
+.hero-image {
+  width: 100%; /* Responsive: se adapta al ancho de su bloque */
+  height: auto; /* Mantiene proporciones */
+  display: block;
+  /* Tu animación original */
+  animation: fade-in 1s ease-in-out forwards;
 }
 
-/* Texto principal */
-.hero-text1 {
-  position: absolute;
-  right: 14rem;
-  bottom: 20rem;
-  width: 491px;
-  height: 294.72px;
-  color: #f79db9;
-  font-size: 85px;
-  font-family: Literata;
-  font-weight: 500;
-  line-height: 77px;
-  word-wrap: break-word;
-  opacity: 1;
-  transition: opacity 0.8s ease;
-  pointer-events: none;
-  animation: slideInRight 1s ease-out;
-}
-@keyframes slideInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+/* --- BLOQUE DE TEXTOS SUPERPUESTOS (La parte difícil) --- */
+
+/* Este es el "escenario" donde se superponen los textos */
+.hero-text-area {
+  /* Flexibilidad: base de 400px, compite en espacio con la imagen */
+  flex: 1 1 400px;
+
+  /* CLAVE: position relative para que los hijos absolute se ubiquen respecto a ESTA caja */
+  position: relative;
+
+  /* IMPORTANTE: Necesitamos darle una altura mínima a este contenedor.
+     Como los hijos son absolutos, no ocupan espacio "real". Si no ponemos esto,
+     la caja medirá 0px de alto y el layout se puede romper.
+     Calcula una altura suficiente para el texto más grande (hero-text2). */
+  min-height: 200px;
+
+  /* Centrado del contenido dentro del área */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Centra el texto en sí mismo */
 }
 
-.hero-text1.fade-out {
-  opacity: 0;
-}
-
-/* Texto secundario */
+/* Estilos comunes para AMBOS textos que se superponen */
+.hero-text1,
 .hero-text2 {
-  position: absolute;
-  right: 12rem;
-  bottom: 21rem;
-  width: 615.34px;
-  height: 258.91px;
-  color: #f79db9;
-  font-size: 50px;
-  font-family: Literata;
-  font-weight: 500;
-  line-height: 61px;
-  word-wrap: break-word;
+  /* CLAVE DE SUPERPOSICIÓN: */
+  position: absolute; /* Se salen del flujo normal */
+  top: 50%; /* Se ubican en la mitad vertical de .hero-text-area */
+  left: 0; /* Pegados a la izquierda */
+  width: 100%; /* Ocupan todo el ancho de .hero-text-area */
+  transform: translateY(
+    -50%
+  ); /* Corrigen su posición para estar perfectamente centrados verticalmente */
+
+  /* Estado inicial invisible */
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  margin: 0; /* Reseteo de márgenes */
+
+  /* Tus estilos de fuente originales */
+  font-family: "Literata", serif;
+  color: #f79db9;
 }
 
-.hero-text2.fade-in {
-  opacity: 1;
-  transform: translateY(0);
+/* Estilos específicos Texto 1 */
+.hero-text1 {
+  font-size: clamp(24px, 3vw, 32px); /* Fuente responsive fluida */
+  font-weight: 500;
+  /* Tu animación original */
+  animation: fade-in-out 3s ease-in-out forwards;
 }
-/* ---------- RESPONSIVE ---------- */
 
-@media (max-width: 1512px) and (min-width: 1200px) {
-  .hero {
-    min-height: 750px; /* ✅ Altura para MacBook */
-    padding: 2rem 6rem;
-  }
+/* Estilos específicos Texto 2 */
+.hero-text2 h2 {
+  font-size: clamp(36px, 5vw, 55px); /* Fuente responsive fluida */
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
 
-  .hero img {
-    width: 660px; /* ✅ Más grande */
-    height: 690px; /* ✅ Más alto */
-    left: 3rem;
-    bottom: 25px; /* ✅ Se superpone MUCHO a la franja verde */
-    z-index: 10;
-  }
+.hero-text2 h3 {
+  font-family: "Lato", sans-serif;
+  font-size: clamp(18px, 2vw, 24px); /* Fuente responsive fluida */
+  color: #949494;
+  font-weight: 400;
+}
 
-  .hero-text1 {
-    right: 10rem;
-    bottom: 18rem;
-    font-size: 75px;
-    line-height: 70px;
-    width: 450px;
-  }
+.hero-text2 {
+  /* Tu animación original */
+  animation: fade-in 1s ease-in-out 3s forwards;
+}
 
-  .hero-text2 {
-    right: 10rem; /* MISMO right que text1 */
-    bottom: 18rem; /* MISMO bottom que text1 */
-    font-size: 45px;
-    line-height: 55px;
-    width: 550px;
+/* --- TUS KEYFRAMES ORIGINALES (No necesitan cambios) --- */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
   }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* --- RESPONSIVE AUTOMÁTICO --- */
+/* Gracias a flex-wrap, casi no necesitas media queries. 
+   Solo un pequeño ajuste si quieres que el orden cambie en móviles */
+@media (max-width: 768px) {
+  .hero-content-wrapper {
+    gap: 2rem; /* Menos espacio en móviles */
+  }
+  /* Si quisieras que el texto aparezca ARRIBA de la imagen en móviles: */
+  /* .hero-content-wrapper { flex-direction: column-reverse; } */
 }
 
 @media (max-width: 1400px) {
@@ -557,110 +574,87 @@ section[id] {
     line-height: 32px;
   }
 }
-/* ---------- SERVICIOS (fondo verde a ancho completo) ---------- */
+/* ---------- SERVICIOS (Limpio y Responsive) ---------- */
+
 .servicios {
+  /* Configuración del contenedor principal */
+  width: 100%;
+  /* Quitamos altura fija. Dejamos que crezca según el contenido */
+  height: auto;
+  min-height: 600px;
+
+  /* Color y espaciado interno */
+  background-color: #d3ede1;
+  padding: 6rem 2rem; /* Aire arriba/abajo y a los costados */
+
+  /* Flexbox para centrar el contenido general de la sección */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
+  /* Para asegurarnos que no se rompa con el navbar */
+  box-sizing: border-box;
   position: relative;
   z-index: 1;
-  width: 100vw;
-  height: 750px; /* ✅ Reducido de 924px a 750px */
-  margin: 0 calc(50% - 50vw);
-  background: #d3ede1;
-  margin-top: -110px;
-  padding: 120px 4rem 80px 4rem;
 }
 
+/* El texto introductorio */
 .servicios-text {
-  width: 560.9px;
-  height: 86.4px;
+  /* Quitamos width/height fijos */
+  max-width: 800px; /* Ancho máximo de lectura cómodo */
+  width: 100%;
+
   text-align: center;
   color: #575757;
-  font-size: 25px;
   font-family: "Lato", sans-serif;
+  font-size: 20px; /* Tamaño base legible */
   font-weight: 300;
-  line-height: 26px;
+  line-height: 1.5;
   letter-spacing: 1px;
-  word-wrap: break-word;
-  margin-bottom: 3rem;
+
+  margin-bottom: 4rem; /* Separación con las pills */
 }
 
-/* Grid de pills */
+/* El Contenedor de la Grilla (Pills) */
 .pill-container {
   display: grid;
+  /* Define 3 columnas iguales por defecto */
   grid-template-columns: repeat(3, 1fr);
+
+  /* Espacio entre pills */
   gap: 2rem;
+
+  /* Restricciones de ancho */
   max-width: 1200px;
   width: 100%;
 }
 
-/* ===== SOLUCIÓN CENTRADO ÚLTIMA PILL ===== */
-
-/* Método 1: Para exactamente 7 pills - Centrar la 7ma */
-.pill-item:nth-child(7):last-child {
-  grid-column-start: 2;
-}
-
-/* Método 2: Para 10 pills - Centrar la 10ma */
-.pill-item:nth-child(10):last-child {
-  grid-column-start: 2;
-}
-
-/* Método 3: Para 13 pills - Centrar la 13va */
-.pill-item:nth-child(13):last-child {
-  grid-column-start: 2;
-}
-
-/* Método universal: Si hay espacio vacío en el grid */
-.pill-container::after {
-  content: "";
-  grid-column: 1 / -1;
-}
-
-/* Cada pill individual */
+/* La "Pill" individual */
 .pill-item {
-  position: relative;
+  position: relative; /* Para poder posicionar la imagen de fondo */
   width: 100%;
+
+  /* Truco para mantener la proporción de la imagen PNG.
+     Ajusta este ratio según tus imágenes (parecen ser 2.5 veces más anchas que altas) */
   aspect-ratio: 2.5 / 1;
+
+  /* Flexbox para centrar el texto PERFECTAMENTE sobre la imagen */
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* Animación (mantenemos tu efecto) */
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
-/* Animación fade + slide up */
+/* Estado visible cuando el JS agrega la clase .animate */
 .pill-item.animate {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Imagen de fondo de la pill */
-.pill-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  z-index: 1;
-}
-
-/* Texto sobre la pill */
-.pill-text {
-  position: relative;
-  z-index: 2;
-  color: #638c6b;
-  font-size: 23px;
-  font-family: "Aeonik Trial", sans-serif;
-  font-weight: 400;
-  text-align: center;
-  line-height: 1.3;
-  padding: 0 1rem;
-}
-
-/* Delays para efecto cascada */
+/* Opcional: Si quieres que aparezcan en escalerita (uno por uno) */
 .pill-item:nth-child(1) {
   transition-delay: 0.1s;
 }
@@ -671,539 +665,499 @@ section[id] {
   transition-delay: 0.3s;
 }
 .pill-item:nth-child(4) {
-  transition-delay: 0.4s;
+  transition-delay: 0.1s;
 }
 .pill-item:nth-child(5) {
-  transition-delay: 0.5s;
+  transition-delay: 0.2s;
 }
 .pill-item:nth-child(6) {
-  transition-delay: 0.6s;
+  transition-delay: 0.3s;
 }
 .pill-item:nth-child(7) {
-  transition-delay: 0.7s;
+  transition-delay: 0.1s;
 }
 .pill-item:nth-child(8) {
-  transition-delay: 0.8s;
+  transition-delay: 0.2s;
 }
 .pill-item:nth-child(9) {
-  transition-delay: 0.9s;
+  transition-delay: 0.3s;
 }
-/* Responsive para servicios */
-@media (max-width: 767px) {
-  .servicios {
-    padding: 100px 3rem 60px 3rem;
-  }
+/* Imagen de fondo de la pill */
+.pill-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Asegura que la imagen se vea entera sin estirarse feo */
+  z-index: 1; /* Atrás del texto */
+}
+
+/* Texto de la pill */
+.pill-text {
+  position: relative;
+  z-index: 2; /* Delante de la imagen */
+
+  color: #638c6b;
+  font-family: "Aeonik Trial", sans-serif; /* Tu fuente custom */
+  font-size: clamp(
+    16px,
+    2vw,
+    22px
+  ); /* Texto fluido: se achica en móvil, se agranda en PC */
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.2;
+
+  /* Padding lateral para que el texto no toque los bordes curvos de la imagen */
+  padding: 0 15%;
+}
+
+/* --- RESPONSIVE DESIGN (Media Queries Limpias) --- */
+
+/* Tablets (menos de 1024px) -> Pasamos a 2 columnas */
+@media (max-width: 1024px) {
   .pill-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    max-width: 700px;
+    max-width: 700px; /* Limitamos ancho para que no se estiren demasiado */
   }
 
-  .pill-text {
-    font-size: 16px;
+  /* Truco visual: Como son 9 items (impar), en 2 columnas queda uno solo al final.
+     Esto hace que el último ocupe todo el ancho o se centre */
+  .pill-item:last-child {
+    /* grid-column: span 2;  <-- Descomenta si quieres que el último sea ancho */
+    /* O si quieres centrarlo dejándolo del mismo tamaño: */
+    grid-column: 1 / -1;
+    width: 50%;
+    justify-self: center;
   }
 }
 
-@media (max-width: 767px) {
-  .servicios {
-    padding: 80px 2rem 50px 2rem;
-    margin-top: 15px;
-  }
-  .servicios-text {
-    font-size: 14px;
-    line-height: 24px;
-    margin-bottom: 2rem;
-  }
-  .pill-container {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-    max-width: 400px;
-  }
-
-  .pill-text {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .servicios {
-    padding: 60px 1.5rem 40px 1.5rem;
-    gap: 30px;
-    height: 650px; /* ✅ Altura ajustada para móviles pequeños */
-  }
-  .servicios-text {
-    font-size: 13px;
-    line-height: 22px;
-  }
-}
-/* -----------EQUIPO----------- */
-/* -----------EQUIPO----------- */
+/* ----------- EQUIPO (Refactorizado) ----------- */
 
 .equipo {
+  /* Flexbox para centrar todo verticalmente */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 4.5rem 8rem;
+
+  /* ESPACIADO ROBUSTO:
+     En lugar de margin-top, usamos padding vertical generoso.
+     Esto asegura que el color de fondo (si tuviera) cubra todo el área
+     y que los anclajes (#) del menú caigan en el lugar correcto. */
+  padding: 6rem 2rem;
+
   background: var(--color-fondo);
-  gap: 5.5rem;
-  margin-top: 75px;
+  gap: 4rem; /* Espacio entre título, texto y las cards */
+
+  /* Asegura que no se desborde */
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* TÍTULO: Sin tamaños fijos */
 .equipo-title {
-  width: 481.51px;
-  height: 92.18px;
+  /* Quitamos width/height fijos */
+  width: 100%;
+  max-width: 800px;
+
   text-align: center;
-  color: #f79db9;
-  font-size: 55px;
-  font-family: Literata;
+  color: var(--color-rosa); /* Usando tu variable */
+  font-family: "Literata", serif;
+  font-size: clamp(36px, 5vw, 55px); /* Fuente fluida */
   font-weight: 500;
-  line-height: 70px;
-  word-wrap: break-word;
-  margin-bottom: -45px;
+  line-height: 1.2;
+  margin: 0; /* El gap del padre maneja el espacio */
 }
 
+/* TEXTO INTRODUCTORIO: Fluido y legible */
 .equipo-text {
-  width: 714.09px;
-  height: 138.09px;
+  /* Ancho de lectura cómodo (aprox 70-80 caracteres) */
+  max-width: 800px;
+  width: 100%;
+
   text-align: center;
   color: #575757;
+  font-family: "Lato", sans-serif;
   font-weight: 300;
   font-size: 20px;
-  font-family: "Lato", sans-serif;
-  line-height: 26px;
-  letter-spacing: 1px;
-  word-wrap: break-word;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
 }
 
-/* Container de las cards */
+/* CONTENEDOR PRINCIPAL DE PERFILES */
 .psico-container {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
-  justify-content: center;
-  align-items: center;
+  gap: 4rem; /* Espacio grande entre cada profesional (Sol y Flor) */
   width: 100%;
+  max-width: 1200px; /* Alineado con el resto de la web */
 }
 
-/* Card individual */
+/* TARJETA DE RESUMEN (Foto + Nombre) */
 .psico-card {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 3rem;
-  max-width: 800px;
-  width: 100%;
-}
-
-/* Contenedor de textos */
-.psico-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.psico-title {
-  width: auto;
-  height: auto;
-  color: #575757;
-  font-size: 36px;
-  font-family: Literata;
-  font-weight: 500;
-  line-height: 38px;
-  word-wrap: break-word;
-}
-
-/* ========== TÍTULO CLICKEABLE CON FLECHITA (MOBILE) ========== */
-.psico-title-clickable {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-/* Flechita rosa con CSS puro (chevron down) */
-.arrow-icon {
-  display: none; /* Oculto por defecto en desktop */
-  position: absolute;
-  right: 5px;
-  top: 76%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  border-right: 4px solid #f79db9;
-  border-bottom: 4px solid #f79db9;
-  transform: translateY(-70%) rotate(45deg); /* Apunta hacia abajo */
-  transition: transform 0.3s ease;
-  cursor: pointer; /* La flecha ahora es clickeable */
-}
-
-/* Cuando está expandido, rotar la flecha 180° (apunta hacia arriba) */
-.arrow-icon.rotated {
-  transform: translateY(-30%) rotate(-135deg);
-}
-
-/* Mostrar flecha solo en mobile */
-@media (max-width: 767px) {
-  .arrow-icon {
-    display: block;
-  }
-
-  .psico-title-clickable {
-    padding-right: 40px; /* Espacio para la flecha */
-  }
-}
-
-.psico-subtitle {
-  width: auto;
-  height: auto;
-  color: #575757;
-  font-size: 20px;
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-  line-height: 32px;
-  letter-spacing: 1px;
-  word-wrap: break-word;
-}
-.trazo-formacion {
-  margin: 2px auto 0;
-  display: block;
-  width: 100%; /* Ajustar al ancho del contenedor */
-  max-width: 100%;
-  height: auto;
-  opacity: 0;
-  transform: scaleX(0);
-  transform-origin: left center;
-  animation: pincelada 0.6s ease-out forwards;
-}
-@keyframes pincelada {
-  0% {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-}
-/* Responsive para equipo */
-@media (max-width: 767px) {
-  .equipo {
-    padding: 3rem 3rem;
-    gap: 2rem;
-  }
-  .equipo-title {
-    font-size: 45px;
-    line-height: 55px;
-  }
-  .equipo-text {
-    font-size: 18px;
-    line-height: 24px;
-  }
-  .psico-container {
-    gap: 4rem;
-  }
-  .psico-card {
-    gap: 2rem;
-  }
-  .psico-card img:not(.trazo-formacion) {
-    width: 220px;
-    height: 220px;
-  }
-  .psico-title {
-    font-size: 32px;
-  }
-  .psico-subtitle {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 767px) {
-  .equipo {
-    padding: 2rem 2rem;
-  }
-  .equipo-title {
-    font-size: 36px;
-    line-height: 45px;
-    width: 100%;
-  }
-  .equipo-text {
-    font-size: 16px;
-    line-height: 22px;
-    width: 100%;
-  }
-  .psico-container {
-    gap: 3rem;
-  }
-  .psico-card {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.5rem;
-  }
-  .psico-card img:not(.trazo-formacion) {
-    width: 200px;
-    height: 200px;
-  }
-  .psico-title {
-    font-size: 28px;
-    line-height: 34px;
-  }
-  .psico-subtitle {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .equipo {
-    padding: 2rem 1.5rem;
-  }
-  .equipo-title {
-    font-size: 30px;
-    line-height: 38px;
-  }
-  .equipo-text {
-    font-size: 14px;
-    line-height: 20px;
-  }
-  .psico-card img:not(.trazo-formacion) {
-    width: 180px;
-    height: 180px;
-  }
-  .psico-title {
-    font-size: 24px;
-    line-height: 30px;
-  }
-  .psico-subtitle {
-    font-size: 14px;
-  }
-}
-
-/* ---------- FORMACION PSICOLOGA ---------- */
-.psico-formacion-component {
-  width: 100%;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  padding: 0 8rem;
-  background: var(--color-fondo);
-  transition: max-height 0.6s ease, opacity 0.5s ease, padding 0.6s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row; /* Lado a lado en escritorio */
   justify-content: center;
-  gap: rem;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.psico-formacion-component.expanded {
-  max-height: 1000px;
-  opacity: 1;
-  padding: 0rem 4rem;
-  margin: 0rem auto;
+  align-items: center; /* Centrado vertical */
+  gap: 4rem; /* Espacio entre foto y nombre */
+  width: 100%;
 }
 
 .psico-img-clickable {
+  /* 1. Quitamos el aspect-ratio: 1/1 para que no fuerce un cuadrado perfecto */
+  width: 350px; /* Tamaño base */
+  height: auto; /* Deja que la altura se ajuste a la imagen (o pon un height fijo si prefieres) */
+
+  /* 2. Mantenemos el cover para que la foto no se estire feo */
+  object-fit: cover;
+
+  /* 3. ¡AQUÍ ESTÁ LA CLAVE! Volvemos a tu radio original */
+  /* Antes (mi código): border-radius: 50%; */
+  border-radius: 38% / 60%; /* TU CÓDIGO ORIGINAL (Forma ovalada orgánica) */
+
+  /* Interacción */
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 38% / 60%;
 }
 
 .psico-img-clickable:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0);
+  box-shadow: 0 10px 20px rgba(247, 157, 185, 0.3); /* Sombra suave rosa */
 }
 
-.psico-text-conteiner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8rem;
-  align-items: start;
-  width: 100%;
-}
+/* INFO (Nombre y Título) */
 
-.psico-formacion-text-izquierda,
-.psico-formacion-text-derecha {
-  width: 100%;
-  max-width: 400px;
-  color: #575757;
-  font-size: 16px;
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-  line-height: 21px;
-  word-wrap: break-word;
-  text-align: left;
+/* style.css - Versión Desktop */
+.psico-info {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 1rem;
+
+  /* ESCRITORIO: Alineamos todo a la IZQUIERDA */
+  text-align: left;
+  align-items: flex-start;
+
+  /* --- EL CAMBIO MÁGICO --- */
+  /* Definimos un ancho fijo. 350px es suficiente para "Lic. Florencia Zara..." */
+  width: 350px;
+  /* Esto hace que la caja de texto de Sol ocupe lo mismo que la de Flor,
+     aunque su nombre sea más corto. */
+}
+/* style.css - Versión Mobile (Dentro de @media max-width: 900px) */
+@media (max-width: 900px) {
+  .psico-info {
+    /* MÓVIL: Alineamos todo al CENTRO */
+    align-items: center; /* CLAVE: Esto alinea el trazo al centro */
+    text-align: center;
+    /* --- RESTABLECER ANCHO --- */
+    width: 100%; /* O 'auto', para que en el celular ocupe lo que deba ocupar */
+  }
 }
 
-.psico-formacion-text-izquierda {
-  justify-self: end;
+/* Ajuste opcional para el trazo en móvil si es necesario */
+.trazo-formacion {
+  /* En flex 'align-items: center' ya lo centra, 
+        pero si quieres asegurar, puedes poner margin auto aquí */
+  /* margin: 5px auto 0; */
 }
 
-.psico-formacion-text-derecha {
-  justify-self: start;
+.psico-title {
+  font-family: "Literata", serif;
+  font-size: clamp(32px, 4vw, 42px);
+  color: #575757;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
-.trazo-inline {
-  width: 80px;
-  height: auto;
-  margin: 8px 0;
-  display: block;
-}
-
-.cv-button {
-  width: auto;
-  max-width: 200px;
-  height: auto;
+/* Estilos para el click/flecha */
+.psico-title-clickable {
+  position: relative;
   cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  margin-top: 1rem;
+  display: inline-block;
+}
+
+.arrow-icon {
+  display: inline-block;
+  margin-left: 10px;
+  width: 12px;
+  height: 12px;
+  border-right: 3px solid var(--color-rosa);
+  border-bottom: 3px solid var(--color-rosa);
+  transform: rotate(45deg); /* Flecha hacia abajo */
+  transition: transform 0.3s ease;
+  vertical-align: middle;
+}
+
+.arrow-icon.rotated {
+  transform: rotate(-135deg); /* Flecha hacia arriba */
+  margin-top: 5px;
+}
+
+.psico-subtitle {
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  color: #949494;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+/* Estado Base (Invisible y contraído) */
+.nombre-trazo-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  /* LA MAGIA: El ancho del div será igual al ancho del texto (el elemento más ancho adentro) */
+  width: fit-content;
+
+  /* Asegura que en móvil se centre si el padre lo pide */
+  margin: 0 auto 0 0; /* Por defecto alineado a la izquierda */
+}
+
+/* 2. Actualizamos el trazo para que obedezca al wrapper */
+.trazo-formacion {
+  display: block;
+
+  /* CAMBIO CLAVE: 100% del wrapper (que mide lo mismo que el texto) */
+  width: 90%;
+
+  /* Quitamos límites fijos para que se pueda estirar si el nombre es largo */
+  max-width: none;
+
+  height: 14px;
+
+  /* Ajusta este margen negativo para acercarlo/alejarlo del texto */
+  margin-top: -5px;
+  margin-bottom: -16px;
+
+  /* Mantenemos tus animaciones originales */
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+/* Estado Activo (Visible y expandido) */
+.trazo-formacion.visible {
+  opacity: 1;
+  transform: scaleX(1);
+
+  /* Transición para cuando APARECE (se abre) */
+  /* El cubic-bezier le da un efecto de "pincelada" más natural */
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.4s ease-in;
+}
+/* --- RESPONSIVE (Mobile First Mentalidad) --- */
+
+@media (max-width: 900px) {
+  .equipo {
+    padding: 4rem 1.5rem; /* Menos padding lateral en tablet/móvil */
+    gap: 3rem;
+  }
+
+  .psico-card {
+    flex-direction: column; /* Foto arriba, nombre abajo */
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .psico-info {
+    align-items: center; /* Centrar textos */
+    text-align: center;
+  }
+
+  .psico-img-clickable {
+    width: 220px; /* Foto un poco más chica */
+  }
+
+  /* El trazo decorativo debajo del nombre se centra */
+  .nombre-trazo-wrapper {
+    /* En móvil queremos que se centre */
+    margin: 0 auto;
+    align-items: center; /* Asegura alineación interna */
+  }
+
+  .trazo-formacion {
+    transform-origin: center center; /* En móvil queda mejor que crezca desde el centro */
+  }
+}
+/* ---------- FORMACION DESPLEGABLE (Ajuste de velocidad) ---------- */
+
+.psico-formacion-component {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  /* Estado CERRADO */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 0;
+
+  /* Estilo interno */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* === VELOCIDAD DE CIERRE (Rápida) === */
+  /* Se aplica cuando quitamos la clase .expanded */
+  /* max-height: 0.3s es rápido para que no tarde en desaparecer */
+  transition: max-height 0.3s cubic-bezier(0, 1, 0, 1),
+    /* Truco: curva rápida para evitar lag */ opacity 0.2s ease-out,
+    margin-top 0.3s ease;
+}
+
+.psico-formacion-component.expanded {
+  /* Estado ABIERTO */
+  /* Usamos 2000px o lo suficiente para cubrir tu contenido */
+  max-height: 2000px;
+  opacity: 1;
+  margin-top: 2rem;
+
+  /* === VELOCIDAD DE APERTURA (Lenta/Suave) === */
+  /* Se aplica cuando agregamos la clase .expanded */
+  transition: max-height 1s ease-in-out,
+    /* Tiempo suficiente para leer el movimiento */ opacity 0.5s ease-in,
+    margin-top 0.5s ease;
+}
+
+/* Contenedor de las dos columnas de texto */
+.psico-text-conteiner {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  gap: 4rem; /* Espacio generoso en el medio */
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+/* Columnas individuales */
+.psico-formacion-text-izquierda,
+.psico-formacion-text-derecha {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #575757;
+  font-weight: 300;
+
+  /* Flex para manejar los items y los trazos */
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* Alineación específica para diseño de "espejo" (opcional) */
+/* Si quieres que la izquierda se alinee a la derecha (pegado al centro) */
+.psico-formacion-text-izquierda {
+  text-align: right;
+  align-items: flex-end;
+}
+/* Y la derecha a la izquierda (pegado al centro) */
+.psico-formacion-text-derecha {
+  text-align: left;
+  align-items: flex-start;
+}
+
+/* Imágenes decorativas entre textos */
+.trazo-inline {
+  display: block;
+  width: 100px; /* Tamaño controlado */
+  height: 5px;
+  opacity: 0.6;
+}
+
+/* Botón CV */
+.cv-button {
+  width: 200px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin-top: 2rem;
 }
 
 .cv-button:hover {
   transform: scale(1.05);
-  filter: brightness(1.1);
 }
 
-/* Responsive */
-@media (max-width: 767px) {
-  .psico-formacion-component {
-    padding: 0 3rem;
-  }
-
-  .psico-formacion-component.expanded {
-    padding: 3rem 3rem;
-  }
-
+/* --- RESPONSIVE FORMACIÓN --- */
+@media (max-width: 768px) {
   .psico-text-conteiner {
-    gap: 4rem;
+    grid-template-columns: 1fr; /* Una sola columna */
+    gap: 2rem;
+    text-align: center;
   }
 
+  /* En móvil, centramos todo */
   .psico-formacion-text-izquierda,
   .psico-formacion-text-derecha {
-    font-size: 15px;
-    line-height: 20px;
-    max-width: 350px;
+    text-align: center;
+    align-items: center;
   }
 
-  .trazo-inline {
-    width: 60px;
-  }
-}
-
-@media (max-width: 767px) {
-  .psico-formacion-component {
-    padding: 0 2rem;
-  }
-
+  /* Quitamos el margen top extra en móvil para que se sienta más compacto */
   .psico-formacion-component.expanded {
-    padding: 2rem 2rem;
-    max-height: 1500px;
-  }
-
-  .psico-text-conteiner {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    justify-self: center;
-    max-width: 100%;
-  }
-
-  .trazo-inline {
-    width: 70px;
-    margin: 6px 0;
-  }
-
-  .cv-button {
-    max-width: 180px;
+    margin-top: 1rem;
   }
 }
 
-@media (max-width: 480px) {
-  .psico-formacion-component {
-    padding: 0 1.5rem;
-  }
-
-  .psico-formacion-component.expanded {
-    padding: 2rem 1.5rem;
-  }
-
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    font-size: 14px;
-    line-height: 19px;
-  }
-
-  .trazo-inline {
-    width: 50px;
-    margin: 5px 0;
-  }
-
-  .cv-button {
-    max-width: 150px;
-    margin-top: 40px;
-  }
-}
+/* --- FORMACIONES A PROFESIONALES --- */
 .formaciones-text-image-conteiner {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 4rem;
-  margin: 0rem auto;
+  flex-wrap: wrap; /* CLAVE: Permite que la imagen baje si no hay espacio */
+  justify-content: center; /* Centra horizontalmente todo el bloque */
+  align-items: center; /* Centra verticalmente texto e imagen */
+  gap: 1rem; /* Espacio limpio entre texto e imagen (sin márgenes raros) */
+
+  max-width: 1400px; /* Ancho máximo para que no se desparrame en pantallas gigantes */
+  width: 95%; /* Margen de seguridad lateral en móviles */
+  margin: 0 auto; /* Centrado del bloque en la página */
+  padding: 2rem 0; /* Aire arriba y abajo */
+
+  /* Tu animación de entrada (mantenida) */
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-/* Estado animado - visible */
+/* Estado activo de la animación */
 .formaciones-text-image-conteiner.animate {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Animación por separado para texto e imagen */
-.formaciones-text-image-conteiner .formaciones-text {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+/* Contenedor del Texto */
+.formaciones-text-conteiner {
+  flex: 1 1 350px; /* MAGIA: Crece, se encoge, pero intenta medir 500px de base */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espacio entre título y párrafo */
+  text-align: left; /* Alineación por defecto */
 }
 
-.formaciones-text-image-conteiner.animate .formaciones-text {
-  opacity: 1;
-  transform: translateX(0);
+.formaciones-title {
+  font-family: "Literata", serif;
+  font-size: clamp(32px, 5vw, 55px); /* Fuente responsive fluida */
+  line-height: 1.2;
+  color: white;
+  margin: 0;
 }
 
-.formaciones-text-image-conteiner .formaciones-image {
-  opacity: 0;
-  transform: translateX(50px);
-  transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+.formaciones-email {
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.formaciones-text-image-conteiner.animate .formaciones-image {
-  opacity: 1;
-  transform: translateX(0);
+/* La Imagen */
+.formaciones-image {
+  flex: 1 1 400px; /* Intenta medir 400px, si no cabe, se ajusta */
+  max-width: 780px; /* Límite máximo real de la imagen */
+  width: 100%; /* Para que no desborde en móvil */
+  height: auto; /* Mantiene proporción */
+  object-fit: contain;
 }
 .formaciones-a-profesionales {
   width: 100vw;
-  height: 2795px;
+  height: 2520px;
   background: #caacee;
-}
-
-.formaciones-text-conteiner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-  padding: 2rem 4rem;
-  margin: 0rem auto;
 }
 
 .formaciones-title {
@@ -1237,10 +1191,7 @@ section[id] {
   letter-spacing: 1px;
   word-wrap: break-word;
 }
-.formaciones-image {
-  width: 853.07px;
-  height: 719px;
-}
+
 @media (max-width: 1093px) {
   .formaciones-image {
     width: 600px;
@@ -1260,48 +1211,30 @@ section[id] {
   align-items: center;
 }
 .formacion-card {
-  position: relative;
-  background: transparent;
-  border-radius: 12px;
-  overflow: hidden;
+  /* Quitamos posición relativa y overflow:hidden si no se usan */
+  background: var(--color-card-fondo); /* Aplica el color de fondo púrpura */
+  color: white; /* Color de texto base */
+  border-radius: 160px; /* CLAVE: Para la forma ovalada */
+  border: 4px solid white;
+  padding: 3rem 4rem; /* CLAVE: Controla la altura y el ancho interno */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* Ajuste Flexbox para mejor control del contenido */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espacio entre título y cuerpo de texto */
+  box-sizing: border-box; /* Asegura que padding no aumente el tamaño total */
+  width: 100%;
+  height: auto; /* La altura se ajusta al contenido. */
+  min-height: 480px; /* Mantenemos una altura mínima del diseño original */
 }
 
 /* ✅ Quinta card centrada (ocupa 2 columnas) */
-.formacion-card:has(.card-centrada) {
-  grid-column: 1 / -1; /* Ocupa desde columna 1 hasta la última */
-  max-width: 600px; /* Ancho máximo igual a una card normal */
-  margin: 0 auto; /* Centrado horizontal */
-  justify-self: center; /* Centrado en el grid */
-}
-
-.card-image-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.card-solo {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
+.formacion-card:hover {
+  transform: translateY(-5px);
 }
 
 /* Overlay con gradiente para legibilidad */
-.card-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%; /* Ajusta el ancho */
-  max-width: 500px;
-  padding: 2rem;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
 
 /* Título de la card */
 .card-title {
@@ -1324,7 +1257,7 @@ section[id] {
   line-height: 21px;
   word-wrap: break-word;
   margin: 0;
-  max-width: 422px;
+  max-width: 100%;
   text-align: left;
 }
 
@@ -1931,12 +1864,6 @@ body.menu-open {
     line-height: 28px;
   }
 
-  .pill-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 1200px;
-  }
-
   /* Equipo proporcional */
   .equipo-psicologas {
     padding: 4rem 8rem;
@@ -1966,6 +1893,18 @@ body.menu-open {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 8rem;
     row-gap: 2rem;
+  }
+  .formaciones-cards-conteiner .formacion-card:nth-child(5) {
+    /* 1. Hacemos que ocupe todo el ancho de la grilla (de la línea 1 a la última) */
+    grid-column: 1 / -1;
+
+    /* 2. La centramos horizontalmente en ese espacio */
+    justify-self: center;
+    margin: 0 auto;
+
+    /* 3. Restringimos su ancho para que se vea igual a las otras (no estirada) */
+    width: 100%;
+    max-width: 600px; /* Ajusta este valor si tus otras cards son más angostas */
   }
 
   /* Como trabaja proporcional */
@@ -3073,7 +3012,7 @@ body.menu-open {
   }
 
   .formacion-card {
-    width: 112%;
+    width: 97%;
     min-height: 468px;
   }
 
@@ -4160,552 +4099,6 @@ body.menu-open {
     line-height: 32px;
   }
 }
-/* ---------- SERVICIOS (fondo verde a ancho completo) ---------- */
-.servicios {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  width: 100vw;
-  height: 750px; /* ✅ Reducido de 924px a 750px */
-  margin: 0 calc(50% - 50vw);
-  background: #d3ede1;
-  margin-top: -110px;
-  padding: 120px 4rem 80px 4rem;
-}
-
-.servicios-text {
-  width: 560.9px;
-  height: 86.4px;
-  text-align: center;
-  color: #575757;
-  font-size: 25px;
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-  line-height: 26px;
-  letter-spacing: 1px;
-  word-wrap: break-word;
-  margin-bottom: 3rem;
-}
-
-/* Grid de pills */
-.pill-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  max-width: 1200px;
-  width: 100%;
-}
-
-/* Cada pill individual */
-.pill-item {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 2.5 / 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-/* Animación fade + slide up */
-.pill-item.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Imagen de fondo de la pill */
-.pill-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  z-index: 1;
-}
-
-/* Texto sobre la pill */
-.pill-text {
-  position: relative;
-  z-index: 2;
-  color: #638c6b;
-  font-size: 23px;
-  font-family: "Aeonik Trial", sans-serif;
-  font-weight: 400;
-  text-align: center;
-  line-height: 1.3;
-  padding: 0 1rem;
-}
-
-/* Delays para efecto cascada */
-.pill-item:nth-child(1) {
-  transition-delay: 0.1s;
-}
-.pill-item:nth-child(2) {
-  transition-delay: 0.2s;
-}
-.pill-item:nth-child(3) {
-  transition-delay: 0.3s;
-}
-.pill-item:nth-child(4) {
-  transition-delay: 0.4s;
-}
-.pill-item:nth-child(5) {
-  transition-delay: 0.5s;
-}
-.pill-item:nth-child(6) {
-  transition-delay: 0.6s;
-}
-.pill-item:nth-child(7) {
-  transition-delay: 0.7s;
-}
-.pill-item:nth-child(8) {
-  transition-delay: 0.8s;
-}
-.pill-item:nth-child(9) {
-  transition-delay: 0.9s;
-}
-/* Responsive para servicios */
-@media (max-width: 767px) {
-  .servicios {
-    padding: 100px 3rem 60px 3rem;
-  }
-  .pill-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    max-width: 700px;
-  }
-
-  .pill-text {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 767px) {
-  .servicios {
-    padding: 80px 2rem 50px 2rem;
-    margin-top: 15px;
-  }
-  .servicios-text {
-    font-size: 14px;
-    line-height: 24px;
-    margin-bottom: 2rem;
-  }
-  .pill-container {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-    max-width: 400px;
-  }
-
-  .pill-text {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .servicios {
-    padding: 60px 1.5rem 40px 1.5rem;
-    gap: 30px;
-    height: 650px; /* ✅ Altura ajustada para móviles pequeños */
-  }
-  .servicios-text {
-    font-size: 13px;
-    line-height: 22px;
-  }
-}
-/* -----------EQUIPO----------- */
-/* -----------EQUIPO----------- */
-
-.equipo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 4.5rem 8rem;
-  background: var(--color-fondo);
-  gap: 5.5rem;
-  margin-top: 75px;
-}
-
-.equipo-title {
-  width: 481.51px;
-  height: 92.18px;
-  text-align: center;
-  color: #f79db9;
-  font-size: 55px;
-  font-family: Literata;
-  font-weight: 500;
-  line-height: 70px;
-  word-wrap: break-word;
-  margin-bottom: -45px;
-}
-
-.equipo-text {
-  width: 714.09px;
-  height: 138.09px;
-  text-align: center;
-  color: #575757;
-  font-weight: 300;
-  font-size: 20px;
-  font-family: "Lato", sans-serif;
-  line-height: 26px;
-  letter-spacing: 1px;
-  word-wrap: break-word;
-}
-
-/* Container de las cards */
-.psico-container {
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-/* Card individual */
-.psico-card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 3rem;
-  max-width: 800px;
-  width: 100%;
-}
-
-/* Contenedor de textos */
-.psico-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.psico-title {
-  width: auto;
-  height: auto;
-  color: #575757;
-  font-size: 36px;
-  font-family: Literata;
-  font-weight: 500;
-  line-height: 38px;
-  word-wrap: break-word;
-}
-
-.psico-subtitle {
-  width: auto;
-  height: auto;
-  color: #575757;
-  font-size: 20px;
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-  line-height: 32px;
-  letter-spacing: 1px;
-  word-wrap: break-word;
-}
-.trazo-formacion {
-  margin: 2px auto 0;
-  display: block;
-  width: 100%; /* Ajustar al ancho del contenedor */
-  max-width: 100%;
-  height: auto;
-  opacity: 0;
-  transform: scaleX(0);
-  transform-origin: left center;
-  animation: pincelada 0.6s ease-out forwards;
-}
-@keyframes pincelada {
-  0% {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-}
-/* Responsive para equipo */
-@media (max-width: 767px) {
-  .equipo {
-    padding: 3rem 3rem;
-    gap: 2rem;
-  }
-  .equipo-title {
-    font-size: 45px;
-    line-height: 55px;
-  }
-  .equipo-text {
-    font-size: 18px;
-    line-height: 24px;
-  }
-  .psico-container {
-    gap: 4rem;
-  }
-  .psico-card {
-    gap: 2rem;
-  }
-  .psico-card img:not(.trazo-formacion) {
-    width: 220px;
-    height: 220px;
-  }
-  .psico-title {
-    font-size: 32px;
-  }
-  .psico-subtitle {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 767px) {
-  .equipo {
-    padding: 2rem 2rem;
-  }
-  .equipo-title {
-    font-size: 36px;
-    line-height: 45px;
-    width: 100%;
-  }
-  .equipo-text {
-    font-size: 16px;
-    line-height: 22px;
-    width: 100%;
-  }
-  .psico-container {
-    gap: 3rem;
-  }
-  .psico-card {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.5rem;
-  }
-  .psico-card img:not(.trazo-formacion) {
-    width: 200px;
-    height: 200px;
-  }
-  .psico-title {
-    font-size: 28px;
-    line-height: 34px;
-  }
-  .psico-subtitle {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .equipo {
-    padding: 2rem 1.5rem;
-  }
-  .equipo-title {
-    font-size: 30px;
-    line-height: 38px;
-  }
-  .equipo-text {
-    font-size: 14px;
-    line-height: 20px;
-  }
-  .psico-card img:not(.trazo-formacion) {
-    width: 180px;
-    height: 180px;
-  }
-  .psico-title {
-    font-size: 24px;
-    line-height: 30px;
-  }
-  .psico-subtitle {
-    font-size: 14px;
-  }
-}
-
-/* ---------- FORMACION PSICOLOGA ---------- */
-.psico-formacion-component {
-  width: 100%;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  padding: 0 8rem;
-  background: var(--color-fondo);
-  transition: max-height 0.6s ease, opacity 0.5s ease, padding 0.6s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: rem;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.psico-formacion-component.expanded {
-  max-height: 1000px;
-  opacity: 1;
-  padding: 0rem 4rem;
-  margin: 0rem auto;
-}
-
-.psico-img-clickable {
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 38% / 60%;
-}
-
-.psico-img-clickable:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0);
-}
-
-.psico-text-conteiner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8rem;
-  align-items: start;
-  width: 100%;
-}
-
-.psico-formacion-text-izquierda,
-.psico-formacion-text-derecha {
-  width: 100%;
-  max-width: 400px;
-  color: #575757;
-  font-size: 16px;
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-  line-height: 21px;
-  word-wrap: break-word;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.psico-formacion-text-izquierda {
-  justify-self: end;
-}
-
-.psico-formacion-text-derecha {
-  justify-self: start;
-}
-
-.trazo-inline {
-  width: 80px;
-  height: auto;
-  margin: 8px 0;
-  display: block;
-}
-
-.cv-button {
-  width: auto;
-  max-width: 200px;
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  margin-top: 1rem;
-}
-
-.cv-button:hover {
-  transform: scale(1.05);
-  filter: brightness(1.1);
-}
-
-/* Responsive */
-@media (max-width: 767px) {
-  .psico-formacion-component {
-    padding: 0 3rem;
-  }
-
-  .psico-formacion-component.expanded {
-    padding: 3rem 3rem;
-  }
-
-  .psico-text-conteiner {
-    gap: 4rem;
-  }
-
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    font-size: 15px;
-    line-height: 20px;
-    max-width: 350px;
-  }
-
-  .trazo-inline {
-    width: 60px;
-  }
-}
-
-@media (max-width: 767px) {
-  .psico-formacion-component {
-    padding: 0 2rem;
-  }
-
-  .psico-formacion-component.expanded {
-    padding: 2rem 2rem;
-    max-height: 1500px;
-  }
-
-  .psico-text-conteiner {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    justify-self: center;
-    max-width: 100%;
-  }
-
-  .trazo-inline {
-    width: 70px;
-    margin: 6px 0;
-  }
-
-  .cv-button {
-    max-width: 180px;
-  }
-}
-
-@media (max-width: 480px) {
-  .psico-formacion-component {
-    padding: 0 1.5rem;
-  }
-
-  .psico-formacion-component.expanded {
-    padding: 2rem 1.5rem;
-  }
-
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    font-size: 14px;
-    line-height: 19px;
-  }
-
-  .trazo-inline {
-    width: 50px;
-    margin: 5px 0;
-  }
-
-  .cv-button {
-    max-width: 150px;
-    margin-top: 40px;
-  }
-}
-.formaciones-a-profesionales {
-  width: 100vw;
-  height: 2795px;
-  background: #caacee;
-}
-
-.formaciones-text-conteiner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-  padding: 2rem 4rem;
-  margin: 0rem auto;
-}
 
 .formaciones-title {
   width: 535.88px;
@@ -4717,17 +4110,7 @@ body.menu-open {
   line-height: 61px;
   word-wrap: break-word;
 }
-.formaciones-text {
-  width: 509.03px;
-  height: 286.59px;
-  color: white;
-  font-size: 20px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 30px;
-  letter-spacing: 1px;
-  word-wrap: break-word;
-}
+
 .formaciones-email {
   color: white;
   font-size: 20px;
@@ -4738,98 +4121,12 @@ body.menu-open {
   letter-spacing: 1px;
   word-wrap: break-word;
 }
-.formaciones-image {
-  width: 853.07px;
-  height: 719px;
-}
+
 @media (max-width: 1093px) {
   .formaciones-image {
     width: 600px;
     height: 500px;
   }
-}
-.formaciones-cards-conteiner {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 8rem; /* Espacio horizontal entre columnas */
-  row-gap: 2rem; /* Espacio vertical entre filas */
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
-  justify-content: center;
-  align-items: center;
-}
-.formacion-card {
-  position: relative;
-  background: transparent;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* ✅ Quinta card centrada (ocupa 2 columnas) */
-.formacion-card:has(.card-centrada) {
-  grid-column: 1 / -1; /* Ocupa desde columna 1 hasta la última */
-  max-width: 600px; /* Ancho máximo igual a una card normal */
-  margin: 0 auto; /* Centrado horizontal */
-  justify-self: center; /* Centrado en el grid */
-}
-
-.card-image-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.card-solo {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-/* Overlay con gradiente para legibilidad */
-.card-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%; /* Ajusta el ancho */
-  max-width: 500px;
-  padding: 2rem;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-/* Título de la card */
-.card-title {
-  color: white;
-  font-size: 32px;
-  font-family: Literata;
-  font-weight: 600;
-  line-height: 35px;
-  word-wrap: break-word;
-  margin: 0;
-}
-
-/* Cuerpo de texto */
-.card-body {
-  color: white;
-  font-size: 16px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 21px;
-  word-wrap: break-word;
-  margin: 0;
-  max-width: 422px;
-}
-
-/* Hover effect */
-.formacion-card:hover {
-  transform: translateY(-5px);
 }
 
 /* Responsive */
@@ -5430,12 +4727,6 @@ body.menu-open {
     line-height: 28px;
   }
 
-  .pill-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 1200px;
-  }
-
   /* Equipo proporcional */
   .equipo-psicologas {
     padding: 4rem 8rem;
@@ -5454,17 +4745,6 @@ body.menu-open {
   /* Formaciones proporcional */
   .formaciones-a-profesionales {
     padding: 4rem 8rem;
-  }
-
-  .formaciones-text {
-    font-size: 20px;
-    line-height: 28px;
-  }
-
-  .formaciones-cards-conteiner {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 8rem;
-    row-gap: 2rem;
   }
 
   /* Como trabaja proporcional */
@@ -6582,11 +5862,6 @@ body.menu-open {
     margin-left: 5px;
   }
 
-  .formacion-card {
-    width: 112%;
-    min-height: 418px;
-  }
-
   .card-image-container {
     height: auto;
     min-height: 400px;
@@ -6996,7 +6271,18 @@ body.menu-open {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     animation: tapBounce 1.5s ease-in-out infinite;
   }
-
+  /* ✅ Animación táctil para móvil - indica que es tocable */
+  @keyframes tapPulse {
+    0%,
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(99, 140, 107, 0.4);
+    }
+    50% {
+      transform: scale(1.03);
+      box-shadow: 0 0 0 8px rgba(99, 140, 107, 0);
+    }
+  }
   .como-trabaja-card-title {
     font-size: 32px;
   }

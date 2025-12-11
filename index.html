@@ -127,14 +127,22 @@
     </header>
 
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-content">
-        <img src="./assets/hero_ilustracion.png" alt="Somos Mente y Cuerpo" />
-        <div class="hero-text1">Somos <br />mente<br />y cuerpo</div>
-        <div class="hero-text2">
-          Apoyo integral para pacientes, familias <br />
-          y profesionales <br />
-          de la salud mental.
+    <section class="hero" id="inicio">
+      <div class="hero-content-wrapper">
+        <div class="hero-image-block">
+          <img
+            class="hero-image"
+            src="./assets/hero_ilustracion.png"
+            alt="Somos Mente y Cuerpo"
+          />
+        </div>
+        <div class="hero-text-area">
+          <div class="hero-text1">Somos <br />mente<br />y cuerpo</div>
+          <div class="hero-text2">
+            Apoyo integral para pacientes, familias <br />
+            y profesionales <br />
+            de la salud mental.
+          </div>
         </div>
       </div>
     </section>
@@ -232,19 +240,20 @@
             data-target="sol-formacion"
           />
           <div class="psico-info">
-            <div
-              class="psico-title psico-title-clickable"
-              data-target="sol-formacion"
-            >
-              Lic. <br />Sol de Giuli
-              <span class="arrow-icon" data-target="sol-formacion"></span>
+            <div class="nombre-trazo-wrapper">
+              <div
+                class="psico-title psico-title-clickable"
+                data-target="sol-formacion"
+              >
+                Lic. <br />Sol de Giuli
+                <span class="arrow-icon" data-target="sol-formacion"></span>
+              </div>
+              <img
+                src="./assets/psico/trazo-formacion-psicologa.png"
+                alt="trazo"
+                class="trazo-formacion"
+              />
             </div>
-            <img
-              src="./assets/psico/trazo-formacion-psicologa.png"
-              alt="trazo"
-              class="trazo-formacion"
-              style="display: none"
-            />
             <div class="psico-subtitle">Directora del equipo</div>
           </div>
         </div>
@@ -346,20 +355,21 @@
             data-target="flor-formacion"
           />
           <div class="psico-info">
-            <div
-              class="psico-title psico-title-clickable"
-              data-target="flor-formacion"
-            >
-              Lic. <br />
-              Florencia Zara
-              <span class="arrow-icon" data-target="flor-formacion"></span>
+            <div class="nombre-trazo-wrapper">
+              <div
+                class="psico-title psico-title-clickable"
+                data-target="flor-formacion"
+              >
+                Lic. <br />
+                Florencia Zara
+                <span class="arrow-icon" data-target="flor-formacion"></span>
+              </div>
+              <img
+                src="./assets/psico/trazo-formacion-psicologa.png"
+                alt="trazo"
+                class="trazo-formacion"
+              />
             </div>
-            <img
-              src="./assets/psico/trazo-formacion-psicologa.png"
-              alt="trazo"
-              class="trazo-formacion"
-              style="display: none"
-            />
             <div class="psico-subtitle">Directora del equipo</div>
           </div>
         </div>
@@ -485,132 +495,86 @@
         />
       </div>
       <div class="formaciones-cards-conteiner">
-        <div class="formacion-card">
-          <div class="card-image-container">
-            <img
-              src="./assets/formaciones/webinar-card.png"
-              alt="formaciones-card1"
-              class="card-solo"
-            />
-            <div class="card-overlay">
-              <h3 class="card-title">
-                Webinar Abordaje Transdiagnóstico en los Trastornos de la
-                Conducta Alimentaria.
-              </h3>
-              <p class="card-body">
-                En esta formación podés aprender desde la evaluación integral de
-                los TCA, el trabajo con la motivación y la mirada
-                transdiagnóstica. Se desarrolla la Terapia Cognitivo Conductual
-                para TCA (CBT-E), la conceptualización de caso, el monitoreo
-                alimentario, el análisis en cadena y el trabajo con familiares.
-                Aborda temas cruciales como la sobrevaloración del peso, la
-                restricción dietética, trabajo con las conductas de chequeo y
-                evitación corporal, los atracones y la prevención de recaídas.
-              </p>
-            </div>
-          </div>
+        <div class="formacion-card card-style-1">
+          <h3 class="card-title">
+            Webinar Abordaje Transdiagnóstico en los Trastornos de la Conducta
+            Alimentaria.
+          </h3>
+          <p class="card-body">
+            En esta formación podés aprender desde la evaluación integral de los
+            TCA, el trabajo con la motivación y la mirada transdiagnóstica. Se
+            desarrolla la Terapia Cognitivo Conductual para TCA (CBT-E), la
+            conceptualización de caso, el monitoreo alimentario, el análisis en
+            cadena y el trabajo con familiares. Aborda temas cruciales como la
+            sobrevaloración del peso, la restricción dietética, trabajo con las
+            conductas de chequeo y evitación corporal, los atracones y la
+            prevención de recaídas.
+          </p>
         </div>
         <div class="formacion-card">
-          <div class="card-image-container">
-            <img
-              src="./assets/formaciones/formacion-dbt-card.png"
-              alt="formaciones-card2"
-              class="card-solo"
-            />
-            <div class="card-overlay">
-              <h3 class="card-title">Formación DBT Y TCA</h3>
-              <p class="card-body">
-                Formación en Terapia Dialéctico Conductual (DBT) aplicada
-                específicamente a los Trastornos de la Conducta Alimentaria
-                (TCA). Permite entender la teoría biosocial y la desregulación
-                emocional en consultantes con descontrol alimentario. Aprenderán
-                a utilizar registros, el análisis en cadena, estrategias
-                dialécticas, estilísticas, de resolución de problemas y manejo
-                de contingencias para el cese de atracones y conductas
-                compensatorias. Además, incluye el trabajo con mindful eating,
-                autocompasión, habilidades DBT específicas para TCA y la
-                orientación a familiares desde la DBT y el Modelo Maudsley.
-              </p>
-            </div>
-          </div>
+          <h3 class="card-title">Formación DBT Y TCA</h3>
+          <p class="card-body">
+            Formación en Terapia Dialéctico Conductual (DBT) aplicada
+            específicamente a los Trastornos de la Conducta Alimentaria (TCA).
+            Permite entender la teoría biosocial y la desregulación emocional en
+            consultantes con descontrol alimentario. Aprenderán a utilizar
+            registros, el análisis en cadena, estrategias dialécticas,
+            estilísticas, de resolución de problemas y manejo de contingencias
+            para el cese de atracones y conductas compensatorias. Además,
+            incluye el trabajo con mindful eating, autocompasión, habilidades
+            DBT específicas para TCA y la orientación a familiares desde la DBT
+            y el Modelo Maudsley.
+          </p>
         </div>
         <div class="formacion-card">
-          <div class="card-image-container">
-            <img
-              src="./assets/formaciones/formacion-rodbt-card.png"
-              alt="formaciones-card3"
-              class="card-solo"
-            />
-            <div class="card-overlay">
-              <h3 class="card-title">
-                Formación en RO-DBT para la Práctica Clínica:
-              </h3>
-              <p class="card-body">
-                Formación que capacita en la teoría y práctica clínica de la
-                Terapia Dialéctico Conductual Radicalmente Abierta (RO-DBT),
-                enfocada en consultantes que presentan perfeccionismo, ansiedad
-                social, TOC, TCA y problemas de sobrecontrol emocional. El
-                programa explora la evaluación del sobrecontrol y el modelo
-                biotemperamental. Se profundiza en la señalización social y la
-                apertura radical, incluyendo la autoindagación y las
-                exposiciones específicas para este tipo de consultante. También
-                se cubren la estructura del tratamiento, el manejo de crisis,
-                las conductas autolesivas el modelo neurorregulador de las
-                emociones y el entrenamiento en habilidades RO-DBT para
-                incrementar la flexibilidad y mejorar la conectividad social.
-              </p>
-            </div>
-          </div>
+          <h3 class="card-title">
+            Formación en RO-DBT para la Práctica Clínica:
+          </h3>
+          <p class="card-body">
+            Formación que capacita en la teoría y práctica clínica de la Terapia
+            Dialéctico Conductual Radicalmente Abierta (RO-DBT), enfocada en
+            consultantes que presentan perfeccionismo, ansiedad social, TOC, TCA
+            y problemas de sobrecontrol emocional. El programa explora la
+            evaluación del sobrecontrol y el modelo biotemperamental. Se
+            profundiza en la señalización social y la apertura radical,
+            incluyendo la autoindagación y las exposiciones específicas para
+            este tipo de consultante. También se cubren la estructura del
+            tratamiento, el manejo de crisis, las conductas autolesivas el
+            modelo neurorregulador de las emociones y el entrenamiento en
+            habilidades RO-DBT para incrementar la flexibilidad y mejorar la
+            conectividad social.
+          </p>
         </div>
         <div class="formacion-card">
-          <div class="card-image-container">
-            <img
-              src="./assets/formaciones/tca-card.png"
-              alt="formaciones-card3"
-              class="card-solo"
-            />
-            <div class="card-overlay">
-              <h3 class="card-title">Formación RO DBT para TCA:</h3>
-              <p class="card-body">
-                Aplicación del protocolo RO-DBT a los Trastornos de la Conducta
-                Alimentaria (TCA), con un enfoque particular en la Anorexia
-                Nerviosa. Ofrece las bases teóricas y la evidencia científica
-                que respaldan el uso de RO-DBT en estos casos. Se detalla cómo
-                el bio temperamento sobrecontrolado se relaciona con los TCA y
-                se trabaja con variables disposicionales específicas, como la
-                inhibición emocional, la evitación conductual, la conducta
-                rígida, la rumiación y el perfeccionismo desadaptativo. Los
-                participantes aprenderán la jerarquía de objetivos y las
-                habilidades RO-DBT para abordar las complejidades en los
-                trastornos de la conducta alimentaria.
-              </p>
-            </div>
-          </div>
+          <h3 class="card-title">Formación RO DBT para TCA:</h3>
+          <p class="card-body">
+            Aplicación del protocolo RO-DBT a los Trastornos de la Conducta
+            Alimentaria (TCA), con un enfoque particular en la Anorexia
+            Nerviosa. Ofrece las bases teóricas y la evidencia científica que
+            respaldan el uso de RO-DBT en estos casos. Se detalla cómo el bio
+            temperamento sobrecontrolado se relaciona con los TCA y se trabaja
+            con variables disposicionales específicas, como la inhibición
+            emocional, la evitación conductual, la conducta rígida, la rumiación
+            y el perfeccionismo desadaptativo. Los participantes aprenderán la
+            jerarquía de objetivos y las habilidades RO-DBT para abordar las
+            complejidades en los trastornos de la conducta alimentaria.
+          </p>
         </div>
         <div class="formacion-card">
-          <div class="card-image-container">
-            <img
-              src="./assets/formaciones/formacion-rodbt-card.png"
-              alt="formaciones-card3"
-              class="card-solo card-centrada"
-            />
-            <div class="card-overlay">
-              <h3 class="card-title">
-                Especialización Transdiagnóstica en Trastornos de la conducta
-                alimentaria:
-              </h3>
-              <p class="card-body">
-                Enfoque clínico-práctico. Integra los modelos de mayor respaldo
-                científico: CBT-E, DBT, RO-DBT, ACT, FBT y herramientas
-                transdiagnósticas, junto con formación en tratamientos
-                psiquiátricos, nutricionales y abordajes centrados en imagen
-                corporal, trauma, neurodivergencias y problemáticas asociadas
-                como TOC o dismorfia corporal. Con clases sincrónicas y
-                asincrónicas, espacios de dudas, supervisión de casos y la
-                posibilidad de rotaciones clínicas.
-              </p>
-            </div>
-          </div>
+          <h3 class="card-title">
+            Especialización Transdiagnóstica en Trastornos de la conducta
+            alimentaria:
+          </h3>
+          <p class="card-body">
+            Enfoque clínico-práctico. Integra los modelos de mayor respaldo
+            científico: CBT-E, DBT, RO-DBT, ACT, FBT y herramientas
+            transdiagnósticas, junto con formación en tratamientos
+            psiquiátricos, nutricionales y abordajes centrados en imagen
+            corporal, trauma, neurodivergencias y problemáticas asociadas como
+            TOC o dismorfia corporal. Con clases sincrónicas y asincrónicas,
+            espacios de dudas, supervisión de casos y la posibilidad de
+            rotaciones clínicas.
+          </p>
         </div>
       </div>
     </section>
@@ -876,142 +840,78 @@
       if (pillContainer) {
         observer.observe(pillContainer);
       }
-      // ========== ACORDEÓN FORMACIÓN PSICÓLOGA ==========
-      const psicoImgClickable = document.querySelectorAll(
-        ".psico-img-clickable"
-      );
+      /* ========== FUNCIÓN UNIFICADA PARA EL ACORDEÓN ========== */
+      // Esta función maneja toda la lógica: abre el panel, rota la flecha y anima el trazo.
+      function toggleAccordion(targetId, triggerElement) {
+        const formacionSection = document.getElementById(targetId);
 
-      psicoImgClickable.forEach((img) => {
-        img.addEventListener("click", () => {
-          const targetId = img.getAttribute("data-target");
-          const formacionSection = document.getElementById(targetId);
-          const trazo = img.parentElement.querySelector(".trazo-formacion");
+        // Encontrar elementos relacionados basándonos en el trigger (botón/foto clickeada)
+        // Buscamos el contenedor padre .psico-card para encontrar la flecha y el trazo correctos
+        const card = triggerElement.closest(".psico-card");
+        const arrow = card ? card.querySelector(".arrow-icon") : null;
+        const trazo = card ? card.querySelector(".trazo-formacion") : null;
 
-          // Buscar la flechita correspondiente
-          const arrow = img.parentElement.querySelector(".arrow-icon");
+        if (formacionSection) {
+          // 1. Alternar clase del acordeón (abrir/cerrar)
+          formacionSection.classList.toggle("expanded");
 
-          if (formacionSection) {
-            formacionSection.classList.toggle("expanded");
-
-            // Rotar la flechita también cuando se toca la foto
-            if (arrow) {
-              arrow.classList.toggle("rotated");
-            }
-
-            // Mostrar/ocultar el trazo
-            if (formacionSection.classList.contains("expanded")) {
-              if (trazo) {
-                trazo.style.display = "block";
-                // Reiniciar la animación
-                trazo.style.animation = "none";
-                setTimeout(() => {
-                  trazo.style.animation = "pincelada 0.6s ease-out forwards";
-                }, 10);
-              }
-              // Scroll suave hacia la sección expandida
-              setTimeout(() => {
-                formacionSection.scrollIntoView({
-                  behavior: "smooth",
-                  block: "nearest",
-                });
-              }, 300);
-            } else {
-              if (trazo) {
-                trazo.style.display = "none";
-              }
-            }
-          }
-        });
-      });
-      // ========== TÍTULOS CLICKEABLES CON FLECHITA ==========
-      const psicoTitleClickable = document.querySelectorAll(
-        ".psico-title-clickable"
-      );
-
-      psicoTitleClickable.forEach((title) => {
-        title.addEventListener("click", () => {
-          const targetId = title.getAttribute("data-target");
-          const formacionSection = document.getElementById(targetId);
-          const trazo =
-            title.parentElement.parentElement.querySelector(".trazo-formacion");
-          const arrow = title.querySelector(".arrow-icon");
-
-          if (formacionSection) {
-            formacionSection.classList.toggle("expanded");
-
-            // Rotar la flecha
-            if (arrow) {
-              arrow.classList.toggle("rotated");
-            }
-
-            // Mostrar/ocultar el trazo
-            if (formacionSection.classList.contains("expanded")) {
-              if (trazo) {
-                trazo.style.display = "block";
-                // Reiniciar la animación
-                trazo.style.animation = "none";
-                setTimeout(() => {
-                  trazo.style.animation = "pincelada 0.6s ease-out forwards";
-                }, 10);
-              }
-              // Scroll suave hacia la sección expandida
-              setTimeout(() => {
-                formacionSection.scrollIntoView({
-                  behavior: "smooth",
-                  block: "nearest",
-                });
-              }, 300);
-            } else {
-              if (trazo) {
-                trazo.style.display = "none";
-              }
-            }
-          }
-        });
-      });
-
-      // ========== FLECHITAS TAMBIÉN CLICKEABLES ==========
-      const arrowIcons = document.querySelectorAll(".arrow-icon");
-
-      arrowIcons.forEach((arrow) => {
-        arrow.addEventListener("click", (e) => {
-          e.stopPropagation(); // Evitar doble trigger con el título
-          const targetId = arrow.getAttribute("data-target");
-          const formacionSection = document.getElementById(targetId);
-          const trazo =
-            arrow.parentElement.parentElement.parentElement.querySelector(
-              ".trazo-formacion"
-            );
-
-          if (formacionSection) {
-            formacionSection.classList.toggle("expanded");
-
-            // Rotar la flecha
+          // 2. Rotar la flecha
+          if (arrow) {
             arrow.classList.toggle("rotated");
+          }
 
-            // Mostrar/ocultar el trazo
+          // 3. ANIMACIÓN DEL TRAZO (Lógica corregida)
+          if (trazo) {
             if (formacionSection.classList.contains("expanded")) {
-              if (trazo) {
-                trazo.style.display = "block";
-                // Reiniciar la animación
-                trazo.style.animation = "none";
-                setTimeout(() => {
-                  trazo.style.animation = "pincelada 0.6s ease-out forwards";
-                }, 10);
-              }
-              // Scroll suave hacia la sección expandida
+              // SI SE ABRE: Agregamos la clase .visible para que el CSS dispare la transición
+              // Usamos un pequeño timeout para asegurar que el navegador registre el cambio si estaba oculto
               setTimeout(() => {
-                formacionSection.scrollIntoView({
-                  behavior: "smooth",
-                  block: "nearest",
-                });
-              }, 300);
+                trazo.classList.add("visible");
+              }, 50);
             } else {
-              if (trazo) {
-                trazo.style.display = "none";
-              }
+              // SI SE CIERRA: Quitamos la clase inmediatamente
+              trazo.classList.remove("visible");
             }
           }
+
+          // 4. Scroll suave si se abre
+          if (formacionSection.classList.contains("expanded")) {
+            setTimeout(() => {
+              formacionSection.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+              });
+            }, 300);
+          }
+        }
+      }
+
+      /* ========== EVENT LISTENERS (CLICK) ========== */
+
+      // 1. Click en la IMAGEN (Foto)
+      document.querySelectorAll(".psico-img-clickable").forEach((img) => {
+        img.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const targetId = img.getAttribute("data-target");
+          toggleAccordion(targetId, img);
+        });
+      });
+
+      // 2. Click en el TÍTULO (Nombre)
+      document.querySelectorAll(".psico-title-clickable").forEach((title) => {
+        title.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const targetId = title.getAttribute("data-target");
+          toggleAccordion(targetId, title);
+        });
+      });
+
+      // 3. Click en la FLECHA
+      document.querySelectorAll(".arrow-icon").forEach((arrow) => {
+        arrow.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const targetId = arrow.getAttribute("data-target");
+          toggleAccordion(targetId, arrow);
         });
       });
       // ========== SCROLL SUAVE NAVBAR ==========
