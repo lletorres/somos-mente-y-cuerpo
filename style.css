@@ -653,12 +653,12 @@ section[id] {
 
 .arrow-icon {
   display: block; /* Antes inline-block */
-  width: 15px; /* Un poquito más grande para que sea fácil de clickear */
-  height: 15px;
+  width: 25px; /* Un poquito más grande para que sea fácil de clickear */
+  height: 25px;
 
   /* Dibujo de la flecha */
-  border-right: 3px solid var(--color-rosa);
-  border-bottom: 3px solid var(--color-rosa);
+  border-right: 5px solid var(--color-rosa);
+  border-bottom: 5px solid var(--color-rosa);
 
   /* Rotación inicial (apuntando abajo) */
   transform: rotate(45deg);
@@ -676,11 +676,11 @@ section[id] {
 /* NUEVA CLASE PARA UBICACIÓN Y CENTRADO */
 .psico-arrow-centered {
   /* Separación del subtítulo */
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
 
   /* MAGIA FLEXBOX: */
   /* Como el padre (.psico-info) es una columna flex, esto centra al hijo horizontalmente */
-  align-self: center;
+  align-self: flex-start;
 }
 
 .psico-subtitle {
@@ -1031,6 +1031,13 @@ section[id] {
   justify-content: center;
   align-items: center;
 }
+/* Alinear la 5ta tarjeta al centro en Desktop */
+.formaciones-cards-conteiner .formacion-card:nth-child(5) {
+  grid-column: 1 / -1; /* Le dice: "Empieza en la columna 1 y termina en la última" */
+  justify-self: center; /* La centra horizontalmente en ese espacio nuevo */
+  width: 100%;
+  max-width: 600px; /* Opcional: Limita el ancho para que no se vea gigante */
+}
 .formacion-card {
   /* Quitamos posición relativa y overflow:hidden si no se usan */
   background: var(--color-card-fondo); /* Aplica el color de fondo púrpura */
@@ -1043,6 +1050,7 @@ section[id] {
   /* Ajuste Flexbox para mejor control del contenido */
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1.5rem; /* Espacio entre título y cuerpo de texto */
   box-sizing: border-box; /* Asegura que padding no aumente el tamaño total */
   width: 100%;
@@ -1464,7 +1472,7 @@ section[id] {
 /* Contenedor que limita el ancho del contenido */
 .footer-content {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1600px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1475,44 +1483,74 @@ section[id] {
 /* Bloque: Imagen + Botón */
 .footer-main-block {
   display: flex;
-  flex-direction: column; /* Apilados verticalmente por defecto */
+  flex-direction: row; /* Lado a lado */
   align-items: center;
-  gap: 0; /* Sin espacio extra, o ajusta según necesites */
   width: 100%;
+
+  /* --- LA SOLUCIÓN --- */
+
+  /* 1. Permite que bajen si no entran */
+  flex-wrap: wrap;
+
+  /* 2. Centra los elementos si bajan o si sobran márgenes */
+  justify-content: center;
+
+  /* 3. Espacio de seguridad (para que no se peguen si bajan) */
+  gap: 2rem;
 }
 
 /* IMAGEN PRINCIPAL */
 .footer-image {
-  /* Ancho fluido */
+  /* ANTES: flex: 1 1 auto;  <-- Esto causaba el error */
+
+  /* AHORA: El '0' fuerza a ignorar el tamaño original para el cálculo de espacio */
+  flex: 1 1 0;
+
+  /* Agregamos esto para asegurar que la imagen se comporte bien */
   width: 100%;
-  max-width: 900px; /* Tamaño máximo en escritorio */
+  min-width: 300px; /* Mantenemos tu seguridad para que no desaparezca */
+
+  max-width: 1200px;
   height: auto;
-
-  /* TRUCO: Si quieres que la imagen "suba" y se salga del fondo violeta hacia arriba */
-  margin-top: -150px; /* Ajusta este valor para subirla más o menos */
-
-  /* Animación de entrada */
+  margin-top: -185px;
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1s ease-out, transform 1s ease-out;
+  object-fit: contain; /* Asegura que la imagen no se deforme */
+
+  z-index: 1;
 }
 
-/* BOTÓN (Imagen dentro del link) */
+/* BOTÓN (El enlace contenedor) */
 .footer-cta-link {
-  display: inline-block;
+  display: block;
+
+  /* ANTES: width: 100%; */
+
+  /* AHORA: */
+  width: auto; /* Solo lo que mide la imagen del botón */
+  flex: 0 0 auto; /* No crezcas, no te encojas */
+
+  max-width: 350px;
+  min-width: 250px; /* Un poco más chico el mínimo para que aguante más tiempo al lado */
+
+  margin-top: -20px;
   transition: transform 0.3s ease;
-  margin-top: -20px; /* Para pegarlo un poco a la imagen de arriba si hace falta */
+  position: relative;
+  z-index: 2; /* Por encima de la imagen grande */
 }
 
 .footer-cta-link:hover {
-  transform: scale(1.05); /* Efecto hover */
+  transform: scale(1.05);
 }
 
+/* LA IMAGEN (Relleno) */
 .footer-button-img {
-  width: 100%;
-  max-width: 350px; /* Tamaño máximo del botón */
+  width: 75%; /* Llena el 100% del contenedor padre (el enlace) */
   height: auto;
-  display: block;
+  display: block; /* Elimina espacio fantasma debajo de imágenes */
+
+  /* Quitamos el max-width de aquí, porque ya lo controla el padre */
 }
 
 /* REDES SOCIALES */
@@ -1521,13 +1559,20 @@ section[id] {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .rrss-image {
   width: 100%;
-  max-width: 300px; /* Tamaño controlado */
+  max-width: 45px; /* Tamaño controlado */
   height: auto;
   cursor: pointer; /* Indica que es interactivo */
+}
+.rrss-text {
+  font-family: "Lato", sans-serif;
+  font-size: 35px;
+  color: white;
 }
 
 /* --- ESTADO ANIMADO (JS) --- */
@@ -1584,6 +1629,11 @@ body.menu-open {
 /* --------------------------------------------------------------------------
    1. TABLET Y LAPTOPS PEQUEÑAS (De 769px a 1024px)
    -------------------------------------------------------------------------- */
+@media (max-width: 1727px) {
+  .footer-main-block {
+    width: 82%;
+  }
+}
 @media (max-width: 1024px) {
   /* HERO: Ajustes para pantallas medianas */
   .hero {
@@ -1625,11 +1675,104 @@ body.menu-open {
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
   }
-
   /* FOOTER */
+  .footer-main-block {
+    flex-direction: column; /* ¡CLAVE! Los apila verticalmente */
+    gap: 2rem; /* Espacio entre imagen y botón */
+  }
+
+  .footer-cta-link {
+    margin-top: 0; /* Reseteamos márgenes negativos */
+    max-width: 300px; /* Tamaño ideal */
+    width: 100%;
+  }
+
   .footer-image {
-    margin-top: -80px;
-    max-width: 600px;
+    max-width: 100%; /* Que ocupe lo que pueda */
+    margin-top: -50px; /* Un overlap suave si quieres */
+  }
+  /* ===== NAVBAR & MENÚ HAMBURGUESA (Movido aquí para Tablets) ===== */
+  .navbar {
+    padding: 1rem 1.5rem;
+    height: 80px;
+  }
+
+  .logo img {
+    width: 70px; /* Ajuste intermedio */
+    height: 70px;
+  }
+
+  /* Mostrar botón hamburguesa */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Ocultar indicador de sección desktop */
+  /* INDICADOR DE SECCIÓN (Visible en Tablet y Móvil) */
+  .section-indicator {
+    /* 1. Lo hacemos visible */
+    display: block;
+
+    /* 2. Lo centramos absolutamente en el navbar */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* 3. Estilos de tipografía */
+    font-family: "Lato", sans-serif;
+    font-size: 16px; /* Tamaño discreto */
+    font-weight: 700;
+    color: #949494; /* Color gris de tu menú */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    /* 4. Evitamos que moleste a los clicks */
+    pointer-events: none;
+
+    /* 5. Transición suave para cuando cambia el texto (JS) */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  /* Estado cuando cambia el texto (Animación JS) */
+  .section-indicator.changing {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-5px);
+  }
+
+  /* Transformar menú horizontal a Panel Lateral */
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 75%; /* Ancho del menú lateral */
+    max-width: 300px;
+    background: #fcfaf5;
+
+    flex-direction: column; /* Apilar links */
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    padding: 2rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+
+    /* Animación de entrada */
+    transform: translateX(100%); /* Escondido */
+    transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
+    z-index: 999;
+  }
+
+  /* Estado Activo */
+  .menu.active {
+    transform: translateX(0);
+  }
+
+  /* Resetear estilos de links para el menú móvil */
+  .menu .link {
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -1638,49 +1781,6 @@ body.menu-open {
      Aquí ocurre la magia del "Stacking" (todo a 1 columna)
      -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
-  /* ===== NAVBAR & MENÚ HAMBURGUESA ===== */
-  .navbar {
-    padding: 1rem 1.5rem;
-    height: 80px;
-  }
-
-  .logo img {
-    width: 60px; /* Logo más chico */
-    height: 60px;
-  }
-
-  /* Menú lateral deslizable */
-  .menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 80%;
-    max-width: 300px;
-    background: #fcfaf5;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    transform: translateX(100%); /* Oculto */
-    transition: transform 0.4s ease;
-    z-index: 999;
-  }
-
-  .menu.active {
-    transform: translateX(0); /* Visible */
-  }
-
-  .hamburger {
-    display: flex; /* Hacemos visible el botón */
-  }
-
-  /* Ocultar indicador de sección si molesta */
-  .section-indicator {
-    display: none;
-  }
-
   /* ===== HERO (Pila vertical) ===== */
   .hero {
     min-height: auto;
@@ -1799,6 +1899,9 @@ body.menu-open {
     margin: 0 auto;
     align-items: center;
   }
+  .psico-arrow-centered {
+    align-self: center;
+  }
 
   /* Acordeón */
   .psico-text-conteiner {
@@ -1825,8 +1928,9 @@ body.menu-open {
     padding: 0;
   }
   .formacion-card {
-    border-radius: 40px;
+    border-radius: 109px;
     padding: 2rem;
+    min-height: 370px;
   }
 
   /* Arreglar la 5ta card */
@@ -1856,14 +1960,74 @@ body.menu-open {
     margin-top: 0;
     padding-top: 4rem;
   }
+
+  .footer-main-block {
+    /* IMPORTANTE: Aseguramos columna también aquí */
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+  }
+
   .footer-image {
-    margin-top: 0;
+    margin-top: 0; /* Sin overlap en móvil para no tapar nada */
     max-width: 100%;
+    height: auto;
+  }
+  .footer-social-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 0.8rem; /* Un poco más junto en móvil */
+  }
+  .footer-cta-link {
+    /* Le damos un tamaño sólido para que NO desaparezca */
+    display: block;
+    width: 100%;
+    max-width: 280px; /* Tamaño botón móvil */
+    margin-top: 0; /* Limpio */
+    position: relative; /* Seguridad */
+  }
+
+  .footer-button-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .rrss-image {
+    display: block;
+    margin: 0; /* Quitamos el auto margin porque ahora usa flex/gap */
+
+    /* CORRECCIÓN IMPORTANTE: */
+    /* Antes tenías 250px aquí, que es gigante. Lo bajamos a tamaño ícono */
+    width: 30px;
+    max-width: 30px;
+    height: auto;
+  }
+  .rrss-text {
+    /* Ajustamos el tamaño del texto para móvil */
+    font-size: 18px;
+    color: white;
+  }
+}
+@media (max-width: 581px) {
+  .formacion-card {
+    min-height: 390px;
   }
 }
 @media (max-width: 491px) {
   .pill-text {
     font-size: 13px;
+  }
+  .formacion-card {
+    min-height: 415px;
+  }
+}
+@media (max-width: 478px) {
+  .formacion-card {
+    min-height: 415px;
   }
 }
 @media (max-width: 404px) {
