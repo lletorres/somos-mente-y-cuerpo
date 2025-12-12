@@ -277,33 +277,38 @@ section[id] {
 
   /* Tus estilos de fuente originales */
   font-family: "Literata", serif;
+  font-size: 50px;
+  font-weight: 500;
   color: #f79db9;
 }
 
-/* Estilos específicos Texto 1 */
+/* 1. TEXTO PRINCIPAL (Hacerlo gigante) */
 .hero-text1 {
-  font-size: clamp(24px, 3vw, 32px); /* Fuente responsive fluida */
-  font-weight: 500;
-  /* Tu animación original */
+  /* ANTES: clamp(24px, 3vw, 32px);  <-- Esto era muy chico */
+
+  /* AHORA: Un rango mucho más grande y llamativo */
+  font-size: clamp(45px, 8vw, 85px);
+
+  /* Ajustes para que se vea bien en tamaño grande */
+  line-height: 1.1; /* Interlineado más apretado para títulos grandes */
+  font-weight: 500; /* Más negrita para destacar */
+
+  /* Tu animación (se mantiene igual) */
   animation: fade-in-out 3s ease-in-out forwards;
 }
 
-/* Estilos específicos Texto 2 */
-.hero-text2 h2 {
-  font-size: clamp(36px, 5vw, 55px); /* Fuente responsive fluida */
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-.hero-text2 h3 {
-  font-family: "Lato", sans-serif;
-  font-size: clamp(18px, 2vw, 24px); /* Fuente responsive fluida */
-  color: #949494;
-  font-weight: 400;
-}
+/* 2. TEXTO SECUNDARIO (Hacerlo mediano) */
+/* NOTA: En tu HTML actual, el texto está suelto dentro del div, 
+   ya no dentro de <h2> o <h3>, así que aplicamos el estilo directo a la clase. */
 
 .hero-text2 {
-  /* Tu animación original */
+  /* Tamaño de subtítulo legible pero menor al título */
+  font-size: clamp(22px, 4vw, 50px);
+
+  line-height: 60px; /* Interlineado normal para lectura */
+  font-weight: 500; /* Letra normal */
+
+  /* Tu animación (se mantiene igual) */
   animation: fade-in 1s ease-in-out 3s forwards;
 }
 
@@ -343,237 +348,6 @@ section[id] {
   /* .hero-content-wrapper { flex-direction: column-reverse; } */
 }
 
-@media (max-width: 1400px) {
-  .navbar {
-    padding: 1.5rem 3rem;
-  }
-  .menu {
-    gap: 2.5rem;
-    font-size: 20px;
-  }
-  .hero {
-    min-height: 750px; /* ✅ Altura para pantallas medianas */
-    gap: 1rem;
-    padding: 1rem 4rem;
-  }
-  .hero img {
-    width: 670px; /* ✅ Más grande */
-    height: 718px; /* ✅ Más alto */
-    bottom: px; /* ✅ Se superpone a la franja verde */
-    z-index: 30;
-  }
-  .hero-text1 {
-    right: 4rem;
-    width: auto;
-    font-size: 65px;
-    line-height: 62px;
-    max-width: 450px;
-  }
-  .hero-text2 {
-    width: auto;
-    font-size: 40px;
-    line-height: 48px;
-    max-width: 500px;
-    right: 4rem;
-  }
-}
-
-@media (max-width: 767px) {
-  .navbar {
-    padding: 1.2rem 2rem;
-  }
-  .logo img {
-    width: 120px;
-    height: 120px;
-  }
-  .menu {
-    gap: 2rem;
-    font-size: 18px;
-  }
-  .hero {
-    min-height: 550px; /* ✅ Altura para tablets */
-    gap: 0.5rem;
-    padding: 1rem 3rem;
-  }
-  .hero img {
-    width: 400px;
-    height: auto;
-  }
-  .hero-text1 {
-    right: 3rem;
-    font-size: 55px;
-    line-height: 52px;
-    max-width: 350px;
-  }
-  .hero-text2 {
-    font-size: 35px;
-    line-height: 42px;
-    max-width: 400px;
-  }
-}
-
-@media (max-width: 767px) {
-  .navbar {
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 1rem;
-  }
-  .menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    font-size: 16px;
-  }
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 1rem 1.5rem;
-    gap: 0;
-    position: relative;
-    min-height: 600px; /* Altura mínima para contener los textos */
-  }
-  .hero img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin-bottom: 1rem;
-  }
-  .hero-text1 {
-    position: absolute;
-    bottom: 15px; /* Posición fija desde abajo */
-    left: 50%;
-    transform: translateX(-50%);
-    right: auto;
-    width: 90%;
-    height: auto;
-    font-size: 40px;
-    line-height: 38px;
-    max-width: 100%;
-  }
-  .hero-text2 {
-    position: absolute;
-    bottom: 20px;
-    left: 5%;
-    transform: translateX(-50%);
-    width: 90%;
-    height: auto;
-    font-size: 28px;
-    line-height: 34px;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  #servicios {
-    scroll-margin-top: 60px;
-  }
-  #formaciones {
-    scroll-margin-top: 50px;
-  }
-  #como-trabaja {
-    scroll-margin-top: 60px;
-  }
-  .como-trabaja {
-    gap: 1rem;
-  }
-
-  .logo img {
-    width: 100px;
-    height: 100px;
-  }
-  .menu {
-    font-size: 14px;
-    gap: 1rem;
-  }
-  .hero {
-    padding: 0.5rem 1rem;
-    /* ✅ min-height removido */
-  }
-
-  .hero-text1 {
-    bottom: 15px;
-    font-size: 32px;
-    line-height: 32px;
-    width: 95%;
-  }
-  .hero-text2 {
-    bottom: 15px;
-    font-size: 24px;
-    line-height: 28px;
-    width: 95%;
-  }
-}
-@media (max-width: 767px) {
-  .navbar {
-    padding: 1.2rem 2rem;
-  }
-  .logo img {
-    width: 120px;
-    height: 120px;
-  }
-  .menu {
-    gap: 2rem;
-    font-size: 18px;
-  }
-  .hero {
-    gap: 3rem;
-    padding: 2rem 3rem;
-  }
-  .hero img {
-    width: 400px;
-    height: auto;
-  }
-  .hero-text {
-    font-size: 31px;
-    line-height: 42px;
-    max-width: 400px;
-  }
-}
-
-@media (max-width: 767px) {
-  .navbar {
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 1rem;
-  }
-  .menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    font-size: 16px;
-  }
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 2rem 1.5rem;
-    gap: 2rem;
-    margin-top: -125px;
-  }
-
-  .hero-text {
-    width: 100%;
-    height: auto;
-    font-size: 32px;
-    line-height: 38px;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo img {
-    width: 100px;
-    height: 100px;
-  }
-  .menu {
-    font-size: 14px;
-    gap: 1rem;
-  }
-
-  .hero-text {
-    font-size: 26px;
-    line-height: 32px;
-  }
-}
 /* ---------- SERVICIOS (Limpio y Responsive) ---------- */
 
 .servicios {
@@ -856,11 +630,11 @@ section[id] {
 }
 
 /* Ajuste opcional para el trazo en móvil si es necesario */
-.trazo-formacion {
-  /* En flex 'align-items: center' ya lo centra, 
+/* .trazo-formacion { */
+/* En flex 'align-items: center' ya lo centra, 
         pero si quieres asegurar, puedes poner margin auto aquí */
-  /* margin: 5px auto 0; */
-}
+/* margin: 5px auto 0; */
+/* } */
 
 .psico-title {
   font-family: "Literata", serif;
@@ -1155,31 +929,69 @@ section[id] {
   object-fit: contain;
 }
 .formaciones-a-profesionales {
-  width: 100vw;
-  height: 2520px;
+  /* 1. ANCHO: Usamos 100% para evitar scroll horizontal raro */
+  width: 100%;
+
+  /* 2. ALTURA: Automática. Si agregas 100 tarjetas, el fondo crecerá solo. */
+  height: auto;
+
+  /* 3. COLOR: Tu violeta original */
   background: #caacee;
+
+  /* 4. ESPACIADO: Le damos aire arriba y abajo para que no se pegue al borde */
+  padding: 3rem 0;
+
+  /* 5. LAYOUT: Aseguramos que el contenido interno se centre */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem; /* Espacio entre la intro (texto/imagen) y las tarjetas */
+
+  /* Para que el padding no sume al ancho total */
+  box-sizing: border-box;
 }
+/* CORRECCIONES EN TÍTULOS Y TEXTOS DE FORMACIONES */
 
 .formaciones-title {
-  width: 535.88px;
-  height: 166px;
+  /* BORRAR: width: 535.88px; height: 166px; */
+  width: 100%;
+  max-width: 800px; /* Límite de lectura */
+  height: auto; /* Deja que el texto decida la altura */
+
+  /* Tus estilos de fuente se mantienen */
   color: white;
-  font-size: 55px;
   font-family: Literata;
   font-weight: 600;
-  line-height: 61px;
-  word-wrap: break-word;
+  font-size: clamp(32px, 5vw, 55px); /* Responsive */
+  line-height: 1.2;
+  text-align: left; /* O center, según prefieras */
+  margin-bottom: 1rem;
 }
+
 .formaciones-text {
-  width: 509.03px;
-  height: 286.59px;
+  /* BORRAR: width: 509.03px; height: 286.59px; */
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+
+  /* Tus estilos */
   color: white;
-  font-size: 20px;
   font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 30px;
+  font-size: 20px;
+  line-height: 1.5;
   letter-spacing: 1px;
-  word-wrap: break-word;
+}
+
+/* Ajuste para móvil en el padding */
+@media (max-width: 768px) {
+  .formaciones-a-profesionales {
+    padding: 4rem 1.5rem; /* Menos padding lateral en móvil */
+  }
+
+  .formaciones-title,
+  .formaciones-text {
+    text-align: center; /* En móvil queda mejor centrado */
+  }
 }
 .formaciones-email {
   color: white;
@@ -1192,12 +1004,6 @@ section[id] {
   word-wrap: break-word;
 }
 
-@media (max-width: 1093px) {
-  .formaciones-image {
-    width: 600px;
-    height: 500px;
-  }
-}
 .formaciones-cards-conteiner {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1313,6777 +1119,755 @@ section[id] {
     line-height: 24px;
   }
 }
-.como-trabaja-conteiner {
+/* ---------- CÓMO TRABAJA (Refactorizado) ---------- */
+
+.como-trabaja {
+  width: 100%;
+  padding: 6rem 2rem;
+  background: var(--color-fondo);
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  justify-content: center;
   align-items: center;
-  width: 100%;
-  padding-bottom: 35px;
-  padding-top: 125px;
-}
-.como-trabaja-title {
-  width: 714.8px;
-  height: 92.18px;
-  text-align: center;
-  color: #638c6b;
-  font-size: 55px;
-  font-family: Literata;
-  font-weight: 600;
-  line-height: 70px;
-  word-wrap: break-word;
-}
-.como-trabaja-text {
-  width: 854.05px;
-  height: 199.09px;
-  text-align: center;
-  color: #575757;
-  font-size: 20px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 26px;
-  letter-spacing: 1px;
-  word-wrap: break-word;
+  gap: 4rem; /* Espacio vertical general entre bloques */
+  box-sizing: border-box;
 }
 
-.como-trabaja-cards-conteiner {
-  /* Grid para 3 columnas */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem; /* ✅ Gap aumentado para más espacio */
-  justify-content: center;
-  align-items: start; /* ✅ Alineadas arriba */
-  width: 100%;
-  max-width: 1400px; /* ✅ Más ancho (era 1200px) */
-  margin: 0 auto; /* ✅ Centrado */
-  padding: 2rem 3rem; /* ✅ Padding lateral */
-}
-
-.como-trabaja-card-formacion-conteiner {
+/* 1. INTRODUCCIÓN */
+.como-trabaja-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
   align-items: center;
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-  border-radius: 20px;
-  margin: 0 auto;
-}
-
-/* ✅ Cards escalonadas - diferentes alturas */
-.como-trabaja-card-formacion-conteiner:nth-child(1) {
-  margin-top: 0; /* Card 1 arriba */
-}
-
-.como-trabaja-card-formacion-conteiner:nth-child(2) {
-  margin-top: 80px; /* Card 2 más abajo */
-}
-
-.como-trabaja-card-formacion-conteiner:nth-child(3) {
-  margin-top: 160px; /* Card 3 aún más abajo */
-}
-
-.como-trabaja-card1 {
-  width: 100%; /* ✅ Ancho flexible (era 410px fijo) */
-  max-width: 420px; /* ✅ Máximo controlado */
-  height: auto; /* ✅ Altura automática */
-  aspect-ratio: 410 / 725; /* ✅ Mantiene proporción */
-  display: block;
-  object-fit: contain; /* ✅ No recorta (era cover) */
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.como-trabaja-card1.animate {
-  animation: fadeInUp 0.6s ease-out forwards;
-  animation-delay: 0.2s;
-}
-
-.como-trabaja-card2 {
-  width: 100%; /* ✅ Ancho flexible */
-  max-width: 420px;
-  height: auto; /* ✅ Altura automática */
-  aspect-ratio: 410 / 612; /* ✅ Mantiene proporción */
-  display: block;
-  object-fit: contain; /* ✅ No recorta */
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.como-trabaja-card2.animate {
-  animation: fadeInUp 0.6s ease-out forwards;
-  animation-delay: 0.4s;
-}
-
-.como-trabaja-card3 {
-  width: 100%; /* ✅ Ancho flexible */
-  max-width: 420px;
-  height: auto; /* ✅ Altura automática */
-  aspect-ratio: 410 / 450; /* ✅ Mantiene proporción */
-  display: block;
-  object-fit: contain; /* ✅ No recorta */
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.como-trabaja-card3.animate {
-  animation: fadeInUp 0.6s ease-out forwards;
-  animation-delay: 0.6s;
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.como-trabaja-card-title {
-  width: 192.57px;
-  height: 46.44px;
-  color: #638c6b;
-  font-size: 45px;
-  font-family: Literata;
-  font-weight: 600;
-  line-height: 35px;
-  word-wrap: break-word;
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
-.animate .como-trabaja-card-title {
-  animation: slideInContent 0.5s ease-out forwards;
-}
-
-.como-trabaja-card1-overlay.animate .como-trabaja-card-title {
-  animation-delay: 0.5s;
-}
-.como-trabaja-card2-overlay.animate .como-trabaja-card-title {
-  animation-delay: 0.7s;
-}
-.como-trabaja-card3-overlay.animate .como-trabaja-card-title {
-  animation-delay: 0.9s;
-}
-
-.como-trabaja-card-subtitle {
-  width: 313.11px;
-  height: auto;
-  color: #638c6b;
-  font-size: 21px;
-  font-family: Literata;
-  font-weight: 400;
-  line-height: 25px;
-  word-wrap: break-word;
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
-.animate .como-trabaja-card-subtitle {
-  animation: slideInContent 0.5s ease-out forwards;
-}
-
-.como-trabaja-card1-overlay.animate .como-trabaja-card-subtitle {
-  animation-delay: 0.6s;
-}
-.como-trabaja-card2-overlay.animate .como-trabaja-card-subtitle {
-  animation-delay: 0.8s;
-}
-.como-trabaja-card3-overlay.animate .como-trabaja-card-subtitle {
-  animation-delay: 1s;
-}
-
-.como-trabaja-card-body {
-  align-self: stretch;
-  height: 372.61px;
-  color: #575757;
-  font-size: 16px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 21px;
-  word-wrap: break-word;
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
-.animate .como-trabaja-card-body {
-  animation: slideInContent 0.5s ease-out forwards;
-}
-
-.como-trabaja-card1-overlay.animate .como-trabaja-card-body {
-  animation-delay: 0.7s;
-}
-.como-trabaja-card2-overlay.animate .como-trabaja-card-body {
-  animation-delay: 0.9s;
-}
-.como-trabaja-card3-overlay.animate .como-trabaja-card-body {
-  animation-delay: 1.1s;
-}
-
-@keyframes slideInContent {
-  0% {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-/* Overlay base (común para todas) */
-.como-trabaja-card-overlay {
-  position: absolute;
-  padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-/* Card 1 - Vertical alta */
-.como-trabaja-card1-overlay {
-  top: 10%;
-  right: 10%;
-  left: 10%;
-  bottom: 10%;
-}
-
-/* Card 2 - Más horizontal/ovalada */
-.como-trabaja-card2-overlay {
-  top: 15%;
-  right: 12%;
-  left: 10%;
-  bottom: 15%;
-}
-
-/* Card 3 - Horizontal ancha */
-.como-trabaja-card3-overlay {
-  top: 18%;
-  right: 15%;
-  left: 10%;
-  bottom: 18%;
-}
-.flecha-paso {
-  width: 120px; /* Ajusta según el tamaño de tu PNG */
-  height: auto;
-  align-self: flex-start; /* Coloca arriba */
-  margin-top: -3rem; /* Ajusta para subir/bajar la flecha */
-  margin-left: -4rem; /* Solapa con la card izquierda */
-  margin-right: -4rem; /* Solapa con la card derecha */
-  z-index: 3; /* Por encima de las cards */
-  position: relative;
-}
-.como-trabaja-bottom-conteiner {
-  display: flex;
-  flex-direction: column;
   gap: 2rem;
-  align-items: center;
-  margin-top: 200px;
-}
-.como-trabaja-bottom-text {
-  width: 980.99px;
-  height: 191.79px;
   text-align: center;
-  color: #575757;
-  font-size: 32px;
-  font-family: Literata;
-  font-weight: 400;
-  line-height: 42px;
-  word-wrap: break-word;
+  width: 100%;
 }
-.como-trabaja-bottom-equipo-conteiner {
+
+.como-trabaja-title {
+  font-family: "Literata", serif;
+  font-size: clamp(36px, 5vw, 55px);
+  color: #638c6b;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+  max-width: 800px; /* Límite de ancho para que no se estire demasiado */
+}
+
+.como-trabaja-text {
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  color: #575757;
+  line-height: 1.6;
+  max-width: 900px; /* Texto contenido para lectura cómoda */
+  margin: 0;
+}
+
+/* 2. CARDS DE PASOS (Grid System) */
+.como-trabaja-cards-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
+  /* 3 columnas iguales en escritorio */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  width: 100%;
+  max-width: 1400px; /* Ancho máximo de la grilla */
+  margin: 0 auto;
+
+  /* Alineamos al inicio para que el margin-top funcione */
   align-items: start;
 }
-.como-trabaja-bottom-equipo-directoras {
-  width: 181px;
-  height: 67.66px;
-  color: #575757;
-  font-size: 16px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 21px;
-  word-wrap: break-word;
-}
-.como-trabaja-bottom-equipo-directoras-conteiner {
-  display: flex;
-  gap: 1rem;
-  align-items: stretch;
-}
-.trazo-directoras {
-  width: 4px;
-  height: 98px; /* Se adapta a la altura del contenido */
-  object-fit: fill;
-  flex-shrink: 0;
-}
-.como-trabaja-bottom-equipo-psicologas {
-  width: 184px;
-  height: 202.66px;
-  color: #575757;
-  font-size: 16px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 21px;
-  word-wrap: break-word;
-}
-.como-trabaja-bottom-equipo-psicologas-conteiner {
-  display: flex;
-  gap: 1rem;
-  align-items: stretch;
-}
-.trazo-psicologas {
-  width: 4.7px;
-  height: 277px; /* Se adapta a la altura del contenido */
-  object-fit: fill;
-  flex-shrink: 0;
-}
-.como-trabaja-bottom-equipo-medica {
-  color: #575757;
-  font-size: 16px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 21px;
-  word-wrap: break-word;
-}
-.como-trabaja-bottom-equipo-medica-conteiner {
-  display: flex;
-  gap: 1rem;
-  align-items: stretch;
-}
-.trazo-medica {
-  width: 4px;
-  height: 100%; /* Se adapta a la altura del contenido */
-  object-fit: fill;
-  flex-shrink: 0;
-}
-.como-trabaja-bottom-equipo-nutricionista {
-  color: #575757;
-  font-size: 16px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 21px;
-  word-wrap: break-word;
-}
-.como-trabaja-bottom-equipo-nutricionista-conteiner {
-  display: flex;
-  gap: 1rem;
-  align-items: stretch;
-}
-.importante-como-trabaja {
-  color: #575757;
-  font-size: 16px;
-  font-family: Aeonik TRIAL;
-  font-weight: 700;
-  line-height: 21px;
-  word-wrap: break-word;
-}
-.trazo-nutricionista {
-  width: 4px;
-  height: 100%; /* Se adapta a la altura del contenido */
-  object-fit: fill;
-  flex-shrink: 0;
-}
-.footer-page {
-  width: 100vw;
-  min-height: 700px; /* ✅ Altura mínima aumentada (era 592px) */
-  height: auto; /* ✅ Se adapta al contenido */
-  background: #caacee;
-  margin-top: 200px;
-  overflow: visible;
+
+/* Wrapper de cada tarjeta */
+.step-card-wrapper {
+  width: 100%;
+  position: relative;
+  /* Animación de entrada */
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-  padding-bottom: 3rem; /* ✅ Espacio para redes sociales */
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.footer-page.animate-in {
+/* EFECTO ESCALONADO (Solo Desktop) */
+@media (min-width: 1024px) {
+  .step-1 {
+    margin-top: 0;
+  }
+  .step-2 {
+    margin-top: 80px;
+  }
+  .step-3 {
+    margin-top: 160px;
+  }
+}
+
+/* Contenido de la tarjeta (Imagen + Texto) */
+.step-card-content {
+  position: relative;
+  width: 100%;
+  /* Esto mantiene la relación de aspecto según la imagen de fondo */
+  /* Ajusta estos valores si tus imágenes tienen otra proporción */
+}
+
+.step-card-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Texto sobre la tarjeta */
+.step-card-overlay {
+  position: absolute;
+  /* Cubrimos toda la imagen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Flexbox para acomodar el texto dentro */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrado vertical */
+  padding: 15% 12%; /* Padding porcentual para que escale con la imagen */
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* Ajustes específicos de padding para cada forma de tarjeta si es necesario */
+.step-2 .step-card-overlay {
+  padding: 15% 15%;
+}
+.step-3 .step-card-overlay {
+  padding: 15% 18%;
+}
+
+/* Tipografía dentro de las cards */
+.step-title {
+  font-family: "Literata", serif;
+  font-size: clamp(28px, 3vw, 45px);
+  color: #638c6b;
+  margin: 0 0 0.5rem 0;
+}
+
+.step-subtitle {
+  font-family: "Literata", serif;
+  font-size: clamp(18px, 1.5vw, 21px);
+  color: #638c6b;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.step-body {
+  font-family: "Lato", sans-serif;
+  font-size: clamp(14px, 1.2vw, 16px);
+  color: #575757;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.text-highlight {
+  font-family: "Aeonik Trial", sans-serif;
+  font-weight: 700;
+  color: #575757;
+}
+
+/* Clase para activar animación (JS) */
+.step-card-wrapper.animate {
   opacity: 1;
   transform: translateY(0);
 }
+/* Retrasos para efecto de "escalerita" */
+.step-1.animate {
+  transition-delay: 0s;
+}
 
-.footer-content {
-  position: relative;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 4rem 4rem 3rem; /* ✅ Más padding abajo */
+.step-2.animate {
+  transition-delay: 0.3s; /* Espera 0.3s después del primero */
+}
+
+.step-3.animate {
+  transition-delay: 0.6s; /* Espera 0.6s después del primero */
+}
+
+/* En móvil, quitamos el delay para que no se sienta lento al scrollear */
+@media (max-width: 768px) {
+  .step-1.animate,
+  .step-2.animate,
+  .step-3.animate {
+    transition-delay: 0s;
+  }
+}
+/* 3. FOOTER DEL EQUIPO */
+.como-trabaja-bottom-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 2rem; /* ✅ Espacio entre elementos */
+  gap: 4rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 4rem;
 }
-.image-button-conteiner {
+
+.como-trabaja-bottom-text {
+  font-family: "Literata", serif;
+  font-size: clamp(24px, 3vw, 32px);
+  color: #575757;
+  text-align: center;
+  max-width: 900px;
+  line-height: 1.4;
+}
+
+/* GRID DE EQUIPO (4 Columnas) */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas por defecto */
+  gap: 2rem;
+  width: 100%;
+  align-items: start;
+}
+
+/* style.css - Modificación en TEAM COLUMN */
+
+.team-column {
   display: flex;
+  flex-direction: column; /* O row, según tu diseño original. Si es lado a lado usa 'row' */
+  /* Si antes era 'row', mantén 'row' y usa position relative */
+  /* Viendo tu HTML, parece que están lado a lado (imagen + texto) */
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-}
-/* Imagen de personas - Sobresale hacia arriba */
-.footer-image {
+
+  /* CLAVE 1: Contexto de posicionamiento */
   position: relative;
-  bottom: 200px;
-  left: 4rem;
-  width: 1004.16px;
-  height: 582px;
-  z-index: 2;
-  margin-bottom: -8rem; /* Hace que sobresalga hacia arriba */
+
+  /* CLAVE 2: Creamos el espacio a la izquierda con padding en lugar de gap */
+  /* 4px de la línea + espacio extra (ej. 1rem) = aprox 1.5rem total */
+  padding-left: 1.5rem;
+
+  /* gap: 1rem; <-- Ya no lo necesitamos para la línea porque será absoluta */
+}
+
+/* style.css - Modificación en TEAM LINE */
+
+.team-line {
+  /* CLAVE 3: La sacamos del flujo para que NO empuje la altura */
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  /* CLAVE 4: Le decimos "Mide exactamente lo que mida tu padre" */
+  height: 100%;
+  width: 4px; /* Tu ancho fijo */
+
+  /* CLAVE 5: Decidir cómo se adapta el dibujo */
+  /* 'cover': Recorta si sobra (mantiene proporción) */
+  /* 'fill': Se estira/aplasta para encajar perfecto (mejor para trazos simples) */
+  object-fit: fill;
+}
+
+.team-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.team-role-title {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #caacee; /* Color traído de tu inline style */
+  letter-spacing: 1px;
+}
+
+.team-info p {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  color: #575757;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- RESPONSIVE DESIGN (Media Queries Simplificadas) --- */
+
+/* Tablet (hasta 1024px) */
+@media (max-width: 1024px) {
+  .como-trabaja-cards-container {
+    /* Mantenemos 3 columnas o bajamos a 1 según prefieras. 
+       A veces en tablet vertical 3 columnas queda muy apretado. */
+    grid-template-columns: 1fr;
+    max-width: 600px; /* Centralizamos en una columna */
+  }
+
+  /* Quitamos el escalonado en tablet/móvil */
+  .step-1,
+  .step-2,
+  .step-3 {
+    margin-top: 0;
+  }
+
+  /* Equipo a 2 columnas */
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
+/* Móvil (hasta 600px) */
+@media (max-width: 600px) {
+  .como-trabaja {
+    padding: 4rem 1.5rem;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr; /* 1 columna en móvil */
+  }
+
+  /* Ajustamos padding interno de cards para móvil */
+  .step-card-overlay {
+    padding: 2rem;
+  }
+}
+/* ---------- FOOTER / CONTACTO (Refactorizado) ---------- */
+
+.footer-page {
+  width: 100%; /* Ocupa el ancho disponible sin desbordar */
+  height: auto; /* Crece con el contenido */
+  background: #caacee;
+
+  /* Espaciado interno generoso */
+  padding: 4rem 2rem 6rem 2rem;
+
+  /* Flexbox para centrar todo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Margin top normal, sin exagerar */
+  margin-top: 5rem;
+
+  box-sizing: border-box;
+  overflow: visible; /* Permitir que la imagen sobresalga si usamos margen negativo */
+}
+
+/* Contenedor que limita el ancho del contenido */
+.footer-content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem; /* Espacio entre el bloque principal y las redes sociales */
+  position: relative;
+}
+
+/* Bloque: Imagen + Botón */
+.footer-main-block {
+  display: flex;
+  flex-direction: column; /* Apilados verticalmente por defecto */
+  align-items: center;
+  gap: 0; /* Sin espacio extra, o ajusta según necesites */
+  width: 100%;
+}
+
+/* IMAGEN PRINCIPAL */
+.footer-image {
+  /* Ancho fluido */
+  width: 100%;
+  max-width: 900px; /* Tamaño máximo en escritorio */
+  height: auto;
+
+  /* TRUCO: Si quieres que la imagen "suba" y se salga del fondo violeta hacia arriba */
+  margin-top: -150px; /* Ajusta este valor para subirla más o menos */
+
+  /* Animación de entrada */
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 1s ease-out 0.2s, transform 1s ease-out 0.2s;
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
+
+/* BOTÓN (Imagen dentro del link) */
+.footer-cta-link {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  margin-top: -20px; /* Para pegarlo un poco a la imagen de arriba si hace falta */
+}
+
+.footer-cta-link:hover {
+  transform: scale(1.05); /* Efecto hover */
+}
+
+.footer-button-img {
+  width: 100%;
+  max-width: 350px; /* Tamaño máximo del botón */
+  height: auto;
+  display: block;
+}
+
+/* REDES SOCIALES */
+.footer-social-block {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.rrss-image {
+  width: 100%;
+  max-width: 300px; /* Tamaño controlado */
+  height: auto;
+  cursor: pointer; /* Indica que es interactivo */
+}
+
+/* --- ESTADO ANIMADO (JS) --- */
+/* Cuando el JS agrega la clase .animate-in al footer */
 .footer-page.animate-in .footer-image {
   opacity: 1;
   transform: translateY(0);
 }
-.footer-button {
-  position: relative;
-  bottom: 132px;
-  width: 354px;
-  height: 132px;
-  z-index: 3;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease-out 0.4s, transform 1s ease-out 0.4s;
-}
-.footer-page.animate-in .footer-button {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== REDES SOCIALES FOOTER ===== */
-.rrss-footer {
-  display: block;
-  margin: 0 auto; /* ✅ Centrado horizontal */
-  max-width: 100%;
-  height: auto;
-}
-
 /* ========================================
-
-/* ========================================
-   RESPONSIVE DESIGN MEJORADO
-   ======================================== */
-
-/* ========== MENÚ HAMBURGUESA ========== */
-/* ========================================
-   MENÚ HAMBURGUESA
-   ======================================== */
-
+     ESTILOS MENÚ HAMBURGUESA (Necesarios)
+     ======================================== */
 .hamburger {
-  display: none;
+  display: none; /* Oculto en PC */
   flex-direction: column;
   justify-content: space-between;
-  width: 28px;
-  height: 20px;
+  width: 30px;
+  height: 22px;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0;
   z-index: 1001;
-  position: relative;
 }
 
 .hamburger span {
   display: block;
   width: 100%;
   height: 3px;
-  background-color: #f79db9;
+  background-color: #f79db9; /* Tu color rosa */
   border-radius: 3px;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transform-origin: center;
+  transition: all 0.3s ease;
 }
 
-/* Animación cuando está activo (X) */
+/* Animación X */
 .hamburger.active span:nth-child(1) {
-  transform: translateY(8.5px) rotate(45deg);
+  transform: translateY(9.5px) rotate(45deg);
 }
-
 .hamburger.active span:nth-child(2) {
   opacity: 0;
-  transform: scaleX(0);
 }
-
 .hamburger.active span:nth-child(3) {
-  transform: translateY(-8.5px) rotate(-45deg);
+  transform: translateY(-9.5px) rotate(-45deg);
 }
 
-/* Prevenir scroll cuando el menú está abierto */
+/* Bloquear scroll cuando menú abierto */
 body.menu-open {
   overflow: hidden;
 }
 
-/* ========================================
-   🖥️ NOTEBOOKS / LAPTOPS (1025px - 1920px)
-   Responsive específico para portátiles
-   Mantiene el diseño desktop con ajustes proporcionales
-   ======================================== */
+/* ==========================================================================
+   MASTER RESPONSIVE - CÓDIGO FINAL
+   Pegar esto al final de style.css (después de borrar las media queries viejas)
+   ========================================================================== */
 
-/* ===== NOTEBOOKS GRANDES (1440px - 1920px) ===== */
-@media (min-width: 1440px) and (max-width: 1920px) {
-  /* Hero mantiene proporciones desktop */
+/* --------------------------------------------------------------------------
+   1. TABLET Y LAPTOPS PEQUEÑAS (De 769px a 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  /* HERO: Ajustes para pantallas medianas */
   .hero {
-    min-height: 850px;
-    padding: 2rem 8rem;
+    min-height: 700px;
+    padding: 2rem;
+  }
+  .hero-image-block {
+    max-width: 450px; /* Imagen controlada */
   }
 
-  .hero img {
-    width: 750px;
-    height: 785px;
+  /* SERVICIOS: 2 Columnas */
+  .pill-container {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .pill-item:last-child {
+    grid-column: 1 / -1; /* Centrar el impar */
+    width: 60%;
+    margin: 0 auto;
   }
 
-  .hero-text1 {
-    font-size: 85px;
-    line-height: 77px;
-    right: 14rem;
-    bottom: 20rem;
+  /* EQUIPO */
+  .psico-card {
+    gap: 2rem;
+  }
+  .psico-img-clickable {
+    width: 280px;
   }
 
-  .hero-text2 {
-    font-size: 50px;
-    line-height: 61px;
-    right: 12rem;
-    bottom: 21rem;
-  }
+  /* CÓMO TRABAJA */
+  .step-1,
+  .step-2,
+  .step-3 {
+    margin-top: 0;
+  } /* Sin escalón */
 
-  /* Servicios proporcional */
-  .servicios {
-    padding: 4rem 8rem;
-  }
-
-  .servicios-text {
-    font-size: 20px;
-    line-height: 28px;
-  }
-
-  /* Equipo proporcional */
-  .equipo-psicologas {
-    padding: 4rem 8rem;
-  }
-
-  .equipo-text {
-    font-size: 20px;
-    line-height: 28px;
-  }
-
-  .psicologas-conteiner {
-    grid-template-columns: repeat(3, 1fr);
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
   }
 
-  /* Formaciones proporcional */
-  .formaciones-a-profesionales {
-    padding: 4rem 8rem;
+  /* FOOTER */
+  .footer-image {
+    margin-top: -80px;
+    max-width: 600px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+     2. MÓVILES Y TABLETS VERTICALES (Menos de 900px)
+     Aquí ocurre la magia del "Stacking" (todo a 1 columna)
+     -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  /* ===== NAVBAR & MENÚ HAMBURGUESA ===== */
+  .navbar {
+    padding: 1rem 1.5rem;
+    height: 80px;
   }
 
-  .formaciones-text {
-    font-size: 20px;
-    line-height: 28px;
+  .logo img {
+    width: 60px; /* Logo más chico */
+    height: 60px;
   }
 
-  .formaciones-cards-conteiner {
+  /* Menú lateral deslizable */
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 80%;
+    max-width: 300px;
+    background: #fcfaf5;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%); /* Oculto */
+    transition: transform 0.4s ease;
+    z-index: 999;
+  }
+
+  .menu.active {
+    transform: translateX(0); /* Visible */
+  }
+
+  .hamburger {
+    display: flex; /* Hacemos visible el botón */
+  }
+
+  /* Ocultar indicador de sección si molesta */
+  .section-indicator {
+    display: none;
+  }
+
+  /* ===== HERO (Pila vertical) ===== */
+  .hero {
+    min-height: auto;
+    padding: 8rem 1.5rem 8rem 1.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content-wrapper {
+    flex-direction: column;
+    gap: 0rem;
+  }
+
+  /* 1. Cambiamos el contenedor a GRID para poder superponer */
+  .hero-text-area {
+    min-height: auto;
+    margin-top: -300px;
+
+    /* TRUCO GRID: */
+    display: grid;
+    place-items: center; /* Centra el contenido horizontal y verticalmente */
+    /* Ya no usamos flex-direction: column aquí */
+  }
+
+  /* 2. Superponemos los textos en la misma celda */
+  .hero-text1,
+  .hero-text2 {
+    /* Mágica de superposición: */
+    grid-area: 1 / 1; /* Ambos van a la fila 1, columna 1 */
+
+    position: relative; /* Mejor que static para el z-index si hiciera falta */
+    transform: none;
+    width: 100%;
+    text-align: center;
+    margin: 0; /* Quitamos márgenes que puedan desalinear */
+
+    /* Tamaños de fuente (mantenemos los que tenías) */
+    line-height: 1.2;
+  }
+
+  /* Aseguramos tamaños de fuente específicos */
+  .hero-text1 {
+    font-size: clamp(36px, 10vw, 45px);
+  }
+
+  .hero-text2 {
+    font-size: clamp(20px, 5vw, 24px);
+    line-height: 1.4;
+    /* Quitamos el margin-top extra para que quede centrado exacto */
+    margin-top: 0;
+  }
+
+  .hero-image-block {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  /* ===== GENERAL ===== */
+  .equipo-title,
+  .como-trabaja-title,
+  .formaciones-title {
+    font-size: 32px;
+  }
+  .equipo-text,
+  .servicios-text,
+  .formaciones-text,
+  .como-trabaja-text {
+    font-size: 16px;
+    padding: 0 1rem;
+  }
+
+  /* ===== SERVICIOS (Ajuste a 2 columnas centrado) ===== */
+  .servicios {
+    padding: 4rem 1rem;
+  }
+
+  .pill-container {
+    /* 1. Cambiamos de 1fr a 2 columnas */
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 8rem;
-    row-gap: 2rem;
+
+    /* 2. Damos más ancho máximo para que quepan cómodas las dos columnas */
+    /* Antes era 350px, ahora necesitamos más espacio */
+    max-width: 600px;
+
+    /* Ajuste de gap para que no se peguen */
+    gap: 1rem;
+    margin: 0 auto;
   }
-  .formaciones-cards-conteiner .formacion-card:nth-child(5) {
-    /* 1. Hacemos que ocupe todo el ancho de la grilla (de la línea 1 a la última) */
+
+  /* 3. TRUCO DE CENTRADO PARA LA ÚLTIMA PILL (La número 9) */
+  .pill-item:last-child {
+    /* Le decimos que ocupe todo el ancho de la fila (las 2 columnas) */
     grid-column: 1 / -1;
 
-    /* 2. La centramos horizontalmente en ese espacio */
+    /* Pero le restringimos el ancho real para que no se vea como una "salchicha" gigante */
+    width: 50%; /* Ocupa la mitad del espacio disponible (aprox el tamaño de una pill normal) */
+
+    /* La centramos horizontalmente */
     justify-self: center;
     margin: 0 auto;
-
-    /* 3. Restringimos su ancho para que se vea igual a las otras (no estirada) */
-    width: 100%;
-    max-width: 600px; /* Ajusta este valor si tus otras cards son más angostas */
   }
-
-  /* Como trabaja proporcional */
-  .como-trabaja {
-    padding: 4rem 8rem;
-  }
-
-  .como-trabaja-text {
-    font-size: 20px;
-    line-height: 28px;
-  }
-
-  /* ✅ Como trabaja cards - ajustadas para 1440px */
-  .como-trabaja-cards-conteiner {
-    max-width: 1250px; /* Asegura un ancho máximo razonable */
-    gap: 1.5rem; /* Reducir el espacio entre las cards (antes 1.8rem o más) */
-    padding: 2rem 1rem; /* Padding lateral ligero para margen */
-    margin: 0 auto;
-    /* Usar GRID para control de columnas */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .como-trabaja-card-formacion-conteiner:nth-child(1) {
-    margin-top: 0; /* ✅ Card 1 arriba */
-  }
-
-  .como-trabaja-card-formacion-conteiner:nth-child(2) {
-    margin-top: 80px; /* ✅ Card 2 escalonada */
-  }
-
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin-top: 160px; /* ✅ Card 3 escalonada */
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    width: 100%;
-    max-width: 400px; /* ✅ Ancho controlado */
-    height: auto;
-  }
-
-  /* Overlays ajustados */
-  .como-trabaja-card1-overlay,
-  .como-trabaja-card2-overlay,
-  .como-trabaja-card3-overlay {
-    padding: 2.5rem 2rem; /* ✅ Más padding */
-    top: 7%;
-    bottom: 3%;
-    left: 6%;
-    right: 6%;
-  }
-
-  .como-trabaja-card-title {
-    font-size: 36px; /* ✅ Título ajustado */
-    line-height: 42px;
-  }
-
-  .como-trabaja-card-subtitle {
-    font-size: 20px;
-    line-height: 26px;
-  }
-
-  .como-trabaja-card-text {
-    font-size: 14px; /* ✅ Texto ajustado */
-    line-height: 20px;
-  }
-
-  /* Footer proporcional */
-  .footer-page {
-    padding: 4rem 8rem;
-  }
-  /* Contenedor del grupo Imagen + Botón */
-  .image-button-conteiner {
-    /* Mantiene las reglas de flexbox (row) */
-    justify-content: center; /* CLAVE: Centra la imagen y el botón entre sí */
-    align-self: center; /* Asegura que el contenedor se centre dentro de .footer-content */
-  }
-
-  /* Imagen de personas */
-  .footer-image {
-    /* Neutralizar desplazamiento horizontal y hacerlo responsive */
-    position: relative;
-    left: auto; /* ✅ Quitar el left fijo (era 4rem) */
-    margin-left: 0; /* Asegurar que no haya margen izquierdo */
-    margin-right: 0; /* Asegurar que no haya margen derecho */
-    width: 800px; /* Ajustar el ancho para que quepa bien en la pantalla */
-    max-width: 800px;
-    height: auto;
-    /* Ajustar el bottom si quieres que sobresalga */
-    bottom: 200px;
-  }
-
-  /* Botón (Contactanos!) */
-  .footer-button {
-    /* Neutralizar cualquier posicionamiento que lo desplace */
-    position: relative;
-    left: auto; /* Asegurar que no tenga left o right fijo */
-    right: auto;
-    width: 354px; /* Mantener ancho fijo o ajustado */
-    height: 132px;
-    bottom: 132px;
-  }
-
-  /* Redes Sociales */
-  .rrss-footer {
-    display: block;
-    margin: 0 auto; /* ✅ Ya está centrado por margin auto */
-  }
-}
-
-/* ===== NOTEBOOKS 1366x1025 (HP, Dell, Lenovo estándar) ===== */
-@media (min-width: 1366px) and (max-width: 1439px) {
-  /* Hero ajustado para 1366px */
-  .hero {
-    min-height: 800px;
-    padding: 2rem 5rem; /* Menos padding para no cortar */
-  }
-
-  .hero img {
-    width: 700px;
-    height: 732px;
-    left: 2.5rem;
-    bottom: 50px;
-  }
-
-  .hero-text1 {
-    font-size: 80px;
-    line-height: 74px;
-    right: 11rem;
-    bottom: 19rem;
-  }
-
-  .hero-text2 {
-    font-size: 48px;
-    line-height: 58px;
-    right: 9rem;
-    bottom: 20rem;
-  }
-
-  /* Servicios centrado */
-  .servicios {
-    padding: 3.5rem 5rem;
-    height: auto;
-  }
-
-  .servicios-text {
-    font-size: 19px;
-    line-height: 27px;
-    max-width: 90%;
-    margin: 0 auto;
-  }
-
-  .pill-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem; /* ✅ Gap reducido para más espacio */
-    max-width: 1150px; /* ✅ Contenedor más ancho */
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-
-  .pill-item {
-    max-width: 280px; /* ✅ Pills más anchas */
-    min-width: 260px; /* ✅ Mínimo para textos largos */
-    width: 100%;
-    height: auto;
-    min-height: 90px; /* ✅ Altura mínima para textos */
-  }
-
-  .pill-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: fill; /* ✅ Se adapta al contenido */
-  }
-
-  .pill-text {
-    font-size: 20px; /* ✅ Tamaño de texto optimizado */
-    line-height: 20px;
-    padding: 0 1.5rem; /* ✅ Padding interno */
-    text-align: center;
-    max-width: 100%;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-
-  /* Equipo centrado */
-  .equipo-psicologas {
-    padding: 3.5rem 5rem;
-  }
-
-  .equipo-text {
-    font-size: 19px;
-    line-height: 27px;
-    max-width: 90%;
-    margin: 0 auto;
-  }
-
-  .psicologas-conteiner {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-    max-width: 1150px;
-    margin: 0 auto;
-  }
-
-  .psicologa-card {
-    max-width: 350px;
-    margin: 0 auto;
-  }
-
-  /* Formaciones centrado */
-  .formaciones-a-profesionales {
-    padding: 3.5rem 5rem;
-    height: 2580px;
-  }
-
-  .formaciones-text-image-conteiner {
-    flex-direction: row;
-    padding: 2rem 3rem;
-    gap: 3rem; /* ✅ Espacio entre texto e imagen */
-    align-items: flex-start; /* ✅ Alineados arriba */
-    max-width: 1150px;
-    margin: 0 auto;
-  }
-
-  .formaciones-text-conteiner {
-    flex: 1; /* ✅ Ocupa espacio disponible */
-    align-items: flex-start; /* ✅ Alineado a la izquierda */
-    padding: 0; /* ✅ Sin padding extra */
-  }
-
-  .formaciones-title {
-    width: auto; /* ✅ Ancho automático, no fijo */
-    max-width: 100%;
-    font-size: 48px; /* ✅ Ajustado para 1366px */
-    line-height: 54px;
-    text-align: left;
-    margin-bottom: 1.5rem;
-  }
-
-  .formaciones-text {
-    width: auto; /* ✅ Ancho automático */
-    max-width: 100%;
-    font-size: 17px; /* ✅ Texto legible */
-    line-height: 25px;
-    text-align: left; /* ✅ Alineado con título */
-  }
-
-  .formaciones-image {
-    flex-shrink: 0; /* ✅ No se comprime */
-    width: 550px; /* ✅ Ancho ampliado de 600px a 550px */
-    max-width: 550px;
-    height: auto;
-    object-fit: contain; /* ✅ Mantiene proporción */
-  }
-
-  .formaciones-cards-conteiner {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 6rem;
-    row-gap: 2rem;
-    max-width: 1150px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-
-  .formacion-card {
-    min-height: 500px;
-    max-width: 550px;
-    margin: 0 auto;
-  }
-
-  /* Quinta card centrada */
-  .formacion-card:has(.card-centrada) {
-    grid-column: 1 / -1;
-    max-width: 550px;
-    margin: 0 auto;
-  }
-
-  /* Como trabaja centrado y cards completas sin cortar */
-  .como-trabaja {
-    padding: 3rem 3rem; /* ✅ Menos padding lateral */
-    height: auto;
-  }
-
-  .como-trabaja-text {
-    font-size: 17px;
-    line-height: 25px;
-    max-width: 90%;
-    margin: 0 auto;
-  }
-
-  .como-trabaja-cards-conteiner {
-    /* CORRECCIÓN CLAVE: Reducir el gap y el max-width del contenedor */
-    max-width: 1250px; /* Asegura un ancho máximo razonable */
-    gap: 1.5rem; /* Reducir el espacio entre las cards (antes 1.8rem o más) */
-    padding: 2rem 1rem; /* Padding lateral ligero para margen */
-    margin: 0 auto;
-    /* Usar GRID para control de columnas */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: baseline;
-    margin-top: -200px;
-  }
-  .como-trabaja-card-formacion-conteiner {
-    /* Permitir que se ajuste al 1/3 del grid */
-    max-width: 100%;
-    width: 100%;
-    margin: 0;
-  }
-  /* Ajustar las cards individuales para que quepan */
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    width: 100% !important;
-    min-height: 750px; /* ✅ Aumentado de 650px a 750px */
-    height: auto;
-    object-fit: contain;
-  }
-
-  /* Ajustar contenido de las cards */
-  .como-trabaja-card-title {
-    font-size: 34px; /* ✅ Reducido de 34px */
-    line-height: 38px;
-    margin-bottom: 1rem;
-  }
-
-  .como-trabaja-card-subtitle {
-    font-size: 21px; /* ✅ Reducido de 19px */
-    line-height: 24px;
-    margin-bottom: -0.2rem;
-    margin-top: -12px;
-  }
-
-  .como-trabaja-card-text {
-    font-size: 13px; /* ✅ Reducido de 13px */
-    line-height: 18px; /* ✅ Más compacto */
-  }
-
-  /* Overlays ajustados para más espacio interno */
-  .como-trabaja-card1-overlay {
-    padding: 2.5rem 1.8rem; /* ✅ Más padding */
-    top: 10%; /* ✅ Más cerca del borde */
-    bottom: 4%;
-    left: 6%; /* ✅ Menos espacio lateral */
-    right: 6%;
-  }
-  .como-trabaja-card2-overlay {
-    padding: 2.5rem 1.8rem; /* ✅ Más padding */
-    top: 20%; /* ✅ Más cerca del borde */
-    bottom: 4%;
-    left: 6%; /* ✅ Menos espacio lateral */
-    right: 6%;
-  }
-  .como-trabaja-card3-overlay {
-    padding: 2.5rem 1.8rem; /* ✅ Más padding */
-    top: 30%; /* ✅ Más cerca del borde */
-    bottom: -15%;
-    left: 6%; /* ✅ Menos espacio lateral */
-    right: 6%;
-  }
-  /* Footer centrado y sin espacio blanco abajo */
-  .footer-page {
-    padding: 3rem 3rem 2rem 3rem; /* ✅ Padding reducido */
-    height: auto;
-    min-height: auto; /* ✅ Sin altura mínima fija */
-    position: relative;
-    overflow: visible; /* ✅ Permite que image-button sobresalga */
-  }
-
-  .footer-content {
-    max-width: 1150px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* ✅ Centrado vertical */
-    gap: 1.5rem; /* ✅ Gap reducido */
-    position: relative;
-  }
-
-  .image-button-conteiner {
-    display: flex;
-    flex-direction: row;
-    gap: 4rem;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: relative;
-    top: 5px; /* ✅ Sobresale de la franja violeta */
-    margin-bottom: -30px; /* ✅ Compensa el espacio */
-  }
-
-  .footer-image {
-    width: 773px;
-    max-width: 773px;
-    height: auto; /* ✅ Altura automática */
-    flex-shrink: 0;
-  }
-
-  .footer-button {
-    width: 350px;
-    max-width: 350px;
-    height: auto;
-    flex-shrink: 0;
-  }
-
-  .rrss-footer {
-    width: 550px;
-    max-width: 550px;
-    height: auto;
-    display: block;
-    margin: 0 auto; /* ✅ Centrado, sin margen extra arriba */
-  }
-  /* Contenedor del grupo Imagen + Botón */
-  .image-button-conteiner {
-    /* Mantiene las reglas de flexbox (row) */
-    justify-content: center; /* CLAVE: Centra la imagen y el botón entre sí */
-    align-self: center; /* Asegura que el contenedor se centre dentro de .footer-content */
-  }
-
-  /* Imagen de personas */
-  .footer-image {
-    /* Neutralizar desplazamiento horizontal y hacerlo responsive */
-    position: relative;
-    left: auto; /* ✅ Quitar el left fijo (era 4rem) */
-    margin-left: 0; /* Asegurar que no haya margen izquierdo */
-    margin-right: 0; /* Asegurar que no haya margen derecho */
-    width: 800px; /* Ajustar el ancho para que quepa bien en la pantalla */
-    max-width: 800px;
-    height: auto;
-    /* Ajustar el bottom si quieres que sobresalga */
-    bottom: 200px;
-  }
-
-  /* Botón (Contactanos!) */
-  .footer-button {
-    /* Neutralizar cualquier posicionamiento que lo desplace */
-    position: relative;
-    left: auto; /* Asegurar que no tenga left o right fijo */
-    right: auto;
-    width: 354px; /* Mantener ancho fijo o ajustado */
-    height: 132px;
-    bottom: 132px;
-  }
-
-  /* Redes Sociales */
-  .rrss-footer {
-    display: block;
-    margin: 0 auto; /* ✅ Ya está centrado por margin auto */
-  }
-}
-
-/* ===== NOTEBOOKS MEDIANOS (1280px - 1365px) ===== */
-@media (min-width: 1280px) and (max-width: 1365px) {
-  /* Hero ajustado */
-  .hero {
-    min-height: 800px;
-    padding: 2rem 6rem;
-  }
-
-  .hero img {
-    width: 680px;
-    height: 710px;
-    left: 3rem;
-  }
-
-  .hero-text1 {
-    font-size: 78px;
-    line-height: 72px;
-    right: 12rem;
-    bottom: 18rem;
-  }
-
-  .hero-text2 {
-    font-size: 46px;
-    line-height: 56px;
-    right: 10rem;
-    bottom: 19rem;
-  }
-
-  /* Servicios ajustado */
-  .servicios {
-    padding: 3.5rem 6rem;
-  }
-
-  .servicios-text {
-    font-size: 19px;
-    line-height: 27px;
-  }
-
-  .pill-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.8rem;
-  }
-
-  /* Equipo ajustado */
-  .equipo-psicologas {
-    padding: 3.5rem 6rem;
-  }
-
-  .equipo-text {
-    font-size: 19px;
-    line-height: 27px;
-  }
-
-  .psicologas-conteiner {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-  }
-
-  /* Formaciones ajustado */
-  .formaciones-a-profesionales {
-    padding: 3.5rem 6rem;
-  }
-
-  .formaciones-text {
-    font-size: 19px;
-    line-height: 27px;
-  }
-
-  .formaciones-cards-conteiner {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 7rem;
-    row-gap: 2rem;
-  }
-
-  /* Como trabaja ajustado */
-  .como-trabaja {
-    padding: 3.5rem 6rem;
-  }
-
-  .como-trabaja-text {
-    font-size: 19px;
-    line-height: 27px;
-  }
-
-  /* Footer ajustado */
-  .footer-page {
-    padding: 3.5rem 6rem;
-  }
-}
-
-/* ===== NOTEBOOKS ESTÁNDAR (1025px - 1279px) ===== */
-@media (min-width: 1025px) and (max-width: 1279px) {
-  /* Hero compacto pero mantiene diseño desktop */
-  .hero {
-    min-height: 750px;
-    padding: 2rem 4rem;
-  }
-
-  .hero img {
-    width: 620px;
-    height: 648px;
-    left: 2rem;
-  }
-
-  .hero-text1 {
-    font-size: 72px;
-    line-height: 66px;
-    right: 10rem;
-    bottom: 16rem;
-  }
-
-  .hero-text2 {
-    font-size: 42px;
-    line-height: 51px;
-    right: 8rem;
-    bottom: 17rem;
-  }
-
-  /* Servicios compacto */
-  .servicios {
-    padding: 3rem 4rem;
-  }
-
-  .servicios-text {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .pill-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .pill-item {
-    max-width: 220px;
-  }
-
-  /* Equipo compacto */
-  .equipo-psicologas {
-    padding: 3rem 4rem;
-  }
-
-  .equipo-text {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .psicologas-conteiner {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-
-  /* Formaciones compacto */
-  .formaciones-a-profesionales {
-    padding: 3rem 4rem;
-  }
-
-  .formaciones-text {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .formaciones-cards-conteiner {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 6rem;
-    row-gap: 2rem;
-    max-width: 1100px;
-  }
-
-  .formacion-card {
-    min-height: 480px;
-  }
-
-  /* Quinta card centrada */
-  .formacion-card:has(.card-centrada) {
-    grid-column: 1 / -1;
-    max-width: 550px;
-    margin: 0 auto;
-  }
-
-  /* Como trabaja compacto */
-  .como-trabaja {
-    padding: 3rem 4rem;
-  }
-
-  .como-trabaja-text {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .como-trabaja-cards-conteiner {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-
-  /* Footer compacto */
-  .footer-page {
-    padding: 3rem 4rem;
-  }
-
-  .footer-image {
-    max-width: 400px;
-  }
-
-  .footer-button {
-    max-width: 300px;
-  }
-}
-
-/* ========================================
-   MÓVILES (767px y menos)
-   ======================================== */
-
-@media (max-width: 767px) {
-  body {
-    padding-top: 70px;
-    overflow-x: hidden;
-  }
-
-  /* Prevenir scroll horizontal */
-  * {
-    max-width: 100vw;
-  }
-
-  section {
-    overflow-x: hidden;
-  }
-
-  /* Ajustar el hero para que no quede pegado al navbar */
-  .hero {
-    margin-top: 20px;
-  }
-
-  /* ---------- NAVBAR MÓVIL ---------- */
-  .navbar {
-    padding: 1rem 1.5rem;
-    height: 70px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo img {
-    width: 60px;
-    height: 60px;
-  }
-
-  /* Indicador de sección en navbar (solo móvil) */
-  .section-indicator {
-    display: block;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--color-rosa);
-    opacity: 0.9;
-
-    /* Animación suave al cambiar de sección */
-    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /* Animación al cambiar de sección (aplicada por JS) */
-  .section-indicator.changing {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-5px);
-  }
-
-  /* Mostrar hamburguesa */
-  .hamburger {
-    display: flex;
-  }
-
-  /* Menú lateral deslizante */
-  .menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 280px;
-    height: 100vh;
-    background: linear-gradient(135deg, #fcfaf5 0%, #f9f6f0 100%);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    gap: 2rem;
-    transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    overflow-y: auto;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-  }
-
-  /* Overlay oscuro detrás del menú */
-  .menu::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #fcfaf5;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-  }
-
-  .menu.active::before {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .menu.active {
-    transform: translateX(0);
-  }
-
-  /* Links del menú con animación escalonada */
-  .menu .link {
-    font-size: 22px;
-    width: 100%;
-    text-align: center;
-    padding: 1rem 0;
-    opacity: 0;
-    transform: translateX(30px);
-    transition: all 0.3s ease, opacity 0.4s ease, transform 0.4s ease;
-  }
-
-  /* Animación escalonada de los links */
-  .menu.active .link:nth-child(1) {
-    animation: slideInLink 0.4s ease forwards 0.1s;
-  }
-  .menu.active .link:nth-child(2) {
-    animation: slideInLink 0.4s ease forwards 0.2s;
-  }
-  .menu.active .link:nth-child(3) {
-    animation: slideInLink 0.4s ease forwards 0.3s;
-  }
-  .menu.active .link:nth-child(4) {
-    animation: slideInLink 0.4s ease forwards 0.4s;
-  }
-  .menu.active .link:nth-child(5) {
-    animation: slideInLink 0.4s ease forwards 0.5s;
-  }
-
-  @keyframes slideInLink {
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  /* Hover effect en los links */
-  .menu .link:hover {
-    transform: scale(1.05);
-    color: #f79db9;
-  }
-
-  /* ---------- HERO MÓVIL ---------- */
-  .hero {
-    min-height: fit-content; /* ✅ Se ajusta al contenido */
-
-    /* Flexbox para centrado vertical */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    /* Padding para separación */
-    padding-top: 70px; /* Espacio para navbar */
-    padding-bottom: 2rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-
-    /* Espacio entre elementos */
-    gap: 2rem;
-
-    width: 100%;
-    box-sizing: border-box;
-    color-scheme: light only !important;
-    -webkit-color-scheme: light only !important;
-  }
-
-  .hero img {
-    max-width: 280px;
-    height: auto;
-    animation: slideInLeft 1s ease-out; /* ✅ Agregada animación */
-    flex-shrink: 0;
-    order: 1; /* ✅ Imagen PRIMERO */
-    position: static; /* Quitar absolute si existía */
-  }
-
-  /* Contenedor wrapper para textos superpuestos */
-  .hero-text1,
-  .hero-text2 {
-    width: 100%;
-    max-width: 100%;
-    text-align: center;
-    padding: 0 1rem;
-    position: relative;
-    order: 2; /* ✅ Textos SEGUNDO */
-  }
-
-  .hero-text1 {
-    font-size: 42px;
-    line-height: 40px;
-    z-index: 2;
-    animation: fadeIn 1s ease-out; /* ✅ Solo fade, sin movimiento */
-  }
-
-  /* ✅ Animación simple solo con opacity */
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .hero-text2 {
-    font-size: 26px;
-    line-height: 30px;
-    z-index: 3;
-    /* Superponer sobre hero-text1 sin sacarlo del flujo */
-    margin-top: -120px; /* Sube para superponerse */
-  }
-
-  /* ---------- SERVICIOS MÓVIL ---------- */
-  .servicios {
-    padding: 2rem 1.5rem;
-    height: 700px; /* ✅ Altura específica para móvil */
-  }
-
-  .servicios-text {
-    font-size: 16px;
-    line-height: 22px;
-    margin-bottom: 2rem;
-    width: 100%;
-  }
-
-  /* Pills en 2 columnas para móvil */
-  .pill-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .pill-item:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    max-width: 60%;
-    margin: 0 auto;
-  }
-
-  .pill-text {
-    font-size: 15px;
-    padding: 0.8rem 1rem;
-  }
-
-  .pill-bg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .pill-text {
-    font-size: 14px;
-    padding: 0 0.5rem;
-  }
-
-  /* ---------- EQUIPO MÓVIL ---------- */
+  /* ===== EQUIPO ===== */
   .equipo {
-    padding: 2rem 1.5rem;
-    gap: 2rem;
+    padding: 4rem 1rem;
   }
-
-  .equipo-title {
-    font-size: 40px;
-    line-height: 40px;
-    margin-bottom: 1rem;
-    width: 100%;
-    height: auto;
-  }
-
-  .equipo-text {
-    font-size: 16px;
-    line-height: 22px;
-    margin-bottom: 1rem;
-    width: 100%;
-    height: auto;
-  }
-
-  .psico-container {
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-  }
-
   .psico-card {
     flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-    max-width: 100%;
+    gap: 2rem;
   }
-
-  /* IMPORTANTE: Mantener el tamaño original de las fotos */
-  .psico-card img:not(.trazo-formacion),
-  .psico-img-clickable {
-    width: 300px !important;
-    height: 250px !important;
-    object-fit: cover;
-    border-radius: 38% / 60%;
-    /* ✅ Animación táctil que se repite para indicar que es tocable */
-    animation: tapPulse 2s ease-in-out infinite;
-    cursor: pointer;
-    position: relative;
-  }
-
-  /* ✅ Indicador visual de "tap" */
-  .psico-img-clickable::after {
-    content: "👆";
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    font-size: 28px;
-    background: rgba(255, 255, 255, 0.9);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    animation: tapBounce 1.5s ease-in-out infinite;
-  }
-
-  @keyframes tapBounce {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-8px);
-    }
-  }
-
   .psico-info {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .nombre-trazo-wrapper {
+    margin: 0 auto;
     align-items: center;
   }
 
-  .psico-title {
-    font-size: 28px;
-    line-height: 34px;
+  /* Acordeón */
+  .psico-text-conteiner {
+    grid-template-columns: 1fr;
     text-align: center;
   }
-
-  .psico-subtitle {
-    font-size: 16px;
-    line-height: 22px;
-    text-align: center;
-  }
-
-  .trazo-formacion {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-
-  .psico-formacion-component {
-    padding: 1.5rem;
-  }
-
   .psico-formacion-text-izquierda,
   .psico-formacion-text-derecha {
-    font-size: 14px;
-    line-height: 20px;
-    max-width: 100%; /* ✅ Ancho completo */
-  }
-
-  /* ✅ Eliminar margen entre los dos divs para que se vean continuos */
-  .psico-formacion-text-izquierda {
-    margin-bottom: 0 !important;
-  }
-
-  .psico-formacion-text-derecha {
-    margin-top: 0 !important;
-  }
-
-  /* ✅ Contenedor de texto sin gap */
-  .psico-text-conteiner {
-    gap: 0 !important; /* ✅ Sin espacio entre divs */
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* ---------- FORMACIONES MÓVIL ---------- */
-  .formaciones-a-profesionales {
-    height: auto;
-    padding-bottom: 3rem;
-  }
-
-  .formaciones-text-image-conteiner {
-    flex-direction: column;
-    padding: 2rem 1.5rem;
-    gap: 2rem;
-  }
-
-  .formaciones-text-conteiner {
-    padding: 1.5rem;
+    text-align: center;
     align-items: center;
   }
 
-  .formaciones-title {
-    font-size: 40px;
-    line-height: 45px;
-    margin-bottom: 1.5rem;
-    width: 100%;
-    height: auto;
+  /* ===== FORMACIONES ===== */
+  .formaciones-text-image-conteiner {
+    flex-direction: column;
     text-align: center;
   }
-
-  .formaciones-text {
-    font-size: 16px;
-    line-height: 24px;
-    width: 100%;
-    height: auto;
-    text-align: center;
+  .formaciones-text-conteiner {
+    align-items: center;
   }
-
-  .formaciones-email {
-    font-size: 18px;
-    line-height: 24px;
-    text-align: center;
-  }
-
-  /* IMPORTANTE: Ilustración sin recortar */
-  .formaciones-image {
-    width: 100% !important;
-    height: auto !important;
-    max-width: 100%;
-    object-fit: contain !important;
-  }
-
   .formaciones-cards-conteiner {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 15px;
-    column-gap: 0;
-    row-gap: 2rem;
-  }
-
-  .formacion-card {
-    width: 97%;
-    min-height: 468px;
-  }
-
-  .card-image-container {
-    height: auto;
-    min-height: 400px;
-  }
-
-  /* Ajustar el overlay para móvil */
-  .card-overlay {
-    width: 95%;
-    max-width: 100%;
-    padding: 1.5rem;
-    gap: 0.75rem;
-  }
-
-  .card-title {
-    font-size: 22px;
-    line-height: 26px;
-  }
-
-  .card-body {
-    font-size: 15px;
-    line-height: 19px;
-    max-width: 100%;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-
-  /* ---------- CÓMO TRABAJA MÓVIL ---------- */
-  .como-trabaja {
-    padding: 2rem 1.5rem;
-  }
-
-  .como-trabaja-conteiner {
     padding: 0;
-    margin-top: 20px;
   }
-
-  .como-trabaja-title {
-    font-size: 40px;
-    line-height: 40px;
-    margin-bottom: 1.5rem;
-    width: 100%;
-    height: auto;
-  }
-
-  .como-trabaja-text {
-    font-size: 16px;
-    line-height: 22px;
-    width: 100%;
-    height: auto;
-  }
-
-  .como-trabaja-cards-conteiner {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2rem !important;
-    padding: 0 !important;
-    max-width: 100% !important;
-    align-items: center !important;
-  }
-
-  .como-trabaja-card-formacion-conteiner {
-    width: 91% !important;
-    max-width: 400px !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: block !important; /* ✅ Forzar block */
-  }
-
-  /* ✅ Reset TOTAL - todas las cards iguales */
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* ✅ Forzar cards a comportarse igual */
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 400px;
-    object-fit: contain !important;
-  }
-
-  .como-trabaja-card-overlay {
-    padding: 0.5rem;
-  }
-
-  .como-trabaja-card-title {
-    font-size: 40px;
-    line-height: 35px;
-    width: auto;
-    height: auto;
-  }
-
-  .como-trabaja-card-subtitle {
-    font-size: 24px;
-    line-height: 28px;
-    width: auto;
-    height: auto;
-  }
-
-  .como-trabaja-card-body {
-    font-size: 16px;
-    line-height: 19px;
-    height: auto;
-  }
-
-  /* ---------- COMO TRABAJA BOTTOM MÓVIL ---------- */
-  .como-trabaja-bottom-conteiner {
-    margin-top: 2rem;
-    padding: 0 1.5rem;
-  }
-
-  .como-trabaja-bottom-text {
-    width: 100%;
-    height: auto;
-    font-size: 20px;
-    line-height: 28px;
-    padding: 0 1rem;
-  }
-
-  .como-trabaja-bottom-equipo-conteiner {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    width: 100%;
-    padding: 0 1rem;
-  }
-
-  .como-trabaja-bottom-equipo-directoras,
-  .como-trabaja-bottom-equipo-psicologas,
-  .como-trabaja-bottom-equipo-medica,
-  .como-trabaja-bottom-equipo-nutricionista {
-    width: 100%;
-    height: auto;
-    font-size: 16px;
-    line-height: 20px;
-  }
-
-  .como-trabaja-bottom-equipo-directoras-conteiner,
-  .como-trabaja-bottom-equipo-psicologas-conteiner,
-  .como-trabaja-bottom-equipo-medica-conteiner,
-  .como-trabaja-bottom-equipo-nutricionista-conteiner {
-    width: 100%;
-  }
-
-  /* ---------- FOOTER MÓVIL ---------- */
-  .footer-page {
-    height: auto;
-    margin-top: 2rem;
-    padding: 2rem 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-content {
-    padding: 0 1.5rem 2rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .image-button-conteiner {
-    flex-direction: column;
-    gap: 1.5rem;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .footer-image {
-    position: static;
-    width: 107% !important;
-    max-width: 412px;
-    height: auto !important;
-    margin: 0 auto 1rem auto;
-    object-fit: contain;
-    display: block;
-  }
-
-  .footer-button {
-    position: static;
-    width: 85%;
-    max-width: 260px;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-  }
-
-  .footer-button img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* ✅ REDES SOCIALES CENTRADAS */
-  .rrss-footer {
-    display: block;
-    margin: 1rem auto 0 auto; /* ✅ Centrado con margen superior */
-    max-width: 80%; /* ✅ Ancho controlado */
-    height: auto;
-  }
-
-  /* Si hay logo de redes sociales */
-  .footer-social,
-  .social-icon,
-  [class*="instagram"],
-  [class*="social"] {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem auto 0 auto;
-    text-align: center;
-  }
-
-  /* ---------- CONTACTO MÓVIL ---------- */
-  .contacto {
-    padding: 2rem 1.5rem;
-  }
-
-  .contacto-title {
-    font-size: 40px;
-    line-height: 40px;
-  }
-
-  .contacto-form {
-    padding: 1.5rem;
-  }
-
-  .form-row {
-    flex-direction: column;
-  }
-
-  .form-group {
-    width: 100%;
-  }
-
-  /* ---------- FOOTER INFERIOR (si existe) ---------- */
-  .footer {
-    padding: 2rem 1.5rem;
-    text-align: center;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-    align-items: center;
-  }
-
-  .footer-section {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* ========================================
-   MÓVILES PEQUEÑOS (480px y menos)
-   ======================================== */
-
-@media (max-width: 480px) {
-  /* ===== AJUSTES PARA CARD-SOLO (Formaciones) ===== */
-
-  .card-solo {
-    width: 93%;
-    height: auto;
-    min-height: 412px; /* ✅ Igual que formaciones-item */
-    object-fit: contain;
-  }
-  .card-image-container {
-    height: auto;
-    min-height: 412px; /* ✅ Igual que formaciones-item */
-  }
-  .card-overlay {
-    width: 90%; /* ✅ Un poco más angosto */
-
-    gap: 0.4rem; /* ✅ Menos espacio entre elementos */
-    max-height: 88%; /* ✅ Más espacio disponible */
-    overflow-y: auto;
-    margin-left: -10px;
-    margin-top: -7px;
-  }
-
-  .card-title {
-    font-size: 18px; /* ✅ Más pequeño (antes 20px) */
-    line-height: 22px;
-    margin-bottom: 0.3rem;
-  }
-
-  .card-body {
-    font-size: 15px; /* ✅ Más pequeño (antes 13px) */
-    line-height: 16px; /* ✅ Más compacto */
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-
-  /* ===== FIN AJUSTES CARD-SOLO ===== */
-
-  .hero-content {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    margin-top: -115px;
-  }
-  .hero img {
-    max-width: 400px;
-    animation: slideInLeft 1s ease-out; /* ✅ Agregada animación */
-  }
-
-  .hero-text1 {
-    font-size: 36px;
-    line-height: 34px;
-  }
-
-  .hero-text2 {
-    font-size: 30px;
-    line-height: 35px;
-    margin-top: -120px; /* Ajustar para texto más pequeño */
-    margin-left: -40px;
-  }
-
-  .servicios-text,
-  .equipo-text,
-  .formaciones-text,
-  .como-trabaja-text {
-    font-size: 20px;
-    line-height: 22px;
-    letter-spacing: 0px;
-  }
-  .servicios-text {
-    margin-top: -40px;
-    width: 105%;
-  }
-  .como-trabaja-text {
-    margin-top: -22px;
-  }
-  .como-trabaja-cards-conteiner {
-    margin-top: 50px;
-  }
-  .pill-container {
-    gap: 0.75rem;
-  }
-
-  .pill-item:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    max-width: 55%;
-    margin: 0 auto;
-  }
-
-  .pill-text {
-    font-size: 14px;
-    padding: 0.8rem 0.8rem;
-  }
-
-  .equipo-title,
-  .formaciones-title,
-  .como-trabaja-title {
-    font-size: 32px;
-    line-height: 32px;
-  }
-  .como-trabaja-title {
-    width: 64%;
-  }
-
-  .psico-card img:not(.trazo-formacion),
-  .psico-img-clickable {
-    width: 300px !important;
-    height: 200px !important;
-  }
-
-  /* ✅ Animación táctil para psico-img-clickable en móviles pequeños */
-  .psico-img-clickable {
-    animation: tapPulse 2s ease-in-out infinite;
-    cursor: pointer;
-    position: relative;
-  }
-
-  /* ✅ Indicador visual de "tap" en móviles pequeños */
-  .psico-img-clickable::after {
-    content: "👆";
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 24px;
-    background: rgba(255, 255, 255, 0.9);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    animation: tapBounce 1.5s ease-in-out infinite;
-  }
-
-  .como-trabaja-card-title {
-    font-size: 32px;
-  }
-
-  .como-trabaja-card-subtitle {
-    font-size: 20px;
-    line-height: 24px;
-  }
-
-  .como-trabaja-bottom-text {
-    font-size: 18px;
-    line-height: 24px;
-    width: 115%;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    min-height: 350px;
-  }
-
-  /* ✅ INFORMACIÓN DESPLEGABLE - Sin gap en móvil */
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    font-size: 13px;
-    line-height: 19px;
-    max-width: 100%;
-  }
-
-  .psico-text-conteiner {
-    gap: 0 !important;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-    align-items: center;
-  }
-  .footer-image {
-    margin-left: -17px;
-    margin-top: 30px;
-  }
-  .footer-content {
-    align-items: center;
-  }
-
-  /* ✅ REDES SOCIALES CENTRADAS */
-  .rrss-footer {
-    display: block;
-    margin: 1rem auto 0 auto; /* ✅ Centrado */
-    max-width: 70%; /* ✅ Un poco más ancho */
-    height: auto;
-    margin-left: 75px;
-    margin-top: 60px;
-  }
-
-  .trazo-psicologas {
-    width: 4.7px;
-    height: 248px;
-    object-fit: fill;
-    flex-shrink: 0;
-  }
-
-  /* ✅ ELIMINAR ESPACIO ENTRE DIVS DE PSICO */
-  .psico-text-conteiner {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important;
-  }
-
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  .psico-formacion-text-derecha::before {
-    content: ""; /* El contenido debe estar vacío */
-    display: block;
-    /* Insertar la imagen del trazo */
-    background-image: url("./assets/psico/trazo-psico.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center left;
-
-    /* Dimensiones de un trazo inline (ajusta si es necesario) */
-    width: 50px; /* Ancho del trazo en móvil */
-    height: 10px; /* Altura del trazo */
-
-    /* Margen de separación */
-    margin: 3px 0 3px 0; /* Margen superior para separación */
-  }
-
-  /* ✅ COMO TRABAJA - 1 columna vertical en móviles pequeños */
-  .como-trabaja-cards-conteiner {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important; /* ✅ Gap uniforme */
-    max-width: 100%;
-    padding: 0.5rem;
-    align-items: start; /* ✅ Alineación */
-  }
-
-  /* ✅ Reset total de márgenes */
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important; /* ✅ Solo centrado */
-    padding: 0 !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    min-height: 400px;
-    max-width: 100% !important;
-    width: 100%;
-    object-fit: contain;
-    display: block !important; /* ✅ Forzar block */
-    margin: 0 !important; /* ✅ Sin márgenes propios */
-    padding: 0 !important;
-  }
-}
-
-@media (max-width: 425px) {
-  .footer-content {
-    align-items: center;
-  }
-  .hero-content {
-    align-items: center;
-  }
-}
-@media (max-width: 412px) {
-  /* ✅ COMO TRABAJA - Asegurar 1 columna */
-  .como-trabaja-cards-conteiner {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-  }
-
-  /* ✅ Reset total */
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: block !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .como-trabaja-card1-overlay {
-    top: 7%;
-    right: 10%;
-    left: 10%;
-    bottom: 10%;
-  }
-  .como-trabaja-card2-overlay {
-    top: 11%;
-    right: 12%;
-    left: 12%;
-    bottom: 15%;
-  }
-  .footer-content {
-    align-items: center;
-  }
-  .hero-content {
-    align-items: center;
-  }
-  .formaciones-text {
-    width: 111%;
-    text-align: center;
-  }
-
-  /* ✅ HERO para pantallas 412px (Samsung S20/S21, Pixel) */
-  .hero {
-    min-height: 760px !important; /* ✅ Altura típica de estos dispositivos */
-  }
-}
-/* ===== AJUSTE ESPECÍFICO PARA iPhone 14/16 Pro (390-393px ancho) ===== */
-@media (max-width: 400px) {
-  /* ✅ COMO TRABAJA - Asegurar 1 columna */
-  .como-trabaja-cards-conteiner {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-  }
-
-  /* ✅ Reset total de márgenes */
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: block !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .formaciones-item,
-  .card-solo {
-    min-height: 390px !important; /* ✅ Aún más alto para iPhones específicos */
-  }
-
-  .card-overlay {
-    width: 85% !important;
-    padding: 0.9rem !important;
-    gap: 0.3rem !important;
-    max-height: 85% !important;
-  }
-
-  .card-title {
-    font-size: 17px !important;
-    line-height: 21px !important;
-    margin-bottom: 0.2rem !important;
-  }
-
-  .card-body {
-    font-size: 11.5px !important; /* ✅ Muy pequeño pero legible */
-    line-height: 15px !important;
-  }
-
-  /* ✅ SERVICIOS para iPhone 14 Pro Max y similares */
-  .servicios {
-    height: 680px !important; /* ✅ Altura específica para iPhone 14 Pro Max */
-  }
-  .trazo-psicologas {
-    width: 4.7px;
-    height: 242px;
-    object-fit: fill;
-    flex-shrink: 0;
-  }
-
-  /* ✅ INFORMACIÓN DESPLEGABLE - Sin gap en móvil */
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    font-size: 12px !important;
-    line-height: 18px !important;
-    max-width: 100% !important;
-  }
-
-  .psico-text-conteiner {
-    gap: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  /* ✅ REDES SOCIALES CENTRADAS */
-  .rrss-footer {
-    display: block !important;
-
-    max-width: 90% !important; /* ✅ Ancho para pantallas pequeñas */
-    height: auto !important;
-    margin-left: 45px !important;
-  }
-  .footer-button {
-    margin-right: 45px;
-  }
-
-  /* ✅ ELIMINAR ESPACIO ENTRE DIVS DE PSICO */
-  .psico-text-conteiner {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important;
-  }
-
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  .psico-formacion-text-derecha::before {
-    content: ""; /* El contenido debe estar vacío */
-    display: block;
-    /* Insertar la imagen del trazo */
-    background-image: url("./assets/psico/trazo-psico.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center left;
-
-    /* Dimensiones de un trazo inline (ajusta si es necesario) */
-    width: 50px; /* Ancho del trazo en móvil */
-    height: 10px; /* Altura del trazo */
-
-    /* Margen de separación */
-    margin: 3px 0 3px 0; /* Margen superior para separación */
-  }
-  .como-trabaja-card-overlay {
-    width: 100%;
-  }
-  .como-trabaja-card-body {
-    font-size: 13px;
-    width: 80%;
-  }
-  .importante-como-trabaja {
-    font-size: 13px;
-  }
-
-  .card-body {
-    font-size: 14px !important;
-  }
-  .card-title {
-    font-size: 17px !important;
-  }
-  .footer-content {
-    align-items: center;
-  }
-  .hero-content {
-    align-items: center;
-  }
-  .servicios-text {
-    width: 100%;
-  }
-  .formaciones-text {
-    width: 100%;
-  }
-}
-
-/* ===== HERO PANTALLA COMPLETA PARA MÓVILES PEQUEÑOS (Alturas fijas - Sin saltos) ===== */
-
-/* iPhone 14 Pro Max - 430x932px */
-@media (max-width: 430px) and (min-width: 413px) {
-  .hero {
-    min-height: 830px !important;
-  }
-
-  /* ✅ Reset total */
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: block !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-}
-
-/* iPhone 14/15/16 Pro - 393x852px */
-@media (max-width: 393px) and (min-width: 391px) {
-  .hero {
-    min-height: 750px !important;
-  }
-
-  /* ✅ Reset total */
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: block !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-}
-
-/* iPhone 14/15/16 - 390x844px */
-@media (max-width: 390px) and (min-width: 376px) {
-  .hero {
-    min-height: 740px !important;
-  }
-
-  /* ✅ Reset total */
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: block !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-}
-@media (max-width: 1512px) and (min-width: 1200px) {
-  .hero {
-    min-height: 750px; /* ✅ Altura para MacBook */
-    padding: 2rem 6rem;
-  }
-
-  .hero img {
-    width: 660px; /* ✅ Más grande */
-    height: 690px; /* ✅ Más alto */
-    left: 3rem;
-    bottom: 25px; /* ✅ Se superpone MUCHO a la franja verde */
-    z-index: 10;
-  }
-
-  .hero-text1 {
-    right: 10rem;
-    bottom: 18rem;
-    font-size: 75px;
-    line-height: 70px;
-    width: 450px;
-  }
-
-  .hero-text2 {
-    right: 10rem; /* MISMO right que text1 */
-    bottom: 18rem; /* MISMO bottom que text1 */
-    font-size: 45px;
-    line-height: 55px;
-    width: 550px;
-  }
-}
-
-@media (max-width: 1400px) {
-  .navbar {
-    padding: 1.5rem 3rem;
-  }
-  .menu {
-    gap: 2.5rem;
-    font-size: 20px;
-  }
-  .hero {
-    min-height: 750px; /* ✅ Altura para pantallas medianas */
-    gap: 1rem;
-    padding: 1rem 4rem;
-  }
-  .hero img {
-    width: 670px; /* ✅ Más grande */
-    height: 718px; /* ✅ Más alto */
-    bottom: px; /* ✅ Se superpone a la franja verde */
-    z-index: 30;
-  }
-  .hero-text1 {
-    right: 4rem;
-    width: auto;
-    font-size: 65px;
-    line-height: 62px;
-    max-width: 450px;
-  }
-  .hero-text2 {
-    width: auto;
-    font-size: 40px;
-    line-height: 48px;
-    max-width: 500px;
-    right: 4rem;
-  }
-}
-
-@media (max-width: 767px) {
-  .navbar {
-    padding: 1.2rem 2rem;
-  }
-  .logo img {
-    width: 120px;
-    height: 120px;
-  }
-  .menu {
-    gap: 2rem;
-    font-size: 18px;
-  }
-  .hero {
-    min-height: 550px; /* ✅ Altura para tablets */
-    gap: 0.5rem;
-    padding: 1rem 3rem;
-  }
-  .hero img {
-    width: 400px;
-    height: auto;
-  }
-  .hero-text1 {
-    right: 3rem;
-    font-size: 55px;
-    line-height: 52px;
-    max-width: 350px;
-  }
-  .hero-text2 {
-    font-size: 35px;
-    line-height: 42px;
-    max-width: 400px;
-  }
-}
-
-@media (max-width: 767px) {
-  .navbar {
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 1rem;
-  }
-  .menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    font-size: 16px;
-  }
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 1rem 1.5rem;
-    gap: 0;
-    position: relative;
-    min-height: 600px; /* Altura mínima para contener los textos */
-  }
-  .hero img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin-bottom: 1rem;
-  }
-  .hero-text1 {
-    position: absolute;
-    bottom: 15px; /* Posición fija desde abajo */
-    left: 50%;
-    transform: translateX(-50%);
-    right: auto;
-    width: 90%;
-    height: auto;
-    font-size: 40px;
-    line-height: 38px;
-    max-width: 100%;
-  }
-  .hero-text2 {
-    position: absolute;
-    bottom: 20px;
-    left: 5%;
-    transform: translateX(-50%);
-    width: 90%;
-    height: auto;
-    font-size: 28px;
-    line-height: 34px;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  #servicios {
-    scroll-margin-top: 60px;
-  }
-  #formaciones {
-    scroll-margin-top: 50px;
-  }
-  #como-trabaja {
-    scroll-margin-top: 60px;
-  }
-  .como-trabaja {
-    gap: 1rem;
-  }
-
-  .logo img {
-    width: 100px;
-    height: 100px;
-  }
-  .menu {
-    font-size: 14px;
-    gap: 1rem;
-  }
-  .hero {
-    padding: 0.5rem 1rem;
-    /* ✅ min-height removido */
-  }
-
-  .hero-text1 {
-    bottom: 15px;
-    font-size: 32px;
-    line-height: 32px;
-    width: 95%;
-  }
-  .hero-text2 {
-    bottom: 15px;
-    font-size: 24px;
-    line-height: 28px;
-    width: 95%;
-  }
-}
-@media (max-width: 767px) {
-  .navbar {
-    padding: 1.2rem 2rem;
-  }
-  .logo img {
-    width: 120px;
-    height: 120px;
-  }
-  .menu {
-    gap: 2rem;
-    font-size: 18px;
-  }
-  .hero {
-    gap: 3rem;
-    padding: 2rem 3rem;
-  }
-  .hero img {
-    width: 400px;
-    height: auto;
-  }
-  .hero-text {
-    font-size: 31px;
-    line-height: 42px;
-    max-width: 400px;
-  }
-}
-
-@media (max-width: 767px) {
-  .navbar {
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 1rem;
-  }
-  .menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    font-size: 16px;
-  }
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 2rem 1.5rem;
-    gap: 2rem;
-    margin-top: -125px;
-  }
-
-  .hero-text {
-    width: 100%;
-    height: auto;
-    font-size: 32px;
-    line-height: 38px;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo img {
-    width: 100px;
-    height: 100px;
-  }
-  .menu {
-    font-size: 14px;
-    gap: 1rem;
-  }
-
-  .hero-text {
-    font-size: 26px;
-    line-height: 32px;
-  }
-}
-
-.formaciones-title {
-  width: 535.88px;
-  height: 166px;
-  color: white;
-  font-size: 55px;
-  font-family: Literata;
-  font-weight: 600;
-  line-height: 61px;
-  word-wrap: break-word;
-}
-
-.formaciones-email {
-  color: white;
-  font-size: 20px;
-  font-family: "Lato", sans-serif;
-  font-weight: 700;
-  text-decoration: underline;
-  line-height: 30px;
-  letter-spacing: 1px;
-  word-wrap: break-word;
-}
-
-@media (max-width: 1093px) {
-  .formaciones-image {
-    width: 600px;
-    height: 500px;
-  }
-}
-
-/* Responsive */
-@media (max-width: 767px) {
-  .card-overlay {
-    padding: 1.5rem;
-    gap: 0.8rem;
-  }
-
-  .card-title {
-    font-size: 28px;
-    line-height: 32px;
-  }
-
-  .card-body {
-    font-size: 15px;
-    line-height: 20px;
-  }
-}
-
-@media (max-width: 767px) {
-  .card-overlay {
-    padding: 1.5rem;
-    gap: 0.8rem;
-  }
-
-  .card-title {
-    font-size: 24px;
-    line-height: 28px;
-  }
-
-  .card-body {
-    font-size: 14px;
-    line-height: 19px;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .card-overlay {
-    padding: 1rem;
-    gap: 0.6rem;
-  }
-
-  .card-title {
-    font-size: 20px;
-    line-height: 24px;
-  }
-}
-.como-trabaja-conteiner {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding-bottom: 35px;
-  padding-top: 125px;
-}
-.como-trabaja-title {
-  width: 714.8px;
-  height: 92.18px;
-  text-align: center;
-  color: #638c6b;
-  font-size: 55px;
-  font-family: Literata;
-  font-weight: 600;
-  line-height: 70px;
-  word-wrap: break-word;
-}
-.como-trabaja-text {
-  width: 854.05px;
-  height: 199.09px;
-  text-align: center;
-  color: #575757;
-  font-size: 20px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 26px;
-  letter-spacing: 1px;
-  word-wrap: break-word;
-}
-
-.como-trabaja-cards-conteiner {
-  /* Grid para 3 columnas */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem; /* ✅ Gap aumentado para más espacio */
-  justify-content: center;
-  align-items: start; /* ✅ Alineadas arriba */
-  width: 100%;
-  max-width: 1400px; /* ✅ Más ancho (era 1200px) */
-  margin: 0 auto; /* ✅ Centrado */
-  padding: 2rem 3rem; /* ✅ Padding lateral */
-}
-
-.como-trabaja-card-formacion-conteiner {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-  border-radius: 20px;
-  margin: 0 auto;
-}
-
-/* ✅ Cards escalonadas - diferentes alturas */
-.como-trabaja-card-formacion-conteiner:nth-child(1) {
-  margin-top: 0; /* Card 1 arriba */
-}
-
-.como-trabaja-card-formacion-conteiner:nth-child(2) {
-  margin-top: 80px; /* Card 2 más abajo */
-}
-
-.como-trabaja-card-formacion-conteiner:nth-child(3) {
-  margin-top: 160px; /* Card 3 aún más abajo */
-}
-
-.como-trabaja-card1 {
-  width: 100%; /* ✅ Ancho flexible (era 410px fijo) */
-  max-width: 420px; /* ✅ Máximo controlado */
-  height: auto; /* ✅ Altura automática */
-  aspect-ratio: 410 / 725; /* ✅ Mantiene proporción */
-  display: block;
-  object-fit: contain; /* ✅ No recorta (era cover) */
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.como-trabaja-card1.animate {
-  animation: fadeInUp 0.6s ease-out forwards;
-  animation-delay: 0.2s;
-}
-
-.como-trabaja-card2 {
-  width: 100%; /* ✅ Ancho flexible */
-  max-width: 420px;
-  height: auto; /* ✅ Altura automática */
-  aspect-ratio: 410 / 612; /* ✅ Mantiene proporción */
-  display: block;
-  object-fit: contain; /* ✅ No recorta */
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.como-trabaja-card2.animate {
-  animation: fadeInUp 0.6s ease-out forwards;
-  animation-delay: 0.4s;
-}
-
-.como-trabaja-card3 {
-  width: 100%; /* ✅ Ancho flexible */
-  max-width: 420px;
-  height: auto; /* ✅ Altura automática */
-  aspect-ratio: 410 / 450; /* ✅ Mantiene proporción */
-  display: block;
-  object-fit: contain; /* ✅ No recorta */
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.como-trabaja-card3.animate {
-  animation: fadeInUp 0.6s ease-out forwards;
-  animation-delay: 0.6s;
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.como-trabaja-card-title {
-  width: 192.57px;
-  height: 46.44px;
-  color: #638c6b;
-  font-size: 45px;
-  font-family: Literata;
-  font-weight: 600;
-  line-height: 35px;
-  word-wrap: break-word;
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
-.animate .como-trabaja-card-title {
-  animation: slideInContent 0.5s ease-out forwards;
-}
-
-.como-trabaja-card1-overlay.animate .como-trabaja-card-title {
-  animation-delay: 0.5s;
-}
-.como-trabaja-card2-overlay.animate .como-trabaja-card-title {
-  animation-delay: 0.7s;
-}
-.como-trabaja-card3-overlay.animate .como-trabaja-card-title {
-  animation-delay: 0.9s;
-}
-
-.como-trabaja-card-subtitle {
-  width: 313.11px;
-  height: auto;
-  color: #638c6b;
-  font-size: 21px;
-  font-family: Literata;
-  font-weight: 400;
-  line-height: 25px;
-  word-wrap: break-word;
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
-.animate .como-trabaja-card-subtitle {
-  animation: slideInContent 0.5s ease-out forwards;
-}
-
-.como-trabaja-card1-overlay.animate .como-trabaja-card-subtitle {
-  animation-delay: 0.6s;
-}
-.como-trabaja-card2-overlay.animate .como-trabaja-card-subtitle {
-  animation-delay: 0.8s;
-}
-.como-trabaja-card3-overlay.animate .como-trabaja-card-subtitle {
-  animation-delay: 1s;
-}
-
-.como-trabaja-card-body {
-  align-self: stretch;
-  height: 372.61px;
-  color: #575757;
-  font-size: 16px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 21px;
-  word-wrap: break-word;
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
-.animate .como-trabaja-card-body {
-  animation: slideInContent 0.5s ease-out forwards;
-}
-
-.como-trabaja-card1-overlay.animate .como-trabaja-card-body {
-  animation-delay: 0.7s;
-}
-.como-trabaja-card2-overlay.animate .como-trabaja-card-body {
-  animation-delay: 0.9s;
-}
-.como-trabaja-card3-overlay.animate .como-trabaja-card-body {
-  animation-delay: 1.1s;
-}
-
-@keyframes slideInContent {
-  0% {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-/* Overlay base (común para todas) */
-.como-trabaja-card-overlay {
-  position: absolute;
-  padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-/* Card 1 - Vertical alta */
-.como-trabaja-card1-overlay {
-  top: 10%;
-  right: 10%;
-  left: 10%;
-  bottom: 10%;
-}
-
-/* Card 2 - Más horizontal/ovalada */
-.como-trabaja-card2-overlay {
-  top: 15%;
-  right: 12%;
-  left: 10%;
-  bottom: 15%;
-}
-
-/* Card 3 - Horizontal ancha */
-.como-trabaja-card3-overlay {
-  top: 18%;
-  right: 15%;
-  left: 10%;
-  bottom: 18%;
-}
-.flecha-paso {
-  width: 120px; /* Ajusta según el tamaño de tu PNG */
-  height: auto;
-  align-self: flex-start; /* Coloca arriba */
-  margin-top: -3rem; /* Ajusta para subir/bajar la flecha */
-  margin-left: -4rem; /* Solapa con la card izquierda */
-  margin-right: -4rem; /* Solapa con la card derecha */
-  z-index: 3; /* Por encima de las cards */
-  position: relative;
-}
-.como-trabaja-bottom-conteiner {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-  margin-top: 200px;
-}
-.como-trabaja-bottom-text {
-  width: 980.99px;
-  height: 191.79px;
-  text-align: center;
-  color: #575757;
-  font-size: 32px;
-  font-family: Literata;
-  font-weight: 400;
-  line-height: 42px;
-  word-wrap: break-word;
-}
-.como-trabaja-bottom-equipo-conteiner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
-  align-items: start;
-}
-.como-trabaja-bottom-equipo-directoras {
-  width: 181px;
-  height: 67.66px;
-  color: #575757;
-  font-size: 16px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 21px;
-  word-wrap: break-word;
-}
-.como-trabaja-bottom-equipo-directoras-conteiner {
-  display: flex;
-  gap: 1rem;
-  align-items: stretch;
-}
-.trazo-directoras {
-  width: 4px;
-  height: 98px; /* Se adapta a la altura del contenido */
-  object-fit: fill;
-  flex-shrink: 0;
-}
-.como-trabaja-bottom-equipo-psicologas {
-  width: 184px;
-  height: 202.66px;
-  color: #575757;
-  font-size: 16px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 21px;
-  word-wrap: break-word;
-}
-.como-trabaja-bottom-equipo-psicologas-conteiner {
-  display: flex;
-  gap: 1rem;
-  align-items: stretch;
-}
-.trazo-psicologas {
-  width: 4.7px;
-  height: 277px; /* Se adapta a la altura del contenido */
-  object-fit: fill;
-  flex-shrink: 0;
-}
-.como-trabaja-bottom-equipo-medica {
-  color: #575757;
-  font-size: 16px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 21px;
-  word-wrap: break-word;
-}
-.como-trabaja-bottom-equipo-medica-conteiner {
-  display: flex;
-  gap: 1rem;
-  align-items: stretch;
-}
-.trazo-medica {
-  width: 4px;
-  height: 100%; /* Se adapta a la altura del contenido */
-  object-fit: fill;
-  flex-shrink: 0;
-}
-.como-trabaja-bottom-equipo-nutricionista {
-  color: #575757;
-  font-size: 16px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 21px;
-  word-wrap: break-word;
-}
-.como-trabaja-bottom-equipo-nutricionista-conteiner {
-  display: flex;
-  gap: 1rem;
-  align-items: stretch;
-}
-.importante-como-trabaja {
-  color: #575757;
-  font-size: 16px;
-  font-family: Aeonik TRIAL;
-  font-weight: 700;
-  line-height: 21px;
-  word-wrap: break-word;
-}
-.trazo-nutricionista {
-  width: 4px;
-  height: 100%; /* Se adapta a la altura del contenido */
-  object-fit: fill;
-  flex-shrink: 0;
-}
-.footer-page {
-  width: 100vw;
-  min-height: 614px; /* ✅ Altura mínima aumentada (era 592px) */
-  height: auto; /* ✅ Se adapta al contenido */
-  background: #caacee;
-  margin-top: 200px;
-  overflow: visible;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-  padding-bottom: 3rem; /* ✅ Espacio para redes sociales */
-}
-
-.footer-page.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.footer-content {
-  position: relative;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 4rem 4rem 3rem; /* ✅ Más padding abajo */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem; /* ✅ Espacio entre elementos */
-}
-.image-button-conteiner {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-}
-/* Imagen de personas - Sobresale hacia arriba */
-.footer-image {
-  position: relative;
-  bottom: 200px;
-  left: 4rem;
-  width: 1004.16px;
-  height: 582px;
-  z-index: 2;
-  margin-bottom: -8rem; /* Hace que sobresalga hacia arriba */
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease-out 0.2s, transform 1s ease-out 0.2s;
-}
-.footer-page.animate-in .footer-image {
-  opacity: 1;
-  transform: translateY(0);
-}
-.footer-button {
-  position: relative;
-  bottom: 132px;
-  width: 354px;
-  height: 132px;
-  z-index: 3;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease-out 0.4s, transform 1s ease-out 0.4s;
-}
-.footer-page.animate-in .footer-button {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== REDES SOCIALES FOOTER ===== */
-.rrss-footer {
-  display: block;
-  margin: 0 auto; /* ✅ Centrado horizontal */
-  max-width: 100%;
-  height: auto;
-}
-
-/* ========================================
-
-/* ========================================
-   RESPONSIVE DESIGN MEJORADO
-   ======================================== */
-
-/* ========== MENÚ HAMBURGUESA ========== */
-/* ========================================
-   MENÚ HAMBURGUESA
-   ======================================== */
-
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 28px;
-  height: 20px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1001;
-  position: relative;
-}
-
-.hamburger span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background-color: #f79db9;
-  border-radius: 3px;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transform-origin: center;
-}
-
-/* Animación cuando está activo (X) */
-.hamburger.active span:nth-child(1) {
-  transform: translateY(8.5px) rotate(45deg);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: translateY(-8.5px) rotate(-45deg);
-}
-
-/* Prevenir scroll cuando el menú está abierto */
-body.menu-open {
-  overflow: hidden;
-}
-
-/* ========================================
-   🖥️ NOTEBOOKS / LAPTOPS (1025px - 1920px)
-   Responsive específico para portátiles
-   Mantiene el diseño desktop con ajustes proporcionales
-   ======================================== */
-
-/* ===== NOTEBOOKS GRANDES (1440px - 1920px) ===== */
-@media (min-width: 1440px) and (max-width: 1920px) {
-  /* Hero mantiene proporciones desktop */
-  .hero {
-    min-height: 850px;
-    padding: 2rem 8rem;
-  }
-
-  .hero img {
-    width: 750px;
-    height: 785px;
-  }
-
-  .hero-text1 {
-    font-size: 85px;
-    line-height: 77px;
-    right: 11rem;
-    bottom: 19rem;
-  }
-
-  .hero-text2 {
-    font-size: 50px;
-    line-height: 61px;
-    right: 7rem;
-    bottom: 21rem;
-  }
-
-  /* Servicios proporcional */
-  .servicios {
-    padding: 4rem 8rem;
-  }
-
-  .servicios-text {
-    font-size: 20px;
-    line-height: 28px;
-  }
-
-  /* Equipo proporcional */
-  .equipo-psicologas {
-    padding: 4rem 8rem;
-  }
-
-  .equipo-text {
-    font-size: 20px;
-    line-height: 28px;
-  }
-
-  .psicologas-conteiner {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-  }
-
-  /* Formaciones proporcional */
-  .formaciones-a-profesionales {
-    padding: 4rem 8rem;
-  }
-
-  /* Como trabaja proporcional */
-  .como-trabaja {
-    padding: 4rem 8rem;
-  }
-
-  .como-trabaja-text {
-    font-size: 20px;
-    line-height: 28px;
-  }
-
-  /* ✅ Como trabaja cards - ajustadas para 1440px */
-  .como-trabaja-cards-conteiner {
-    max-width: 1250px; /* Asegura un ancho máximo razonable */
-    gap: 1.5rem; /* Reducir el espacio entre las cards (antes 1.8rem o más) */
-    padding: 2rem 1rem; /* Padding lateral ligero para margen */
-    margin: 0 auto;
-    /* Usar GRID para control de columnas */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .como-trabaja-card-formacion-conteiner:nth-child(1) {
-    margin-top: 0; /* ✅ Card 1 arriba */
-  }
-
-  .como-trabaja-card-formacion-conteiner:nth-child(2) {
-    margin-top: 80px; /* ✅ Card 2 escalonada */
-  }
-
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin-top: 160px; /* ✅ Card 3 escalonada */
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    width: 100%;
-    max-width: 400px; /* ✅ Ancho controlado */
-    height: auto;
-  }
-
-  /* Overlays ajustados */
-  .como-trabaja-card1-overlay,
-  .como-trabaja-card2-overlay,
-  .como-trabaja-card3-overlay {
-    padding: 2.5rem 2rem; /* ✅ Más padding */
-    top: 7%;
-    bottom: 3%;
-    left: 6%;
-    right: 6%;
-  }
-
-  .como-trabaja-card-title {
-    font-size: 36px; /* ✅ Título ajustado */
-    line-height: 42px;
-  }
-
-  .como-trabaja-card-subtitle {
-    font-size: 20px;
-    line-height: 26px;
-  }
-
-  .como-trabaja-card-text {
-    font-size: 14px; /* ✅ Texto ajustado */
-    line-height: 20px;
-  }
-
-  /* Footer proporcional */
-  .footer-page {
-    padding: 4rem 8rem;
-  }
-  /* Contenedor del grupo Imagen + Botón */
-  .image-button-conteiner {
-    /* Mantiene las reglas de flexbox (row) */
-    justify-content: center; /* CLAVE: Centra la imagen y el botón entre sí */
-    align-self: center; /* Asegura que el contenedor se centre dentro de .footer-content */
-  }
-
-  /* Imagen de personas */
-  .footer-image {
-    /* Neutralizar desplazamiento horizontal y hacerlo responsive */
-    position: relative;
-    left: auto; /* ✅ Quitar el left fijo (era 4rem) */
-    margin-left: 0; /* Asegurar que no haya margen izquierdo */
-    margin-right: 0; /* Asegurar que no haya margen derecho */
-    width: 800px; /* Ajustar el ancho para que quepa bien en la pantalla */
-    max-width: 800px;
-    height: auto;
-    /* Ajustar el bottom si quieres que sobresalga */
-    bottom: 200px;
-  }
-
-  /* Botón (Contactanos!) */
-  .footer-button {
-    /* Neutralizar cualquier posicionamiento que lo desplace */
-    position: relative;
-    left: auto; /* Asegurar que no tenga left o right fijo */
-    right: auto;
-    width: 354px; /* Mantener ancho fijo o ajustado */
-    height: 132px;
-    bottom: 132px;
-  }
-
-  /* Redes Sociales */
-  .rrss-footer {
-    display: block;
-    margin: 0 auto; /* ✅ Ya está centrado por margin auto */
-  }
-}
-
-/* ===== NOTEBOOKS 1366x1025 (HP, Dell, Lenovo estándar) ===== */
-@media (min-width: 1366px) and (max-width: 1439px) {
-  /* Hero ajustado para 1366px */
-  .hero {
-    min-height: 800px;
-    padding: 2rem 5rem; /* Menos padding para no cortar */
-  }
-
-  .hero img {
-    width: 700px;
-    height: 732px;
-    left: 2.5rem;
-    bottom: 50px;
-  }
-
-  .hero-text1 {
-    font-size: 80px;
-    line-height: 74px;
-    right: 15rem;
-    bottom: 18rem;
-  }
-
-  .hero-text2 {
-    font-size: 48px;
-    line-height: 58px;
-    right: 9rem;
-    bottom: 20rem;
-  }
-
-  /* Servicios centrado */
-  .servicios {
-    padding: 3.5rem 5rem;
-    height: auto;
-  }
-
-  .servicios-text {
-    font-size: 19px;
-    line-height: 27px;
-    max-width: 90%;
-    margin: 0 auto;
-  }
-
-  .pill-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem; /* ✅ Gap reducido para más espacio */
-    max-width: 1150px; /* ✅ Contenedor más ancho */
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-
-  .pill-item {
-    max-width: 280px; /* ✅ Pills más anchas */
-    min-width: 260px; /* ✅ Mínimo para textos largos */
-    width: 100%;
-    height: auto;
-    min-height: 90px; /* ✅ Altura mínima para textos */
-  }
-
-  .pill-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: fill; /* ✅ Se adapta al contenido */
-  }
-
-  .pill-text {
-    font-size: 20px; /* ✅ Tamaño de texto optimizado */
-    line-height: 20px;
-    padding: 0 1.5rem; /* ✅ Padding interno */
-    text-align: center;
-    max-width: 100%;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-
-  /* Equipo centrado */
-  .equipo-psicologas {
-    padding: 3.5rem 5rem;
-  }
-
-  .equipo-text {
-    font-size: 19px;
-    line-height: 27px;
-    max-width: 90%;
-    margin: 0 auto;
-  }
-
-  .psicologas-conteiner {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-    max-width: 1150px;
-    margin: 0 auto;
-  }
-
-  .psicologa-card {
-    max-width: 350px;
-    margin: 0 auto;
-  }
-
-  /* Formaciones centrado */
-  .formaciones-a-profesionales {
-    padding: 3.5rem 5rem;
-    height: 2580px;
-  }
-
-  .formaciones-text-image-conteiner {
-    flex-direction: row;
-    padding: 2rem 3rem;
-    gap: 3rem; /* ✅ Espacio entre texto e imagen */
-    align-items: flex-start; /* ✅ Alineados arriba */
-    max-width: 1150px;
-    margin: 0 auto;
-  }
-
-  .formaciones-text-conteiner {
-    flex: 1; /* ✅ Ocupa espacio disponible */
-    align-items: flex-start; /* ✅ Alineado a la izquierda */
-    padding: 0; /* ✅ Sin padding extra */
-  }
-
-  .formaciones-title {
-    width: auto; /* ✅ Ancho automático, no fijo */
-    max-width: 100%;
-    font-size: 48px; /* ✅ Ajustado para 1366px */
-    line-height: 54px;
-    text-align: left;
-    margin-bottom: 1.5rem;
-  }
-
-  .formaciones-text {
-    width: auto; /* ✅ Ancho automático */
-    max-width: 100%;
-    font-size: 17px; /* ✅ Texto legible */
-    line-height: 25px;
-    text-align: left; /* ✅ Alineado con título */
-  }
-
-  .formaciones-image {
-    flex-shrink: 0; /* ✅ No se comprime */
-    width: 550px; /* ✅ Ancho ampliado de 600px a 550px */
-    max-width: 550px;
-    height: auto;
-    object-fit: contain; /* ✅ Mantiene proporción */
-  }
-
-  .formaciones-cards-conteiner {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 6rem;
-    row-gap: 2rem;
-    max-width: 1150px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-
   .formacion-card {
-    min-height: 500px;
-    max-width: 550px;
-    margin: 0 auto;
-  }
-
-  /* Quinta card centrada */
-  .formacion-card:has(.card-centrada) {
-    grid-column: 1 / -1;
-    max-width: 550px;
-    margin: 0 auto;
-  }
-
-  /* Como trabaja centrado y cards completas sin cortar */
-  .como-trabaja {
-    padding: 3rem 3rem; /* ✅ Menos padding lateral */
-    height: auto;
-  }
-
-  .como-trabaja-text {
-    font-size: 17px;
-    line-height: 25px;
-    max-width: 90%;
-    margin: 0 auto;
-  }
-
-  .como-trabaja-cards-conteiner {
-    /* CORRECCIÓN CLAVE: Reducir el gap y el max-width del contenedor */
-    max-width: 1250px; /* Asegura un ancho máximo razonable */
-    gap: 1.5rem; /* Reducir el espacio entre las cards (antes 1.8rem o más) */
-    padding: 2rem 1rem; /* Padding lateral ligero para margen */
-    margin: 0 auto;
-    /* Usar GRID para control de columnas */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: baseline;
-    margin-top: -200px;
-  }
-  .como-trabaja-card-formacion-conteiner {
-    /* Permitir que se ajuste al 1/3 del grid */
-    max-width: 100%;
-    width: 100%;
-    margin: 0;
-  }
-  /* Ajustar las cards individuales para que quepan */
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    width: 100% !important;
-    min-height: 750px; /* ✅ Aumentado de 650px a 750px */
-    height: auto;
-    object-fit: contain;
-  }
-
-  /* Ajustar contenido de las cards */
-  .como-trabaja-card-title {
-    font-size: 34px; /* ✅ Reducido de 34px */
-    line-height: 38px;
-    margin-bottom: 1rem;
-  }
-
-  .como-trabaja-card-subtitle {
-    font-size: 21px; /* ✅ Reducido de 19px */
-    line-height: 24px;
-    margin-bottom: -0.2rem;
-    margin-top: -12px;
-  }
-
-  .como-trabaja-card-text {
-    font-size: 13px; /* ✅ Reducido de 13px */
-    line-height: 18px; /* ✅ Más compacto */
-  }
-
-  /* Overlays ajustados para más espacio interno */
-  .como-trabaja-card1-overlay {
-    padding: 2.5rem 1.8rem; /* ✅ Más padding */
-    top: 10%; /* ✅ Más cerca del borde */
-    bottom: 4%;
-    left: 6%; /* ✅ Menos espacio lateral */
-    right: 6%;
-  }
-  .como-trabaja-card2-overlay {
-    padding: 2.5rem 1.8rem; /* ✅ Más padding */
-    top: 20%; /* ✅ Más cerca del borde */
-    bottom: 4%;
-    left: 6%; /* ✅ Menos espacio lateral */
-    right: 6%;
-  }
-  .como-trabaja-card3-overlay {
-    padding: 2.5rem 1.8rem; /* ✅ Más padding */
-    top: 30%; /* ✅ Más cerca del borde */
-    bottom: -15%;
-    left: 6%; /* ✅ Menos espacio lateral */
-    right: 6%;
-  }
-  /* Footer centrado y sin espacio blanco abajo */
-  .footer-page {
-    padding: 3rem 3rem 2rem 3rem; /* ✅ Padding reducido */
-    height: auto;
-    min-height: auto; /* ✅ Sin altura mínima fija */
-    position: relative;
-    overflow: visible; /* ✅ Permite que image-button sobresalga */
-  }
-
-  .footer-content {
-    max-width: 1150px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* ✅ Centrado vertical */
-    gap: 1.5rem; /* ✅ Gap reducido */
-    position: relative;
-  }
-
-  .image-button-conteiner {
-    display: flex;
-    flex-direction: row;
-    gap: 4rem;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: relative;
-    top: 5px; /* ✅ Sobresale de la franja violeta */
-    margin-bottom: -30px; /* ✅ Compensa el espacio */
-  }
-
-  .footer-image {
-    width: 773px;
-    max-width: 773px;
-    height: auto; /* ✅ Altura automática */
-    flex-shrink: 0;
-  }
-
-  .footer-button {
-    width: 350px;
-    max-width: 350px;
-    height: auto;
-    flex-shrink: 0;
-  }
-
-  .rrss-footer {
-    width: 550px;
-    max-width: 550px;
-    height: auto;
-    display: block;
-    margin: 0 auto; /* ✅ Centrado, sin margen extra arriba */
-  }
-  /* Contenedor del grupo Imagen + Botón */
-  .image-button-conteiner {
-    /* Mantiene las reglas de flexbox (row) */
-    justify-content: center; /* CLAVE: Centra la imagen y el botón entre sí */
-    align-self: center; /* Asegura que el contenedor se centre dentro de .footer-content */
-  }
-
-  /* Imagen de personas */
-  .footer-image {
-    /* Neutralizar desplazamiento horizontal y hacerlo responsive */
-    position: relative;
-    left: auto; /* ✅ Quitar el left fijo (era 4rem) */
-    margin-left: 0; /* Asegurar que no haya margen izquierdo */
-    margin-right: 0; /* Asegurar que no haya margen derecho */
-    width: 800px; /* Ajustar el ancho para que quepa bien en la pantalla */
-    max-width: 800px;
-    height: auto;
-    /* Ajustar el bottom si quieres que sobresalga */
-    bottom: 200px;
-  }
-
-  /* Botón (Contactanos!) */
-  .footer-button {
-    /* Neutralizar cualquier posicionamiento que lo desplace */
-    position: relative;
-    left: auto; /* Asegurar que no tenga left o right fijo */
-    right: auto;
-    width: 354px; /* Mantener ancho fijo o ajustado */
-    height: 132px;
-    bottom: 132px;
-  }
-
-  /* Redes Sociales */
-  .rrss-footer {
-    display: block;
-    margin: 0 auto; /* ✅ Ya está centrado por margin auto */
-  }
-}
-
-/* ===== NOTEBOOKS MEDIANOS (1280px - 1365px) ===== */
-@media (min-width: 1280px) and (max-width: 1365px) {
-  /* Hero ajustado */
-  .hero {
-    min-height: 800px;
-    padding: 2rem 6rem;
-  }
-
-  .hero img {
-    width: 680px;
-    height: 710px;
-    left: 3rem;
-  }
-
-  .hero-text1 {
-    font-size: 78px;
-    line-height: 72px;
-    right: 12rem;
-    bottom: 18rem;
-  }
-
-  .hero-text2 {
-    font-size: 46px;
-    line-height: 56px;
-    right: 10rem;
-    bottom: 19rem;
-  }
-
-  /* Servicios ajustado */
-  .servicios {
-    padding: 3.5rem 6rem;
-  }
-
-  .servicios-text {
-    font-size: 19px;
-    line-height: 27px;
-  }
-
-  .pill-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.8rem;
-  }
-
-  /* Equipo ajustado */
-  .equipo-psicologas {
-    padding: 3.5rem 6rem;
-  }
-
-  .equipo-text {
-    font-size: 19px;
-    line-height: 27px;
-  }
-
-  .psicologas-conteiner {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-  }
-
-  /* Formaciones ajustado */
-  .formaciones-a-profesionales {
-    padding: 3.5rem 6rem;
-  }
-
-  .formaciones-text {
-    font-size: 19px;
-    line-height: 27px;
-  }
-
-  .formaciones-cards-conteiner {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 7rem;
-    row-gap: 2rem;
-  }
-
-  /* Como trabaja ajustado */
-  .como-trabaja {
-    padding: 3.5rem 6rem;
-  }
-
-  .como-trabaja-text {
-    font-size: 19px;
-    line-height: 27px;
-  }
-
-  /* Footer ajustado */
-  .footer-page {
-    padding: 3.5rem 6rem;
-  }
-}
-
-/* ===== NOTEBOOKS ESTÁNDAR (1025px - 1279px) ===== */
-@media (min-width: 1025px) and (max-width: 1279px) {
-  /* Hero compacto pero mantiene diseño desktop */
-  .hero {
-    min-height: 750px;
-    padding: 2rem 4rem;
-  }
-
-  .hero img {
-    width: 620px;
-    height: 648px;
-    left: 2rem;
-  }
-
-  .hero-text1 {
-    font-size: 72px;
-    line-height: 66px;
-    right: 10rem;
-    bottom: 16rem;
-  }
-
-  .hero-text2 {
-    font-size: 42px;
-    line-height: 51px;
-    right: 8rem;
-    bottom: 17rem;
-  }
-
-  /* Servicios compacto */
-  .servicios {
-    padding: 3rem 4rem;
-  }
-
-  .servicios-text {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .pill-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .pill-item {
-    max-width: 220px;
-  }
-  .pill-text {
-    font-size: 17px;
-  }
-
-  /* Equipo compacto */
-  .equipo-psicologas {
-    padding: 3rem 4rem;
-  }
-
-  .equipo-text {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .psicologas-conteiner {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-
-  /* Formaciones compacto */
-  .formaciones-a-profesionales {
-    padding: 3rem 4rem;
-  }
-  .formaciones-image {
-    width: 600.07px;
-    height: 540px;
-  }
-  .formaciones-text {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .formaciones-cards-conteiner {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 6rem;
-    row-gap: 2rem;
-    max-width: 1100px;
-  }
-
-  .formacion-card {
-    min-height: 480px;
-  }
-
-  /* Quinta card centrada */
-  .formacion-card:has(.card-centrada) {
-    grid-column: 1 / -1;
-    max-width: 550px;
-    margin: 0 auto;
-  }
-
-  /* Como trabaja compacto */
-  .como-trabaja {
-    padding: 3rem 4rem;
-  }
-
-  .como-trabaja-text {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .como-trabaja-cards-conteiner {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-
-  /* Footer compacto */
-  .image-button-conteiner {
-    gap: 1.5rem;
-  }
-  .footer-page {
-    padding: 3rem 4rem;
-  }
-
-  .footer-image {
-    max-width: 825px;
-  }
-
-  .footer-button {
-    max-width: 300px;
-  }
-}
-
-/* ========================================
-   MÓVILES (767px y menos)
-   ======================================== */
-
-@media (max-width: 767px) {
-  body {
-    padding-top: 70px;
-    overflow-x: hidden;
-  }
-
-  /* Prevenir scroll horizontal */
-  * {
-    max-width: 100vw;
-  }
-
-  section {
-    overflow-x: hidden;
-  }
-
-  /* Ajustar el hero para que no quede pegado al navbar */
-  .hero {
-    margin-top: 20px;
-  }
-
-  /* ---------- NAVBAR MÓVIL ---------- */
-  .navbar {
-    padding: 1rem 1.5rem;
-    height: 70px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo img {
-    width: 60px;
-    height: 60px;
-  }
-
-  /* Indicador de sección en navbar (solo móvil) */
-  .section-indicator {
-    display: block;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--color-rosa);
-    opacity: 0.9;
-
-    /* Animación suave al cambiar de sección */
-    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /* Animación al cambiar de sección (aplicada por JS) */
-  .section-indicator.changing {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-5px);
-  }
-
-  /* Mostrar hamburguesa */
-  .hamburger {
-    display: flex;
-  }
-
-  /* Menú lateral deslizante */
-  .menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 280px;
-    height: 100vh;
-    background: linear-gradient(135deg, #fcfaf5 0%, #f9f6f0 100%);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    border-radius: 40px;
     padding: 2rem;
-    gap: 2rem;
-    transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    overflow-y: auto;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    z-index: 999;
   }
 
-  /* Overlay oscuro detrás del menú */
-  .menu::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #fcfaf5;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-  }
-
-  .menu.active::before {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .menu.active {
-    transform: translateX(0);
-  }
-
-  /* Links del menú con animación escalonada */
-  .menu .link {
-    font-size: 22px;
-    width: 100%;
-    text-align: center;
-    padding: 1rem 0;
-    opacity: 0;
-    transform: translateX(30px);
-    transition: all 0.3s ease, opacity 0.4s ease, transform 0.4s ease;
-  }
-
-  /* Animación escalonada de los links */
-  .menu.active .link:nth-child(1) {
-    animation: slideInLink 0.4s ease forwards 0.1s;
-  }
-  .menu.active .link:nth-child(2) {
-    animation: slideInLink 0.4s ease forwards 0.2s;
-  }
-  .menu.active .link:nth-child(3) {
-    animation: slideInLink 0.4s ease forwards 0.3s;
-  }
-  .menu.active .link:nth-child(4) {
-    animation: slideInLink 0.4s ease forwards 0.4s;
-  }
-  .menu.active .link:nth-child(5) {
-    animation: slideInLink 0.4s ease forwards 0.5s;
-  }
-
-  @keyframes slideInLink {
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  /* Hover effect en los links */
-  .menu .link:hover {
-    transform: scale(1.05);
-    color: #f79db9;
-  }
-
-  /* ---------- HERO MÓVIL ---------- */
-  .hero {
-    min-height: fit-content; /* ✅ Se ajusta al contenido */
-
-    /* Flexbox para centrado vertical */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    /* Padding para separación */
-    padding-top: 70px; /* Espacio para navbar */
-    padding-bottom: 2rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-
-    /* Espacio entre elementos */
-    gap: 2rem;
-
-    width: 100%;
-    box-sizing: border-box;
-    color-scheme: light only !important;
-    -webkit-color-scheme: light only !important;
-  }
-
-  .hero img {
-    max-width: 280px;
-    height: auto;
-    animation: slideInLeft 1s ease-out; /* ✅ Agregada animación */
-    flex-shrink: 0;
-    order: 1; /* ✅ Imagen PRIMERO */
-    position: static; /* Quitar absolute si existía */
-  }
-
-  /* Contenedor wrapper para textos superpuestos */
-  .hero-text1,
-  .hero-text2 {
-    width: 100%;
-    max-width: 100%;
-    text-align: center;
-    padding: 0 1rem;
-    position: relative;
-    order: 2; /* ✅ Textos SEGUNDO */
-  }
-
-  .hero-text1 {
-    font-size: 42px;
-    line-height: 40px;
-    z-index: 2;
-    animation: fadeIn 1s ease-out; /* ✅ Solo fade, sin movimiento */
-  }
-
-  /* ✅ Animación simple solo con opacity */
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .hero-text2 {
-    font-size: 26px;
-    line-height: 30px;
-    z-index: 3;
-    /* Superponer sobre hero-text1 sin sacarlo del flujo */
-    margin-top: -120px; /* Sube para superponerse */
-  }
-
-  /* ---------- SERVICIOS MÓVIL ---------- */
-  .servicios {
-    padding: 2rem 1.5rem;
-    height: 700px; /* ✅ Altura específica para móvil */
-  }
-
-  .servicios-text {
-    font-size: 16px;
-    line-height: 22px;
-    margin-bottom: 2rem;
-    width: 100%;
-  }
-
-  /* Pills en 2 columnas para móvil */
-  .pill-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .pill-item:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    max-width: 60%;
-    margin: 0 auto;
-  }
-
-  .pill-text {
-    font-size: 15px;
-    padding: 0.8rem 1rem;
-  }
-
-  .pill-bg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .pill-text {
-    font-size: 14px;
-    padding: 0 0.5rem;
-  }
-
-  /* ---------- EQUIPO MÓVIL ---------- */
-  .equipo {
-    padding: 2rem 1.5rem;
-    gap: 2rem;
-  }
-
-  .equipo-title {
-    font-size: 40px;
-    line-height: 40px;
-    margin-bottom: 1rem;
-    width: 100%;
-    height: auto;
-  }
-
-  .equipo-text {
-    font-size: 16px;
-    line-height: 22px;
-    margin-bottom: 1rem;
-    width: 100%;
-    height: auto;
-  }
-
-  .psico-container {
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .psico-card {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
+  /* Arreglar la 5ta card */
+  .formaciones-cards-conteiner .formacion-card:nth-child(5) {
+    grid-column: auto;
     max-width: 100%;
   }
 
-  /* IMPORTANTE: Mantener el tamaño original de las fotos */
-  .psico-card img:not(.trazo-formacion),
-  .psico-img-clickable {
-    width: 300px !important;
-    height: 250px !important;
-    object-fit: cover;
-    border-radius: 38% / 60%;
-    /* ✅ Animación táctil que se repite para indicar que es tocable */
-    animation: tapPulse 2s ease-in-out infinite;
-    cursor: pointer;
-    position: relative;
-  }
-
-  /* ✅ Indicador visual de "tap" */
-  .psico-img-clickable::after {
-    content: "👆";
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    font-size: 28px;
-    background: rgba(255, 255, 255, 0.9);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    animation: tapBounce 1.5s ease-in-out infinite;
-  }
-
-  @keyframes tapBounce {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-8px);
-    }
-  }
-
-  .psico-info {
-    align-items: center;
-  }
-
-  .psico-title {
-    font-size: 28px;
-    line-height: 34px;
-    text-align: center;
-    right: -20px;
-  }
-
-  .psico-subtitle {
-    font-size: 16px;
-    line-height: 22px;
-    text-align: center;
-  }
-
-  .trazo-formacion {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-
-  .psico-formacion-component {
-    padding: 1.5rem;
-  }
-
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    font-size: 14px;
-    line-height: 20px;
-    max-width: 100%; /* ✅ Ancho completo */
-  }
-
-  /* ✅ Eliminar margen entre los dos divs para que se vean continuos */
-  .psico-formacion-text-izquierda {
-    margin-bottom: 0 !important;
-  }
-
-  .psico-formacion-text-derecha {
-    margin-top: 0 !important;
-  }
-
-  /* ✅ Contenedor de texto sin gap */
-  .psico-text-conteiner {
-    gap: 0 !important; /* ✅ Sin espacio entre divs */
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* ---------- FORMACIONES MÓVIL ---------- */
-  .formaciones-a-profesionales {
-    height: auto;
-    padding-bottom: 3rem;
-  }
-
-  .formaciones-text-image-conteiner {
-    flex-direction: column;
-    padding: 2rem 1.5rem;
-    gap: 2rem;
-  }
-
-  .formaciones-text-conteiner {
-    padding: 1.5rem;
-    align-items: center;
-  }
-
-  .formaciones-title {
-    font-size: 40px;
-    line-height: 45px;
-    margin-bottom: 1.5rem;
-    width: 100%;
-    height: auto;
-    text-align: center;
-  }
-
-  .formaciones-text {
-    font-size: 16px;
-    line-height: 24px;
-    width: 100%;
-    height: auto;
-    text-align: center;
-  }
-
-  .formaciones-email {
-    font-size: 18px;
-    line-height: 24px;
-    text-align: center;
-  }
-
-  /* IMPORTANTE: Ilustración sin recortar */
-  .formaciones-image {
-    width: 100% !important;
-    height: auto !important;
-    max-width: 100%;
-    object-fit: contain !important;
-  }
-
-  .formaciones-cards-conteiner {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 15px;
-    column-gap: 0;
-    row-gap: 2rem;
-    margin-left: 5px;
-  }
-
-  .card-image-container {
-    height: auto;
-    min-height: 400px;
-  }
-
-  /* Ajustar el overlay para móvil */
-  .card-overlay {
-    width: 95%;
-    max-width: 100%;
-    padding: 1.5rem;
-    gap: 0.75rem;
-  }
-
-  .card-title {
-    font-size: 22px;
-    line-height: 26px;
-  }
-
-  .card-body {
-    font-size: 15px;
-    line-height: 19px;
-    max-width: 100%;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-
-  /* ---------- CÓMO TRABAJA MÓVIL ---------- */
+  /* ===== CÓMO TRABAJA ===== */
   .como-trabaja {
-    padding: 2rem 1.5rem;
+    padding: 4rem 1rem;
   }
-
-  .como-trabaja-conteiner {
-    padding: 0;
-    margin-top: 20px;
+  .como-trabaja-cards-container {
+    grid-template-columns: 1fr;
+    max-width: 400px;
   }
-
-  .como-trabaja-title {
-    font-size: 40px;
-    line-height: 40px;
-    margin-bottom: 1.5rem;
-    width: 100%;
-    height: auto;
-  }
-
-  .como-trabaja-text {
-    font-size: 16px;
-    line-height: 22px;
-    width: 100%;
-    height: auto;
-  }
-
-  .como-trabaja-cards-conteiner {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2rem !important;
-    padding: 0 !important;
-    max-width: 100% !important;
-    align-items: center !important;
-  }
-
-  .como-trabaja-card-formacion-conteiner {
-    width: 91% !important;
-    max-width: 400px !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: block !important; /* ✅ Forzar block */
-  }
-
-  /* ✅ Reset TOTAL - todas las cards iguales */
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* ✅ Forzar cards a comportarse igual */
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 400px;
-    object-fit: contain !important;
-  }
-
-  .como-trabaja-card-overlay {
-    padding: 0.5rem;
-  }
-
-  .como-trabaja-card-title {
-    font-size: 40px;
-    line-height: 35px;
-    width: auto;
-    height: auto;
-  }
-
-  .como-trabaja-card-subtitle {
-    font-size: 24px;
-    line-height: 28px;
-    width: auto;
-    height: auto;
-  }
-
-  .como-trabaja-card-body {
-    font-size: 16px;
-    line-height: 19px;
-    height: auto;
-  }
-
-  /* ---------- COMO TRABAJA BOTTOM MÓVIL ---------- */
-  .como-trabaja-bottom-conteiner {
-    margin-top: 2rem;
-    padding: 0 1.5rem;
-  }
-
-  .como-trabaja-bottom-text {
-    width: 100%;
-    height: auto;
-    font-size: 20px;
-    line-height: 28px;
-    padding: 0 1rem;
-  }
-
-  .como-trabaja-bottom-equipo-conteiner {
+  .team-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
-    width: 100%;
-    padding: 0 1rem;
+  }
+  .team-column {
+    padding-left: 1rem;
   }
 
-  .como-trabaja-bottom-equipo-directoras,
-  .como-trabaja-bottom-equipo-psicologas,
-  .como-trabaja-bottom-equipo-medica,
-  .como-trabaja-bottom-equipo-nutricionista {
-    width: 100%;
-    height: auto;
-    font-size: 16px;
-    line-height: 20px;
-  }
-
-  .como-trabaja-bottom-equipo-directoras-conteiner,
-  .como-trabaja-bottom-equipo-psicologas-conteiner,
-  .como-trabaja-bottom-equipo-medica-conteiner,
-  .como-trabaja-bottom-equipo-nutricionista-conteiner {
-    width: 100%;
-  }
-
-  /* ---------- FOOTER MÓVIL ---------- */
+  /* ===== FOOTER ===== */
   .footer-page {
-    height: auto;
-    margin-top: 2rem;
-    padding: 2rem 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-top: 0;
+    padding-top: 4rem;
   }
-
-  .footer-content {
-    padding: 0 1.5rem 2rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .image-button-conteiner {
-    flex-direction: column;
-    gap: 1.5rem;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-  }
-
   .footer-image {
-    position: static;
-    width: 107% !important;
-    max-width: 412px;
-    height: auto !important;
-    margin: 0 auto 1rem auto;
-    object-fit: contain;
-    display: block;
-  }
-
-  .footer-button {
-    position: static;
-    width: 85%;
-    max-width: 260px;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-  }
-
-  .footer-button img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* ✅ REDES SOCIALES CENTRADAS */
-  .rrss-footer {
-    display: block;
-    margin: 1rem auto 0 auto; /* ✅ Centrado con margen superior */
-    max-width: 80%; /* ✅ Ancho controlado */
-    height: auto;
-  }
-
-  /* Si hay logo de redes sociales */
-  .footer-social,
-  .social-icon,
-  [class*="instagram"],
-  [class*="social"] {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem auto 0 auto;
-    text-align: center;
-  }
-
-  /* ---------- CONTACTO MÓVIL ---------- */
-  .contacto {
-    padding: 2rem 1.5rem;
-  }
-
-  .contacto-title {
-    font-size: 40px;
-    line-height: 40px;
-  }
-
-  .contacto-form {
-    padding: 1.5rem;
-  }
-
-  .form-row {
-    flex-direction: column;
-  }
-
-  .form-group {
-    width: 100%;
-  }
-
-  /* ---------- FOOTER INFERIOR (si existe) ---------- */
-  .footer {
-    padding: 2rem 1.5rem;
-    text-align: center;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-    align-items: center;
-  }
-
-  .footer-section {
-    width: 100%;
-    text-align: center;
+    margin-top: 0;
+    max-width: 100%;
   }
 }
-
-/* ========================================
-   MÓVILES PEQUEÑOS (480px y menos)
-   ======================================== */
-
-@media (max-width: 480px) {
-  /* ===== AJUSTES PARA CARD-SOLO (Formaciones) ===== */
-
-  .card-solo {
-    width: 91%;
-    height: auto;
-    min-height: 412px; /* ✅ Igual que formaciones-item */
-    object-fit: contain;
-  }
-  .card-image-container {
-    height: auto;
-    min-height: 412px; /* ✅ Igual que formaciones-item */
-  }
-  .card-overlay {
-    width: 90%; /* ✅ Un poco más angosto */
-
-    gap: 0.4rem; /* ✅ Menos espacio entre elementos */
-    max-height: 88%; /* ✅ Más espacio disponible */
-    overflow-y: auto;
-    margin-left: -10px;
-    margin-top: -7px;
-  }
-
-  .card-title {
-    font-size: 18px; /* ✅ Más pequeño (antes 20px) */
-    line-height: 22px;
-    margin-bottom: 0.3rem;
-  }
-
-  .card-body {
-    font-size: 15px; /* ✅ Más pequeño (antes 13px) */
-    line-height: 16px; /* ✅ Más compacto */
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-
-  /* ===== FIN AJUSTES CARD-SOLO ===== */
-
-  .hero-content {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    margin-top: -115px;
-  }
-  .hero img {
-    max-width: 400px;
-    animation: slideInLeft 1s ease-out; /* ✅ Agregada animación */
-  }
-
-  .hero-text1 {
-    font-size: 36px;
-    line-height: 34px;
-  }
-
-  .hero-text2 {
-    font-size: 30px;
-    line-height: 35px;
-    margin-top: -120px; /* Ajustar para texto más pequeño */
-    margin-left: -40px;
-  }
-
-  .servicios-text,
-  .equipo-text,
-  .formaciones-text,
-  .como-trabaja-text {
-    font-size: 20px;
-    line-height: 22px;
-    letter-spacing: 0px;
-  }
-  .servicios-text {
-    margin-top: -40px;
-    width: 105%;
-  }
-  .como-trabaja-text {
-    margin-top: -22px;
-  }
-  .como-trabaja-cards-conteiner {
-    margin-top: 50px;
-  }
-  .pill-container {
-    gap: 0.75rem;
-  }
-
-  .pill-item:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    max-width: 55%;
-    margin: 0 auto;
-  }
-
+@media (max-width: 491px) {
   .pill-text {
-    font-size: 14px;
-    padding: 0.8rem 0.8rem;
-  }
-
-  .equipo-title,
-  .formaciones-title,
-  .como-trabaja-title {
-    font-size: 32px;
-    line-height: 32px;
-  }
-  .como-trabaja-title {
-    width: 64%;
-  }
-
-  .psico-card img:not(.trazo-formacion),
-  .psico-img-clickable {
-    width: 300px !important;
-    height: 200px !important;
-  }
-
-  /* ✅ Animación táctil para psico-img-clickable en móviles pequeños */
-  .psico-img-clickable {
-    animation: tapPulse 2s ease-in-out infinite;
-    cursor: pointer;
-    position: relative;
-  }
-
-  /* ✅ Indicador visual de "tap" en móviles pequeños */
-  .psico-img-clickable::after {
-    content: "👆";
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 24px;
-    background: rgba(255, 255, 255, 0.9);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    animation: tapBounce 1.5s ease-in-out infinite;
-  }
-  /* ✅ Animación táctil para móvil - indica que es tocable */
-  @keyframes tapPulse {
-    0%,
-    100% {
-      transform: scale(1);
-      box-shadow: 0 0 0 0 rgba(99, 140, 107, 0.4);
-    }
-    50% {
-      transform: scale(1.03);
-      box-shadow: 0 0 0 8px rgba(99, 140, 107, 0);
-    }
-  }
-  .como-trabaja-card-title {
-    font-size: 32px;
-  }
-
-  .como-trabaja-card-subtitle {
-    font-size: 20px;
-    line-height: 24px;
-  }
-
-  .como-trabaja-bottom-text {
-    font-size: 18px;
-    line-height: 24px;
-    width: 115%;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    min-height: 350px;
-  }
-
-  /* ✅ INFORMACIÓN DESPLEGABLE - Sin gap en móvil */
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    font-size: 13px;
-    line-height: 19px;
-    max-width: 100%;
-  }
-
-  .psico-text-conteiner {
-    gap: 0 !important;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-    align-items: center;
-  }
-  .footer-image {
-    margin-left: -17px;
-    margin-top: 30px;
-  }
-  .footer-content {
-    align-items: center;
-  }
-
-  /* ✅ REDES SOCIALES CENTRADAS */
-  .rrss-footer {
-    display: block;
-    margin: 1rem auto 0 auto; /* ✅ Centrado */
-    max-width: 70%; /* ✅ Un poco más ancho */
-    height: auto;
-    margin-left: 75px;
-    margin-top: 60px;
-  }
-
-  .trazo-psicologas {
-    width: 4.7px;
-    height: 248px;
-    object-fit: fill;
-    flex-shrink: 0;
-  }
-
-  /* ✅ ELIMINAR ESPACIO ENTRE DIVS DE PSICO */
-  .psico-text-conteiner {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important;
-  }
-
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  .psico-formacion-text-derecha::before {
-    content: ""; /* El contenido debe estar vacío */
-    display: block;
-    /* Insertar la imagen del trazo */
-    background-image: url("./assets/psico/trazo-psico.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center left;
-
-    /* Dimensiones de un trazo inline (ajusta si es necesario) */
-    width: 50px; /* Ancho del trazo en móvil */
-    height: 10px; /* Altura del trazo */
-
-    /* Margen de separación */
-    margin: 3px 0 3px 0; /* Margen superior para separación */
-  }
-
-  /* ✅ COMO TRABAJA - 1 columna vertical en móviles pequeños */
-  .como-trabaja-cards-conteiner {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important; /* ✅ Gap uniforme */
-    max-width: 100%;
-    padding: 0.5rem;
-    align-items: start; /* ✅ Alineación */
-  }
-
-  /* ✅ Reset total de márgenes */
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important; /* ✅ Solo centrado */
-    padding: 0 !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    min-height: 320px;
-    max-width: 100% !important;
-    width: 100%;
-    object-fit: contain;
-    display: block !important; /* ✅ Forzar block */
-    margin: 0 !important; /* ✅ Sin márgenes propios */
-    padding: 0 !important;
-  }
-}
-
-@media (max-width: 425px) {
-  .footer-content {
-    align-items: center;
-  }
-  .hero-content {
-    align-items: center;
-  }
-}
-@media (max-width: 412px) {
-  /* ✅ COMO TRABAJA - Asegurar 1 columna */
-  .como-trabaja-cards-conteiner {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-  }
-
-  /* ✅ Reset total */
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: block !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .como-trabaja-card1-overlay {
-    top: 7%;
-    right: 10%;
-    left: 10%;
-    bottom: 10%;
-  }
-  .como-trabaja-card2-overlay {
-    top: 11%;
-    right: 12%;
-    left: 12%;
-    bottom: 15%;
-  }
-  .footer-content {
-    align-items: center;
-  }
-  .hero-content {
-    align-items: center;
-  }
-  .formaciones-text {
-    width: 111%;
-    text-align: center;
-  }
-
-  /* ✅ HERO para pantallas 412px (Samsung S20/S21, Pixel) */
-  .hero {
-    min-height: 760px !important; /* ✅ Altura típica de estos dispositivos */
-  }
-}
-/* ===== AJUSTE ESPECÍFICO PARA iPhone 14/16 Pro (390-393px ancho) ===== */
-@media (max-width: 400px) {
-  /* ✅ COMO TRABAJA - Asegurar 1 columna */
-  .como-trabaja-cards-conteiner {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-  }
-
-  /* ✅ Reset total de márgenes */
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: block !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .formaciones-item,
-  .card-solo {
-    min-height: 390px !important; /* ✅ Aún más alto para iPhones específicos */
-  }
-
-  .card-overlay {
-    width: 85% !important;
-    padding: 0.9rem !important;
-    gap: 0.3rem !important;
-    max-height: 85% !important;
-  }
-
-  .card-title {
-    font-size: 17px !important;
-    line-height: 21px !important;
-    margin-bottom: 0.2rem !important;
-  }
-
-  .card-body {
-    font-size: 11.5px !important; /* ✅ Muy pequeño pero legible */
-    line-height: 15px !important;
-  }
-
-  /* ✅ SERVICIOS para iPhone 14 Pro Max y similares */
-  .servicios {
-    height: 680px !important; /* ✅ Altura específica para iPhone 14 Pro Max */
-  }
-  .trazo-psicologas {
-    width: 4.7px;
-    height: 242px;
-    object-fit: fill;
-    flex-shrink: 0;
-  }
-
-  /* ✅ INFORMACIÓN DESPLEGABLE - Sin gap en móvil */
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    font-size: 12px !important;
-    line-height: 18px !important;
-    max-width: 100% !important;
-  }
-
-  .psico-text-conteiner {
-    gap: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  /* ✅ REDES SOCIALES CENTRADAS */
-  .rrss-footer {
-    display: block !important;
-
-    max-width: 90% !important; /* ✅ Ancho para pantallas pequeñas */
-    height: auto !important;
-    margin-left: 45px !important;
-  }
-  .footer-button {
-    margin-right: 45px;
-  }
-
-  /* ✅ ELIMINAR ESPACIO ENTRE DIVS DE PSICO */
-  .psico-text-conteiner {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important;
-  }
-
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  .psico-formacion-text-derecha::before {
-    content: ""; /* El contenido debe estar vacío */
-    display: block;
-    /* Insertar la imagen del trazo */
-    background-image: url("./assets/psico/trazo-psico.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center left;
-
-    /* Dimensiones de un trazo inline (ajusta si es necesario) */
-    width: 50px; /* Ancho del trazo en móvil */
-    height: 10px; /* Altura del trazo */
-
-    /* Margen de separación */
-    margin: 3px 0 3px 0; /* Margen superior para separación */
-  }
-  .como-trabaja-card-overlay {
-    width: 100%;
-  }
-  .como-trabaja-card-body {
-    font-size: 13px;
-    width: 80%;
-  }
-  .importante-como-trabaja {
     font-size: 13px;
   }
-
-  .card-body {
-    font-size: 14px !important;
-  }
-  .card-title {
-    font-size: 17px !important;
-  }
-  .footer-content {
-    align-items: center;
-  }
-  .hero-content {
-    align-items: center;
-  }
-  .servicios-text {
-    width: 100%;
-  }
-  .formaciones-text {
-    width: 100%;
-  }
 }
-
-/* ===== HERO PANTALLA COMPLETA PARA MÓVILES PEQUEÑOS (Alturas fijas - Sin saltos) ===== */
-
-/* iPhone 14 Pro Max - 430x932px */
-@media (max-width: 430px) and (min-width: 413px) {
-  .hero {
-    min-height: 830px !important;
-  }
-
-  /* ✅ Reset total */
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: block !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-}
-
-/* iPhone 14/15/16 Pro - 393x852px */
-@media (max-width: 393px) and (min-width: 391px) {
-  .hero {
-    min-height: 750px !important;
-  }
-
-  /* ✅ Reset total */
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: block !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  .image-button-conteiner {
-    align-items: center;
-  }
-  .footer-image {
-    margin-left: -5px;
-  }
-}
-
-/* iPhone 14/15/16 - 390x844px */
-@media (max-width: 390px) and (min-width: 376px) {
-  .hero {
-    min-height: 740px !important;
-  }
-
-  /* ✅ Reset total */
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: block !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-}
-/* ========================================
-   📱 SAMSUNG GALAXY DEVICES
-   ======================================== */
-
-/* Samsung Galaxy S22 / S23 / S24 - 360x780px */
-@media (max-width: 360px) and (min-width: 341px) {
-  .hero {
-    min-height: 780px !important;
-  }
-
-  /* Pills ajustadas */
-  .pill-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-
-  .pill-item {
-    max-width: 100%;
-    min-width: 140px;
-  }
+@media (max-width: 404px) {
   .pill-text {
     font-size: 12px;
   }
-  .formaciones-cards-conteiner {
-    gap: 1rem !important;
-  }
+}
 
-  /* ✅ Como trabaja - Reset total */
-  .como-trabaja-cards-conteiner {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-  }
-
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: block !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* Formaciones */
-  .formaciones-item,
-  .card-solo {
-    min-height: 380px !important;
-  }
-
-  .card-overlay {
-    width: 85% !important;
-    padding: 0.8rem !important;
-  }
-  .card-body {
-    font-size: 14px !important;
-  }
-  .formaciones-text-conteiner {
-    padding: 1px;
-    align-items: center;
-  }
-  .como-trabaja-title {
-    width: 68%;
-  }
-  .como-trabaja-card-title {
+/* --------------------------------------------------------------------------
+     3. MÓVILES MUY PEQUEÑOS (iPhone SE, Fold)
+     -------------------------------------------------------------------------- */
+@media (max-width: 380px) {
+  .hero-text1 {
     font-size: 28px;
   }
-  .como-trabaja-card-subtitle {
-    font-size: 18px;
+  .navbar {
+    padding: 1rem;
   }
-  .como-trabaja-card-text {
+  .pill-text {
     font-size: 14px;
-  }
-  .como-trabaja-card-overlay {
-    gap: 3px;
-  }
-  .como-trabaja-card3-overlay {
-    top: 21%;
-  }
-
-  /* ✅ FOOTER - Centrado completo y sin espacio extra */
-  .footer-page {
-    min-height: auto !important;
-    height: auto !important;
-    padding: 1rem 0 0.5rem 0 !important;
-  }
-
-  .footer-content {
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 1rem 0.5rem 1rem !important;
-    gap: 3rem !important;
-  }
-
-  .image-button-conteiner {
-    align-items: center !important;
-    justify-content: center !important;
-    margin-top: 0 !important;
-    gap: 1.5rem !important;
-    width: 100% !important;
-  }
-
-  .footer-image {
-    margin: 0 auto !important;
-    display: block !important;
-    width: 100% !important;
-    max-width: 360px !important;
-  }
-
-  .footer-button {
-    margin: 0 auto !important;
-    display: block !important;
-    width: 85% !important;
-    max-width: 260px !important;
-  }
-
-  .rrss-footer {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    max-width: 250px !important;
-    width: 250px !important;
-    height: auto !important;
-    margin: 0 auto !important;
-    margin-left: 57px !important;
-    margin-right: auto !important;
-    padding: 0 !important;
-    text-align: center !important;
-  }
-
-  .rrss-footer img,
-  .rrss-footer a,
-  .rrss-footer * {
-    display: block !important;
-    margin: 0 auto !important;
-    text-align: center !important;
-  }
-}
-/* Samsung Galaxy S22+ / S22 Ultra / S23+ / S23 Ultra / S24+ - 384x854px */
-@media (max-width: 385px) and (min-width: 376px) {
-  .hero {
-    min-height: 854px !important;
-  }
-
-  /* Pills ajustadas */
-  .pill-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
-  }
-
-  .pill-item {
-    max-width: 100%;
-    min-width: 150px;
-  }
-
-  /* ✅ Como trabaja - Reset total */
-  .como-trabaja-cards-conteiner {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-  }
-
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: block !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* Formaciones */
-  .formaciones-item,
-  .card-solo {
-    min-height: 400px !important;
-  }
-
-  .card-overlay {
-    width: 87% !important;
-    padding: 0.9rem !important;
-  }
-
-  /* ✅ FOOTER - Centrado completo y sin espacio extra */
-  .footer-page {
-    min-height: auto !important;
-    height: auto !important;
-    padding: 1rem 0 1rem 0 !important; /* ✅ Reducir padding inferior */
-  }
-
-  .footer-content {
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 1rem 0.5rem 1rem !important; /* ✅ Reducir padding inferior */
-    gap: 3rem !important;
-  }
-
-  .image-button-conteiner {
-    align-items: center !important;
-    justify-content: center !important;
-    margin-top: 0 !important;
-    gap: 1.5rem !important;
-    width: 100% !important;
-  }
-
-  .footer-image {
-    margin: 0 auto !important;
-    display: block !important;
-    width: 100% !important;
-    max-width: 384px !important;
-  }
-
-  .footer-button {
-    margin: 0 auto !important;
-    display: block !important;
-    width: 85% !important;
-    max-width: 270px !important;
-  }
-
-  .rrss-footer {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    max-width: 260px !important;
-    width: 260px !important;
-    height: auto !important;
-    margin: 0 auto !important;
-    margin-left: 67px !important;
-    margin-right: auto !important;
-    padding: 0 !important;
-    text-align: center !important;
-  }
-
-  .rrss-footer img,
-  .rrss-footer a,
-  .rrss-footer * {
-    display: block !important;
-    margin: 0 auto !important;
-    text-align: center !important;
-  }
-}
-
-/* Samsung Galaxy S24 Ultra - 384x877px */
-@media (max-width: 385px) and (min-height: 870px) {
-  .hero {
-    min-height: 877px !important;
-  }
-
-  /* ✅ Como trabaja - Reset total */
-  .como-trabaja-cards-conteiner {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-  }
-
-  .como-trabaja-card-formacion-conteiner,
-  .como-trabaja-card-formacion-conteiner:nth-child(1),
-  .como-trabaja-card-formacion-conteiner:nth-child(2),
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: block !important;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-}
-
-/* ========================================
-   📱 TABLET RESPONSIVE (768px - 1024px)
-   Estilo mobile con tamaños aumentados
-   ======================================== */
-@media (min-width: 768px) and (max-width: 820px) {
-  /* ========== GENERAL ========== */
-  body {
-    padding-top: 100px;
-  }
-
-  /* ========== NAVBAR ========== */
-  .navbar {
-    padding: 1.2rem 2.5rem;
-    height: 100px;
-  }
-
-  .logo img {
-    width: 100px;
-    height: 100px;
-  }
-
-  /* Menú hamburguesa */
-  .hamburger {
-    display: flex !important;
-  }
-
-  .menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 50%;
-    max-width: 400px;
-    height: 100vh;
-    background: var(--color-fondo);
-    flex-direction: column;
-    justify-content: center;
-    gap: 2.5rem;
-    padding: 2rem;
-    transition: right 0.3s ease;
-    z-index: 999;
-    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.1);
-    font-size: 20px;
-  }
-
-  .menu.active {
-    right: 0;
-  }
-
-  /* ========== HERO ========== */
-  .hero {
-    min-height: 900px;
-    padding: 2rem 3rem;
-  }
-
-  .hero-content {
-    position: relative;
-    width: 100%;
-    min-height: 800px;
-  }
-
-  .hero img {
-    width: 100%;
-    max-width: 480px;
-    height: auto;
-    position: absolute;
-    bottom: 328px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: heroFadeInCenter 1s ease-out;
-  }
-
-  /* Animación específica para hero en tablets - desde el centro hacia arriba */
-  @keyframes heroFadeInCenter {
-    0% {
-      opacity: 0;
-      transform: translateX(-50%) translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-  }
-
-  .hero-text1 {
-    font-size: 45px;
-    line-height: 54px;
-    position: absolute;
-    right: 6rem;
-    bottom: 2rem;
-    width: 500px;
-    max-width: 85%;
-  }
-
-  .hero-text2 {
-    font-size: 40px;
-    line-height: 54px;
-    position: absolute;
-    right: 4rem;
-    bottom: 4rem;
-    width: 580px;
-    max-width: 90%;
-  }
-
-  /* ========== SERVICIOS ========== */
-  .servicios {
-    padding: 4rem 3rem;
-    height: 1190px;
-  }
-
-  .servicios-title {
-    font-size: 56px;
-    line-height: 62px;
-    margin-bottom: 2rem;
-  }
-
-  .servicios-text {
-    font-size: 25px;
-    line-height: 28px;
-    max-width: 650px;
-    margin: 0px auto 10rem;
-    width: 78%;
-  }
-
-  .servicios-cards-conteiner {
-    grid-template-columns: 1fr !important;
-    gap: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .servicio-card {
-    min-height: 320px;
-    padding: 2rem;
-  }
-
-  .servicio-icon {
-    width: 70px;
-    height: 70px;
-  }
-
-  .servicio-title {
-    font-size: 28px;
-    line-height: 32px;
-  }
-
-  .servicio-description {
-    font-size: 17px;
-    line-height: 24px;
-  }
-
-  /* ========== EQUIPO ========== */
-  .equipo {
-    padding: 4rem 3rem;
-  }
-
-  .equipo-title {
-    font-size: 56px;
-    line-height: 62px;
-    margin-bottom: 2rem;
-  }
-
-  .equipo-text {
-    font-size: 25px;
-    line-height: 28px;
-    max-width: 650px;
-    margin: 0 auto 3rem;
-  }
-
-  .equipo-cards-conteiner {
-    grid-template-columns: 1fr !important;
-    gap: 3rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  /* Psicólogas */
-  .psico-card {
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-    text-align: center;
-  }
-
-  .psico-card img {
-    width: 480px;
-    height: auto;
-    max-width: 100%;
-  }
-
-  .psico-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .psico-title {
-    font-size: 36px;
-    line-height: 40px;
-  }
-
-  .psico-subtitle {
-    font-size: 20px;
-    line-height: 28px;
-  }
-
-  .psico-formacion-component {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .psico-text-conteiner {
-    padding: 2rem;
-    flex-direction: column;
-    width: 140%;
-  }
-
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    font-size: 16px;
-    line-height: 24px;
-    width: 100%;
-  }
-
-  .trazo-psicologas {
-    display: none;
-  }
-  .psico-formacion-component.expanded {
-    max-height: 1600px;
-  }
-  .trazo-formacion {
-    display: none;
-  }
-  /* Médica */
-  .medica-card {
-    padding: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .medica-img {
-    width: 240px;
-    height: 240px;
-    margin: 0 auto 2rem;
-  }
-
-  .medica-title {
-    font-size: 32px;
-    margin-bottom: 1.5rem;
-  }
-
-  .medica-name {
-    font-size: 20px;
-    line-height: 28px;
-    margin-bottom: 2rem;
-  }
-
-  .medica-formacion-text {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
-  /* Nutricionista */
-  .nutricionista-card {
-    padding: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .nutricionista-img {
-    width: 240px;
-    height: 240px;
-    margin: 0 auto 2rem;
-  }
-
-  .nutricionista-title {
-    font-size: 32px;
-    margin-bottom: 1.5rem;
-  }
-
-  .nutricionista-name {
-    font-size: 20px;
-    line-height: 28px;
-    margin-bottom: 2rem;
-  }
-
-  .nutricionista-formacion-text {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
-  /* ========== FORMACIONES ========== */
-  .formaciones {
-    padding: 4rem 3rem;
-  }
-
-  .formaciones-title {
-    font-size: 45px;
-    line-height: 62px;
-    margin-bottom: 0rem;
-  }
-
-  .formaciones-text {
-    font-size: 22px;
-    line-height: 28px;
-    max-width: 650px;
-    width: 73%;
-  }
-
-  .formaciones-cards-conteiner {
-    grid-template-columns: 1fr !important;
-    gap: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .formaciones-item,
-  .card-solo {
-    min-height: 480px;
-  }
-
-  .card-overlay {
-    width: 85%;
-    padding: 2rem;
-  }
-
-  .card-title {
-    font-size: 24px;
-    line-height: 28px;
-    margin-bottom: 1.5rem;
-  }
-
-  .card-body {
-    font-size: 16px;
-    line-height: 22px;
-  }
-
-  .pill-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-  }
-
-  /* Centrar última pill si queda sola en tablets (768-820px) */
-  .pill-item:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    max-width: 50%;
-    margin: 0 auto;
-  }
-
-  .pill-item {
-    min-width: 180px;
-    padding: 0.8rem 1.5rem;
-  }
-
-  .pill-text {
-    font-size: 20px;
-  }
-  .formaciones-image {
-    width: 338px;
-    height: auto;
-    margin-left: -236px;
-  }
-  .formaciones-a-profesionales {
-    height: 3945px;
-  }
-
-  /* ========== COMO TRABAJA ========== */
-  .como-trabaja {
-    padding: 0rem 3rem;
-  }
-
-  .como-trabaja-title {
-    font-size: 56px;
-    line-height: 62px;
-    margin-bottom: 2rem;
-  }
-
-  .como-trabaja-text {
-    font-size: 22px;
-    line-height: 28px;
-    max-width: 792px;
-    margin: 0px auto 3rem;
-    width: 100%;
-  }
-
-  .como-trabaja-cards-conteiner {
-    grid-template-columns: 1fr !important;
-    gap: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .como-trabaja-card-formacion-conteiner {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    min-height: 500px;
-  }
-
-  .como-trabaja-card-overlay {
-    padding: 2.5rem;
-  }
-
-  .como-trabaja-card-title {
-    font-size: 36px;
-    line-height: 42px;
-  }
-
-  .como-trabaja-card-subtitle {
-    font-size: 24px;
-    line-height: 30px;
-  }
-
-  .como-trabaja-card-text {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .como-trabaja-card-body {
-    font-size: 17px;
-    line-height: 24px;
-  }
-
-  .importante-como-trabaja {
-    font-size: 17px;
-    line-height: 24px;
-  }
-  .como-trabaja-bottom-text {
-    font-size: 22px;
-    width: 100%;
-    line-height: 42px;
-  }
-  /* ========== CONTACTO ========== */
-  .contacto {
-    padding: 4rem 3rem;
-  }
-
-  .contacto-title {
-    font-size: 56px;
-    line-height: 62px;
-    margin-bottom: 2rem;
-  }
-
-  .contacto-text {
-    font-size: 20px;
-    line-height: 28px;
-    max-width: 650px;
-    margin: 0 auto 3rem;
-  }
-
-  .contacto-form {
-    max-width: 550px;
-    margin: 0 auto;
-  }
-
-  .form-group {
-    margin-bottom: 1.8rem;
-  }
-
-  .form-input,
-  .form-textarea {
-    font-size: 18px;
-    padding: 1.2rem;
-  }
-
-  .form-button {
-    font-size: 19px;
-    padding: 1.3rem 3rem;
-  }
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin-top: 70px;
-  }
-  /* ========== FOOTER ========== */
-  .footer-page {
-    min-height: auto;
-    padding: 3rem 0;
-  }
-
-  .footer-content {
-    padding: 0 3rem;
-    gap: 3rem;
-    flex-direction: column;
-    align-items: center;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .image-button-conteiner {
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5rem;
-    width: 100%;
-  }
-
-  .footer-image {
-    width: 100%;
-    max-width: 480px;
-    height: auto;
-    margin: 0 auto;
-    position: static;
-    display: block;
-  }
-
-  .footer-button {
-    width: 100%;
-    max-width: 380px;
-    height: auto;
-    margin: 0 auto;
-    position: static;
-    display: block;
-  }
-
-  .footer-button img {
-    width: 100%;
-    height: auto;
-  }
-
-  .rrss-footer {
-    max-width: 380px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .rrss-footer img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-  .como-trabaja-bottom-equipo-conteiner {
-    gap: 2rem;
-  }
-  /* ========== SCROLL MARGINS ========== */
-  section {
-    scroll-margin-top: 100px;
-  }
-
-  #servicios,
-  #equipo,
-  #formaciones,
-  #como-trabaja,
-  #contacto {
-    scroll-margin-top: 100px;
-  }
-}
-
-@media (min-width: 821px) and (max-width: 1024px) {
-  /* ========== GENERAL ========== */
-  body {
-    padding-top: 100px;
-  }
-
-  /* ========== NAVBAR ========== */
-  .navbar {
-    padding: 1.2rem 2.5rem;
-    height: 100px;
-  }
-
-  .logo img {
-    width: 100px;
-    height: 100px;
-  }
-
-  /* Menú hamburguesa */
-  .hamburger {
-    display: flex !important;
-  }
-
-  .menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 50%;
-    max-width: 400px;
-    height: 100vh;
-    background: var(--color-fondo);
-    flex-direction: column;
-    justify-content: center;
-    gap: 2.5rem;
-    padding: 2rem;
-    transition: right 0.3s ease;
-    z-index: 999;
-    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.1);
-    font-size: 20px;
-  }
-
-  .menu.active {
-    right: 0;
-  }
-
-  /* ========== HERO ========== */
-  .hero {
-    min-height: 900px;
-    padding: 2rem 3rem;
-  }
-
-  .hero-content {
-    position: relative;
-    width: 100%;
-    min-height: 800px;
-  }
-
-  .hero img {
-    width: 100%;
-    max-width: 480px;
-    height: auto;
-    position: absolute;
-    bottom: 328px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: heroFadeInCenter 1s ease-out;
-  }
-
-  /* Animación específica para hero en tablets - desde el centro hacia arriba */
-  @keyframes heroFadeInCenter {
-    0% {
-      opacity: 0;
-      transform: translateX(-50%) translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-  }
-
-  .hero-text1 {
-    font-size: 45px;
-    line-height: 54px;
-    position: absolute;
-    right: 14rem;
-    bottom: 2rem;
-    width: 500px;
-    max-width: 85%;
-  }
-
-  .hero-text2 {
-    font-size: 40px;
-    line-height: 54px;
-    position: absolute;
-    right: 11rem;
-    bottom: 4rem;
-    width: 580px;
-    max-width: 90%;
-  }
-
-  /* ========== SERVICIOS ========== */
-  .servicios {
-    padding: 4rem 3rem;
-    height: 1400px;
-  }
-
-  .servicios-title {
-    font-size: 56px;
-    line-height: 62px;
-    margin-bottom: 2rem;
-  }
-
-  .servicios-text {
-    font-size: 25px;
-    line-height: 28px;
-    max-width: 650px;
-    margin: 0 auto 3rem;
-    width: 69%;
-  }
-
-  .servicios-cards-conteiner {
-    grid-template-columns: 1fr !important;
-    gap: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .servicio-card {
-    min-height: 320px;
-    padding: 2rem;
-  }
-
-  .servicio-icon {
-    width: 70px;
-    height: 70px;
-  }
-
-  .servicio-title {
-    font-size: 28px;
-    line-height: 32px;
-  }
-
-  .servicio-description {
-    font-size: 17px;
-    line-height: 24px;
-  }
-
-  /* ========== EQUIPO ========== */
-  .equipo {
-    padding: 4rem 3rem;
-  }
-
-  .equipo-title {
-    font-size: 56px;
-    line-height: 62px;
-    margin-bottom: 2rem;
-  }
-
-  .equipo-text {
-    font-size: 25px;
-    line-height: 28px;
-    max-width: 650px;
-    margin: 0 auto 3rem;
-  }
-
-  .equipo-cards-conteiner {
-    grid-template-columns: 1fr !important;
-    gap: 3rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  /* Psicólogas */
-  .psico-card {
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-    text-align: center;
-  }
-
-  .psico-card img {
-    width: 480px;
-    height: auto;
-    max-width: 100%;
-  }
-
-  .psico-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .psico-title {
-    font-size: 36px;
-    line-height: 40px;
-  }
-
-  .psico-subtitle {
-    font-size: 20px;
-    line-height: 28px;
-  }
-
-  .psico-formacion-component {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .psico-text-conteiner {
-    padding: 2rem;
-    flex-direction: column;
-    width: 140%;
-  }
-
-  .psico-formacion-text-izquierda,
-  .psico-formacion-text-derecha {
-    font-size: 16px;
-    line-height: 24px;
-    width: 100%;
-  }
-
-  .trazo-psicologas {
-    display: none;
-  }
-  .psico-formacion-component.expanded {
-    max-height: 1600px;
-  }
-  .trazo-formacion {
-    display: none;
-  }
-  /* Médica */
-  .medica-card {
-    padding: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .medica-img {
-    width: 240px;
-    height: 240px;
-    margin: 0 auto 2rem;
-  }
-
-  .medica-title {
-    font-size: 32px;
-    margin-bottom: 1.5rem;
-  }
-
-  .medica-name {
-    font-size: 20px;
-    line-height: 28px;
-    margin-bottom: 2rem;
-  }
-
-  .medica-formacion-text {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
-  /* Nutricionista */
-  .nutricionista-card {
-    padding: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .nutricionista-img {
-    width: 240px;
-    height: 240px;
-    margin: 0 auto 2rem;
-  }
-
-  .nutricionista-title {
-    font-size: 32px;
-    margin-bottom: 1.5rem;
-  }
-
-  .nutricionista-name {
-    font-size: 20px;
-    line-height: 28px;
-    margin-bottom: 2rem;
-  }
-
-  .nutricionista-formacion-text {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
-  /* ========== FORMACIONES ========== */
-  .formaciones {
-    padding: 4rem 3rem;
-  }
-
-  .formaciones-title {
-    font-size: 56px;
-    line-height: 62px;
-    margin-bottom: 2rem;
-  }
-
-  .formaciones-text {
-    font-size: 24px;
-    line-height: 28px;
-    max-width: 650px;
-
-    width: 88%;
-  }
-
-  .formaciones-cards-conteiner {
-    grid-template-columns: 1fr !important;
-    gap: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .formaciones-item,
-  .card-solo {
-    min-height: 480px;
-  }
-
-  .card-overlay {
-    width: 85%;
-    padding: 2rem;
-  }
-
-  .card-title {
-    font-size: 24px;
-    line-height: 28px;
-    margin-bottom: 1.5rem;
-  }
-
-  .card-body {
-    font-size: 16px;
-    line-height: 22px;
-  }
-
-  .pill-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-  }
-
-  /* Centrar última pill si queda sola en tablets */
-  .pill-item:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    max-width: 50%;
-    margin: 0 auto;
-  }
-
-  .pill-item {
-    min-width: 180px;
-    padding: 0.8rem 1.5rem;
-  }
-
-  .pill-text {
-    font-size: 22px;
-  }
-  .formaciones-image {
-    width: 520px;
-    height: 475px;
-    margin-left: -162px;
-  }
-  .formaciones-a-profesionales {
-    height: 3945px;
-  }
-
-  /* ========== COMO TRABAJA ========== */
-  .como-trabaja {
-    padding: 0rem 3rem;
-  }
-
-  .como-trabaja-title {
-    font-size: 56px;
-    line-height: 62px;
-    margin-bottom: 2rem;
-  }
-
-  .como-trabaja-text {
-    font-size: 20px;
-    line-height: 28px;
-    max-width: 792px;
-    margin: 0 auto 3rem;
-    width: 774px;
-  }
-
-  .como-trabaja-cards-conteiner {
-    grid-template-columns: 1fr !important;
-    gap: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .como-trabaja-card-formacion-conteiner {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .como-trabaja-card1,
-  .como-trabaja-card2,
-  .como-trabaja-card3 {
-    min-height: 500px;
-  }
-
-  .como-trabaja-card-overlay {
-    padding: 2.5rem;
-  }
-
-  .como-trabaja-card-title {
-    font-size: 36px;
-    line-height: 42px;
-  }
-
-  .como-trabaja-card-subtitle {
-    font-size: 24px;
-    line-height: 30px;
-  }
-
-  .como-trabaja-card-text {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .como-trabaja-card-body {
-    font-size: 17px;
-    line-height: 24px;
-  }
-
-  .importante-como-trabaja {
-    font-size: 17px;
-    line-height: 24px;
-  }
-  .como-trabaja-bottom-text {
-    font-size: 25px;
-  }
-  /* ========== CONTACTO ========== */
-  .contacto {
-    padding: 4rem 3rem;
-  }
-
-  .contacto-title {
-    font-size: 56px;
-    line-height: 62px;
-    margin-bottom: 2rem;
-  }
-
-  .contacto-text {
-    font-size: 20px;
-    line-height: 28px;
-    max-width: 650px;
-    margin: 0 auto 3rem;
-  }
-
-  .contacto-form {
-    max-width: 550px;
-    margin: 0 auto;
-  }
-
-  .form-group {
-    margin-bottom: 1.8rem;
-  }
-
-  .form-input,
-  .form-textarea {
-    font-size: 18px;
-    padding: 1.2rem;
-  }
-
-  .form-button {
-    font-size: 19px;
-    padding: 1.3rem 3rem;
-  }
-  .como-trabaja-card-formacion-conteiner:nth-child(3) {
-    margin-top: 70px;
-  }
-  /* ========== FOOTER ========== */
-  .footer-page {
-    min-height: auto;
-    padding: 3rem 0;
-  }
-
-  .footer-content {
-    padding: 0 3rem;
-    gap: 3rem;
-    flex-direction: column;
-    align-items: center;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .image-button-conteiner {
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5rem;
-    width: 100%;
-  }
-
-  .footer-image {
-    width: 100%;
-    max-width: 480px;
-    height: auto;
-    margin: 0 auto;
-    position: static;
-    display: block;
-  }
-
-  .footer-button {
-    width: 100%;
-    max-width: 380px;
-    height: auto;
-    margin: 0 auto;
-    position: static;
-    display: block;
-  }
-
-  .footer-button img {
-    width: 100%;
-    height: auto;
-  }
-
-  .rrss-footer {
-    max-width: 380px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .rrss-footer img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-
-  /* ========== SCROLL MARGINS ========== */
-  section {
-    scroll-margin-top: 100px;
-  }
-
-  #servicios,
-  #equipo,
-  #formaciones,
-  #como-trabaja,
-  #contacto {
-    scroll-margin-top: 100px;
   }
 }
