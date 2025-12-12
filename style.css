@@ -652,20 +652,35 @@ section[id] {
 }
 
 .arrow-icon {
-  display: inline-block;
-  margin-left: 10px;
-  width: 12px;
-  height: 12px;
+  display: block; /* Antes inline-block */
+  width: 15px; /* Un poquito más grande para que sea fácil de clickear */
+  height: 15px;
+
+  /* Dibujo de la flecha */
   border-right: 3px solid var(--color-rosa);
   border-bottom: 3px solid var(--color-rosa);
-  transform: rotate(45deg); /* Flecha hacia abajo */
-  transition: transform 0.3s ease;
-  vertical-align: middle;
+
+  /* Rotación inicial (apuntando abajo) */
+  transform: rotate(45deg);
+  transition: transform 0.3s ease, margin-top 0.3s ease;
+
+  cursor: pointer;
 }
 
+/* Estado rotado (apuntando arriba) */
 .arrow-icon.rotated {
-  transform: rotate(-135deg); /* Flecha hacia arriba */
+  transform: rotate(-135deg);
+  /* Ajuste fino visual para que no parezca que sube al rotar */
   margin-top: 5px;
+}
+/* NUEVA CLASE PARA UBICACIÓN Y CENTRADO */
+.psico-arrow-centered {
+  /* Separación del subtítulo */
+  margin-top: 1.5rem;
+
+  /* MAGIA FLEXBOX: */
+  /* Como el padre (.psico-info) es una columna flex, esto centra al hijo horizontalmente */
+  align-self: center;
 }
 
 .psico-subtitle {
@@ -1669,7 +1684,7 @@ body.menu-open {
   /* ===== HERO (Pila vertical) ===== */
   .hero {
     min-height: auto;
-    padding: 8rem 1.5rem 8rem 1.5rem;
+    padding: 2rem 1.5rem 14rem 1.5rem;
     flex-direction: column;
     text-align: center;
   }
