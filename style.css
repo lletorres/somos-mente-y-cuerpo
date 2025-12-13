@@ -837,8 +837,8 @@ section[id] {
 /* Alineación específica para diseño de "espejo" (opcional) */
 /* Si quieres que la izquierda se alinee a la derecha (pegado al centro) */
 .psico-formacion-text-izquierda {
-  text-align: right;
-  align-items: flex-end;
+  text-align: left;
+  align-items: flex-start;
 }
 /* Y la derecha a la izquierda (pegado al centro) */
 .psico-formacion-text-derecha {
@@ -1332,10 +1332,10 @@ section[id] {
 
 .como-trabaja-bottom-text {
   font-family: "Literata", serif;
-  font-size: clamp(24px, 3vw, 32px);
+  font-size: clamp(20px, 3vw, 32px);
   color: #575757;
   text-align: center;
-  max-width: 900px;
+  max-width: 360px;
   line-height: 1.4;
 }
 
@@ -2027,7 +2027,7 @@ body.menu-open {
 }
 @media (max-width: 478px) {
   .formacion-card {
-    min-height: 415px;
+    min-height: 500px;
   }
 }
 @media (max-width: 404px) {
