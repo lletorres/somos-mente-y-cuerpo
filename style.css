@@ -192,13 +192,7 @@ section[id] {
 
   /* Altura mínima y fondo (tus estilos originales) */
   min-height: 90vh; /* Usamos min-height por si el contenido es muy alto en móviles */
-  background: linear-gradient(
-    180deg,
-    rgba(254, 251, 243, 1) 0%,
-    rgba(254, 247, 231, 1) 50%,
-    rgba(254, 234, 242, 1) 100%
-  );
-
+  background: #f5f5f5;
   /* MARGEN EXTERNO REGULABLE: Controla el espacio alrededor de todo el contenido */
   padding: 2rem; /* Ajusta este valor si quieres más o menos aire en los bordes */
   box-sizing: border-box; /* Importante para que el padding no sume al ancho total */
@@ -985,7 +979,7 @@ section[id] {
 
 .formaciones-text {
   /* BORRAR: width: 509.03px; height: 286.59px; */
-  width: 100%;
+  width: 121%;
   max-width: 600px;
   height: auto;
 
@@ -1191,7 +1185,7 @@ section[id] {
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 
-  width: 100%;
+  width: 90%;
   max-width: 1400px; /* Ancho máximo de la grilla */
   margin: 0 auto;
 
@@ -1257,10 +1251,10 @@ section[id] {
 
 /* Ajustes específicos de padding para cada forma de tarjeta si es necesario */
 .step-2 .step-card-overlay {
-  padding: 15% 15%;
+  padding: 15% 12%;
 }
 .step-3 .step-card-overlay {
-  padding: 15% 18%;
+  padding: 15% 12%;
 }
 
 /* Tipografía dentro de las cards */
@@ -1918,9 +1912,28 @@ body.menu-open {
   .formaciones-text-image-conteiner {
     flex-direction: column;
     text-align: center;
+
+    /* 1. Aseguramos que el contenedor no se salga */
+    width: 100%;
+    padding: 0 1.5rem; /* Usamos padding interno en lugar de margin auto con width 95% */
+    box-sizing: border-box; /* Clave para que el padding no sume ancho */
+  }
+
+  .formaciones-text-conteiner,
+  .formaciones-image {
+    /* Antes tenían 350px y 400px de base. Aquí lo ponemos en automático */
+    flex: 1 1 auto;
+
+    /* Forzamos a que respeten el ancho del celular */
+    width: 100%;
+    max-width: 100%;
+
+    /* Evitamos problemas de alineación */
+    margin-left: 0;
+    margin-right: 0;
   }
   .formaciones-text-conteiner {
-    align-items: center;
+    align-items: center; /* Centrar textos verticalmente */
   }
   .formaciones-cards-conteiner {
     grid-template-columns: 1fr;
@@ -2047,6 +2060,6 @@ body.menu-open {
     padding: 1rem;
   }
   .pill-text {
-    font-size: 14px;
+    font-size: 11px;
   }
 }
