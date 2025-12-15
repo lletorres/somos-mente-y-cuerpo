@@ -107,7 +107,7 @@ section[id] {
 
 /* O específicamente para servicios */
 #servicios {
-  scroll-margin-top: -30px;
+  scroll-margin-top: 60px;
 }
 
 #equipo {
@@ -2076,8 +2076,41 @@ body.menu-open {
 }
 
 /* --------------------------------------------------------------------------
-     3. MÓVILES MUY PEQUEÑOS (iPhone SE, Fold)
-     -------------------------------------------------------------------------- */
+   4. AJUSTES FINOS SCROLL MARGIN (Móviles Pequeños)
+   Pegar esto AL FINAL del archivo para sobrescribir reglas anteriores
+   -------------------------------------------------------------------------- */
+
+/* RANGO 1: Celulares hasta 384px (ej. Samsung S20/S21 normales, iPhone X/11 Pro) */
+@media (max-width: 384px) {
+  /* Ajustamos todos los IDs a la vez para asegurar que el navbar (80px) no tape nada */
+  #servicios,
+  #equipo,
+  #formaciones,
+  #como-trabaja,
+  #contacto,
+  section[id] {
+    scroll-margin-top: 70px !important;
+  }
+  /* 1. Reducimos el padding del navbar para ganar espacio a los costados */
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+
+  /* 2. Ajustamos el Texto del Medio (Indicador) */
+  .section-indicator {
+    /* Hacemos la letra más chica */
+    font-size: 13px !important;
+
+    /* Juntamos más las letras (antes era 2px, esto ayuda mucho) */
+    letter-spacing: 0.5px !important;
+
+    /* EL SECRETO: Esto prohíbe terminantemente que el texto baje de línea */
+    white-space: nowrap;
+
+    /* Aseguramos que siga centrado */
+    width: auto;
+  }
+}
 @media (max-width: 380px) {
   .hero-text1 {
     font-size: 28px;
@@ -2087,5 +2120,18 @@ body.menu-open {
   }
   .pill-text {
     font-size: 11px;
+  }
+}
+
+/* RANGO 2: Celulares Muy Chicos hasta 360px (ej. Galaxy Fold cerrado, iPhone SE, Moto G viejos) */
+@media (max-width: 360px) {
+  /* Aquí ajustamos un poco más fino si sientes que queda mucho aire */
+  #servicios,
+  #equipo,
+  #formaciones,
+  #como-trabaja,
+  #contacto,
+  section[id] {
+    scroll-margin-top: 75px !important;
   }
 }
