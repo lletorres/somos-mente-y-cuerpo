@@ -591,7 +591,6 @@ section[id] {
 
 .psico-img-clickable:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(247, 157, 185, 0.3); /* Sombra suave rosa */
 }
 
 /* INFO (Nombre y Título) */
