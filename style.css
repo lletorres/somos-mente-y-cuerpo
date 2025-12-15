@@ -192,7 +192,7 @@ section[id] {
 
   /* Altura mínima y fondo (tus estilos originales) */
   min-height: 90vh; /* Usamos min-height por si el contenido es muy alto en móviles */
-  background: #f5f5f5;
+  background: var(--color-fondo);
   /* MARGEN EXTERNO REGULABLE: Controla el espacio alrededor de todo el contenido */
   padding: 2rem; /* Ajusta este valor si quieres más o menos aire en los bordes */
   box-sizing: border-box; /* Importante para que el padding no sume al ancho total */
@@ -1192,6 +1192,21 @@ section[id] {
   /* Alineamos al inicio para que el margin-top funcione */
   align-items: start;
 }
+/* --- EFECTO ESCALONADO (Staircase) --- */
+/* Lo aplicamos desde 900px en adelante para que se vea en notebooks y tablets landscape */
+@media (min-width: 900px) {
+  .step-1 {
+    margin-top: 0; /* La más alta */
+  }
+
+  .step-2 {
+    margin-top: 80px; /* Baja un escalón */
+  }
+
+  .step-3 {
+    margin-top: 160px; /* Baja dos escalones */
+  }
+}
 
 /* Wrapper de cada tarjeta */
 .step-card-wrapper {
@@ -1214,47 +1229,6 @@ section[id] {
   .step-3 {
     margin-top: 160px;
   }
-}
-
-/* Contenido de la tarjeta (Imagen + Texto) */
-.step-card-content {
-  position: relative;
-  width: 100%;
-  /* Esto mantiene la relación de aspecto según la imagen de fondo */
-  /* Ajusta estos valores si tus imágenes tienen otra proporción */
-}
-
-.step-card-bg {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-
-/* Texto sobre la tarjeta */
-.step-card-overlay {
-  position: absolute;
-  /* Cubrimos toda la imagen */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  /* Flexbox para acomodar el texto dentro */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centrado vertical */
-  padding: 15% 12%; /* Padding porcentual para que escale con la imagen */
-  box-sizing: border-box;
-  text-align: left;
-}
-
-/* Ajustes específicos de padding para cada forma de tarjeta si es necesario */
-.step-2 .step-card-overlay {
-  padding: 15% 12%;
-}
-.step-3 .step-card-overlay {
-  padding: 15% 12%;
 }
 
 /* Tipografía dentro de las cards */
@@ -1313,6 +1287,59 @@ section[id] {
     transition-delay: 0s;
   }
 }
+/* =========================================
+   TARJETA PURO CSS (Reemplazo de imágenes) 
+   ========================================= */
+
+.step-card-pure {
+  /* 1. El Color de fondo (Verde Menta de tu diseño) */
+  background-color: #d4eee2;
+
+  /* 2. La forma (Bordes redondeados grandes para que parezca la imagen original) */
+  border-radius: 60px;
+
+  /* 3. Espaciado interno (Padding) */
+  /* Arriba/Abajo: 3rem | Izquierda/Derecha: 2.5rem */
+  padding: 3rem 2.5rem;
+
+  /* 4. Comportamiento y Tamaño */
+  width: 100%;
+  height: 100%; /* Para que en la grilla todas midan lo mismo de alto */
+  box-sizing: border-box; /* Clave para que el padding no agrande la tarjeta */
+
+  /* Alineación del contenido */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente */
+  text-align: left; /* Alineación del texto a la izquierda */
+
+  /* Sombra suave opcional (le da profundidad como la imagen PNG) */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+
+  /* Transición suave al pasar el mouse */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto Hover */
+.step-card-pure:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajuste de tipografía interna para asegurar márgenes */
+.step-card-pure .step-title {
+  margin-top: 0;
+}
+
+/* --- AJUSTE RESPONSIVE (Móviles) --- */
+@media (max-width: 768px) {
+  .step-card-pure {
+    /* En móvil reducimos un poco el radio y el relleno */
+    border-radius: 40px;
+    padding: 2.5rem 1.5rem;
+    height: auto; /* En móvil dejamos que la altura sea libre */
+  }
+}
 /* 3. FOOTER DEL EQUIPO */
 .como-trabaja-bottom-container {
   display: flex;
@@ -1321,7 +1348,7 @@ section[id] {
   gap: 4rem;
   width: 100%;
   max-width: 1200px;
-  margin-top: 4rem;
+  margin: 4rem auto 0 auto;
 }
 
 .como-trabaja-bottom-text {
@@ -1329,7 +1356,9 @@ section[id] {
   font-size: clamp(20px, 3vw, 32px);
   color: #575757;
   text-align: center;
-  max-width: 360px;
+  max-width: 900px; /* Le damos aire para que se expanda en Desktop */
+  width: 90%; /* En móviles usará el 90% de la pantalla */
+  margin: 0 auto; /* Asegura que siempre esté centrado */
   line-height: 1.4;
 }
 
@@ -1435,12 +1464,8 @@ section[id] {
   .team-grid {
     grid-template-columns: 1fr; /* 1 columna en móvil */
   }
-
-  /* Ajustamos padding interno de cards para móvil */
-  .step-card-overlay {
-    padding: 2rem;
-  }
 }
+
 /* ---------- FOOTER / CONTACTO (Refactorizado) ---------- */
 
 .footer-page {
@@ -2005,9 +2030,10 @@ body.menu-open {
   }
 
   .footer-button-img {
-    width: 100%;
+    width: 75%;
     height: auto;
     display: block;
+    margin: 0 auto;
   }
   .rrss-image {
     display: block;
