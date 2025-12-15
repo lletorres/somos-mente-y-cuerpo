@@ -1885,7 +1885,9 @@ body.menu-open {
     font-size: 16px;
     padding: 0 1rem;
   }
-
+  .formaciones-text {
+    width: 121%;
+  }
   /* ===== SERVICIOS (Ajuste a 2 columnas centrado) ===== */
   .servicios {
     padding: 4rem 1rem;
