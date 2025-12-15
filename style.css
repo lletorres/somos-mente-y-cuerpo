@@ -1296,7 +1296,7 @@ section[id] {
   background-color: #d4eee2;
 
   /* 2. La forma (Bordes redondeados grandes para que parezca la imagen original) */
-  border-radius: 60px;
+  border-radius: 95px;
 
   /* 3. Espaciado interno (Padding) */
   /* Arriba/Abajo: 3rem | Izquierda/Derecha: 2.5rem */
@@ -1793,6 +1793,22 @@ body.menu-open {
     width: 100%;
     text-align: center;
   }
+  .formaciones-text-conteiner {
+    text-align: center; /* Centra el contenedor padre */
+    align-items: center; /* Asegura que los items flex se centren */
+  }
+  /* Sobrescribimos el 'left' del escritorio forzando el centro en los hijos */
+  .formaciones-title,
+  .formaciones-text {
+    text-align: center;
+    width: 100%; /* Aseguramos que ocupen todo el ancho para poder centrarse */
+  }
+  #formaciones {
+    scroll-margin-top: 70px;
+  }
+  #como-trabaja {
+    scroll-margin-top: 70px;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -2049,6 +2065,12 @@ body.menu-open {
     /* Ajustamos el tamaño del texto para móvil */
     font-size: 18px;
     color: white;
+  }
+  #formaciones {
+    scroll-margin-top: 80px;
+  }
+  #como-trabaja {
+    scroll-margin-top: 80px;
   }
 }
 @media (max-width: 581px) {
