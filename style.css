@@ -2071,6 +2071,40 @@ body.menu-open {
   .hero-image {
     width: 105%;
   }
+  /* 1. Ocultamos la línea (el trazo) */
+  .team-line {
+    display: none;
+  }
+
+  /* 2. Centramos el contenedor de la grilla */
+  .team-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los bloques verticalmente */
+    gap: 3rem;
+    width: 100%;
+  }
+
+  /* 3. Ajustamos la columna para que el texto se centre perfecto */
+  .team-column {
+    /* Quitamos el padding izquierdo que dejaba espacio para la línea */
+    padding-left: 0;
+
+    /* Centramos el texto interno */
+    text-align: center;
+
+    /* Centramos los elementos flex internos (por si acaso) */
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* Aseguramos que la info interna también se centre */
+  .team-info {
+    align-items: center;
+  }
 }
 @media (max-width: 581px) {
   .formacion-card {
