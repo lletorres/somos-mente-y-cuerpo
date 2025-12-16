@@ -1768,11 +1768,11 @@ body.menu-open {
     background: #fcfaf5;
 
     flex-direction: column; /* Apilar links */
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 2rem;
 
-    padding: 2rem;
+    padding: 140px 2rem 2rem 2rem;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
 
     /* Animación de entrada */
@@ -2087,7 +2087,7 @@ body.menu-open {
 }
 @media (max-width: 478px) {
   .formacion-card {
-    min-height: 500px;
+    min-height: 430px;
   }
 }
 @media (max-width: 404px) {
