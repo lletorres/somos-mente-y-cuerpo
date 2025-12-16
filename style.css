@@ -870,8 +870,8 @@ section[id] {
   /* En móvil, centramos todo */
   .psico-formacion-text-izquierda,
   .psico-formacion-text-derecha {
-    text-align: center;
-    align-items: center;
+    text-align: left;
+    align-items: left;
   }
 
   /* Quitamos el margen top extra en móvil para que se sienta más compacto */
@@ -1334,7 +1334,7 @@ section[id] {
 @media (max-width: 768px) {
   .step-card-pure {
     /* En móvil reducimos un poco el radio y el relleno */
-    border-radius: 40px;
+    border-radius: 80px;
     padding: 2.5rem 1.5rem;
     height: auto; /* En móvil dejamos que la altura sea libre */
   }
@@ -1946,8 +1946,8 @@ body.menu-open {
   }
   .psico-formacion-text-izquierda,
   .psico-formacion-text-derecha {
-    text-align: center;
-    align-items: center;
+    text-align: left;
+    align-items: left;
   }
 
   /* ===== FORMACIONES ===== */
@@ -1983,7 +1983,7 @@ body.menu-open {
     padding: 0;
   }
   .formacion-card {
-    border-radius: 109px;
+    border-radius: 80px;
     padding: 2rem;
     min-height: 370px;
   }
@@ -2073,6 +2073,9 @@ body.menu-open {
   #como-trabaja {
     scroll-margin-top: 80px;
   }
+  .hero-image {
+    width: 105%;
+  }
 }
 @media (max-width: 581px) {
   .formacion-card {
@@ -2133,6 +2136,10 @@ body.menu-open {
     /* Aseguramos que siga centrado */
     width: auto;
   }
+  .hero-image {
+    width: 105%;
+    height: 98%;
+  }
 }
 @media (max-width: 380px) {
   .hero-text1 {
@@ -2156,5 +2163,26 @@ body.menu-open {
   #contacto,
   section[id] {
     scroll-margin-top: 75px !important;
+  }
+
+  .hero-image {
+    width: 100%;
+
+    /* Altura fija */
+    height: 300px !important;
+
+    /* Mantiene la proporción pero recorta lo que sobra */
+    object-fit: cover;
+
+    /* Opcional: enfoca la parte de abajo de la imagen */
+    object-position: bottom;
+  }
+  .hero-text-area {
+    /* Ajusta este número hasta que quede a tu gusto.
+       Cuanto más negativo, más sube. */
+    margin-top: -400px !important;
+
+    /* Aseguramos que no tenga altura mínima que estorbe */
+    min-height: auto !important;
   }
 }
