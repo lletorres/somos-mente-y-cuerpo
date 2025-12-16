@@ -2089,6 +2089,14 @@ body.menu-open {
   .formacion-card {
     min-height: 430px;
   }
+  .formaciones-cards-conteiner .formacion-card:nth-child(3) {
+    /* La altura general es min-height: 480px. 
+       Aquí le ponemos más para que destaque. */
+    min-height: 500px;
+
+    /* Opcional: Si quieres forzar una altura fija exacta */
+    /* height: 600px; */
+  }
 }
 @media (max-width: 404px) {
   .pill-text {
