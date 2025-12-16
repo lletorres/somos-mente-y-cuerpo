@@ -1867,11 +1867,6 @@ body.menu-open {
     margin-top: 0;
   }
 
-  .hero-image-block {
-    width: 100%;
-    max-width: 350px;
-  }
-
   /* ===== GENERAL ===== */
   .equipo-title,
   .como-trabaja-title,
@@ -2138,7 +2133,7 @@ body.menu-open {
   }
   .hero-image {
     width: 105%;
-    height: 98%;
+    height: 97%;
   }
 }
 @media (max-width: 380px) {
