@@ -1335,7 +1335,7 @@ section[id] {
   .step-card-pure {
     /* En móvil reducimos un poco el radio y el relleno */
     border-radius: 80px;
-    padding: 2.5rem 1.5rem;
+    padding: 3.5rem 2.5rem;
     height: auto; /* En móvil dejamos que la altura sea libre */
   }
 }
