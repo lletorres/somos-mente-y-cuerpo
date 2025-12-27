@@ -2070,6 +2070,8 @@ body.menu-open {
   }
   .hero-image {
     width: 105%;
+    height: 80%;
+    margin-top: 50px;
   }
   /* 1. Ocultamos la línea (el trazo) */
   .team-line {
@@ -2175,7 +2177,8 @@ body.menu-open {
   }
   .hero-image {
     width: 105%;
-    height: 97%;
+    height: 72%;
+    margin-top: 60px;
   }
 }
 @media (max-width: 380px) {
@@ -2207,6 +2210,7 @@ body.menu-open {
 
     /* Altura fija */
     height: 300px !important;
+    margin-top: 0px;
 
     /* Mantiene la proporción pero recorta lo que sobra */
     object-fit: cover;
