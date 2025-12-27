@@ -931,7 +931,7 @@ section[id] {
 /* La Imagen */
 .formaciones-image {
   flex: 1 1 400px; /* Intenta medir 400px, si no cabe, se ajusta */
-  max-width: 780px; /* Límite máximo real de la imagen */
+  max-width: 717px; /* Límite máximo real de la imagen */
   width: 100%; /* Para que no desborde en móvil */
   height: auto; /* Mantiene proporción */
   object-fit: contain;
@@ -1578,19 +1578,38 @@ section[id] {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  /* Quitamos el gap de aquí porque ahora lo manejará el enlace interno */
+  gap: 0;
 }
 
+/* Nueva clase para el enlace */
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* El espacio entre el ícono y el texto ahora va aquí */
+  text-decoration: none; /* Quita el subrayado azul típico de los links */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+/* Efecto Hover (opcional pero recomendado) */
+.social-link:hover {
+  transform: scale(1.05); /* Crece un poquito */
+  opacity: 0.9;
+}
+
+/* Aseguramos que las imágenes y textos mantengan sus estilos dentro del link */
 .rrss-image {
   width: 100%;
-  max-width: 45px; /* Tamaño controlado */
+  max-width: 45px;
   height: auto;
-  cursor: pointer; /* Indica que es interactivo */
+  /* cursor: pointer; <-- Ya no es necesario aquí, lo tiene el padre .social-link */
 }
+
 .rrss-text {
   font-family: "Lato", sans-serif;
   font-size: 35px;
-  color: white;
+  color: white; /* Asegura que el texto siga blanco */
 }
 
 /* --- ESTADO ANIMADO (JS) --- */
@@ -1969,6 +1988,7 @@ body.menu-open {
     margin-left: 0;
     margin-right: 0;
   }
+
   .formaciones-text-conteiner {
     align-items: center; /* Centrar textos verticalmente */
   }
