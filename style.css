@@ -1971,26 +1971,38 @@ body.menu-open {
 
     /* 1. Aseguramos que el contenedor no se salga */
     width: 100%;
-    padding: 0 1.5rem; /* Usamos padding interno en lugar de margin auto con width 95% */
+    padding: 2rem -0.5rem; /* Usamos padding interno en lugar de margin auto con width 95% */
     box-sizing: border-box; /* Clave para que el padding no sume ancho */
+    align-items: center;
   }
 
-  .formaciones-text-conteiner,
-  .formaciones-image {
-    /* Antes tenían 350px y 400px de base. Aquí lo ponemos en automático */
-    flex: 1 1 auto;
-
-    /* Forzamos a que respeten el ancho del celular */
-    width: 100%;
-    max-width: 100%;
-
-    /* Evitamos problemas de alineación */
-    margin-left: 0;
-    margin-right: 0;
-  }
-
+  /* 1. Aseguramos que el contenedor de texto NO se desborde */
   .formaciones-text-conteiner {
-    align-items: center; /* Centrar textos verticalmente */
+    flex: 1 1 auto;
+    width: 100% !important; /* Volvemos al 100% para que no se salga de la pantalla */
+    max-width: 100% !important;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+  }
+  /* 2. Ajustamos la imagen por separado si quieres que se vea más grande */
+  .formaciones-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto 0 auto !important; /* Centrado absoluto */
+    object-fit: contain;
+    flex: none; /* Evitamos que flexbox intente calcular tamaños raros */
+  }
+
+  /* 3. Corregimos el párrafo de texto que también tiene 122% */
+  .formaciones-text {
+    width: 100% !important; /* Estaba en 122%, cámbialo a 100% */
+    max-width: 100%;
+    font-size: 16px;
+    padding: 0;
+    text-align: center;
   }
   .formaciones-cards-conteiner {
     grid-template-columns: 1fr;
