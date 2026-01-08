@@ -2039,22 +2039,28 @@ body.menu-open {
 
   /* ===== FOOTER ===== */
   .footer-page {
-    margin-top: 0;
-    padding-top: 4rem;
+    /* 1. Reducimos el padding lateral al mínimo (0.5rem) 
+       para que la imagen tenga más espacio real para crecer */
+    padding: 4rem 0.5rem !important;
+    width: 100% !important;
+    overflow: hidden; /* Evita que cualquier resto de imagen cree scroll lateral */
   }
-
+  .footer-content {
+    width: 100% !important;
+    align-items: center !important;
+  }
   .footer-main-block {
-    /* IMPORTANTE: Aseguramos columna también aquí */
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    width: 100%;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 1.5rem !important;
   }
 
   .footer-image {
     margin-top: 0; /* Sin overlap en móvil para no tapar nada */
     max-width: 100%;
-    height: auto;
+    width: 100%;
   }
   .footer-social-block {
     width: 100%;
