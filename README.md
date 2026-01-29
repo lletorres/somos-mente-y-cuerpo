@@ -30,7 +30,7 @@ Indicador de sección dinámico en la barra de navegación para móviles.
 Integración de Contacto: Enlace directo a WhatsApp para consultas inmediatas.
 
 📂 Estructura del Proyecto
-Plaintext
+
 ├── assets/
 │   ├── fonts/           # Fuentes locales (Aeonik, Lato)
 │   ├── como-trabaja/    # Imágenes de la metodología
@@ -41,6 +41,7 @@ Plaintext
 ├── style.css            # Estilos, variables y media queries
 ├── script.js            # Lógica de animaciones y formularios
 └── somos_mente_y_cuerpo.json # Especificaciones de diseño (Figma export)
+
 🎨 Detalles de Diseño
 Paleta de Colores: Basada en tonos suaves y profesionales:
 
