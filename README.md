@@ -31,6 +31,17 @@
 
 ---
 
+## 📱 Diseño 100% Responsive
+
+El sitio ha sido desarrollado bajo la metodología **Mobile-First**, garantizando una experiencia de usuario fluida y estética en cualquier dispositivo:
+
+* **Adaptabilidad:** Layouts flexibles que se ajustan desde smartphones pequeños hasta monitores ultra-wide.
+* **Navegación Mobile:** Menú lateral tipo "hamburguesa" optimizado para gestos táctiles.
+* **Imágenes Optimizadas:** Uso de recursos visuales escalables que no sacrifican la velocidad de carga en redes móviles.
+* **Tipografía Fluida:** Lectura cómoda en todas las resoluciones gracias al uso de unidades relativas (`rem`, `em`, `%`).
+
+---
+
 ## 🛠️ Stack Tecnológico e Implementación
 
 Para asegurar la máxima velocidad de carga y un mantenimiento limpio, se optó por un desarrollo **Vanilla**:
