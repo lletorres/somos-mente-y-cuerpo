@@ -1906,7 +1906,7 @@ body.menu-open {
   .hero-text-area {
     position: relative;
     z-index: 2;
-    margin-top: -90px;
+    margin-top: -110px;
     width: 100%;
 
     /* ¡LA MAGIA!: Cambiamos Flexbox por Grid para superponer textos */
@@ -2305,7 +2305,7 @@ body.menu-open {
   }
 
   .hero-text-area {
-    margin-top: -100px !important;
+    margin-top: -150px !important;
     min-height: auto !important;
   }
 }
