@@ -5,7 +5,7 @@ const observer = new IntersectionObserver(
       if (entry.isIntersecting) entry.target.classList.add("visible");
     });
   },
-  { threshold: 0.2 }
+  { threshold: 0.2 },
 );
 
 document
@@ -27,3 +27,13 @@ function enviarFormulario(e) {
   setTimeout(() => msg.classList.add("hidden"), 4000);
   return false;
 }
+
+// Función para calcular --vh y manejar la barra dinámica de Safari en iOS
+function setVh() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+}
+
+// Ejecutar al cargar y al redimensionar
+setVh();
+window.addEventListener("resize", setVh);
