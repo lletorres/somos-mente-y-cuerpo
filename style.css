@@ -65,7 +65,9 @@ body {
   width: 100vw;
   height: 105px;
   z-index: 1000;
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
+  transition:
+    background-color 0.3s ease,
+    backdrop-filter 0.3s ease,
     box-shadow 0.3s ease;
 }
 
@@ -179,7 +181,9 @@ section[id] {
   transform: scaleX(1);
 
   /* En hover sí activamos la transición de "dibujo" */
-  transition: opacity 0.35s ease, transform 0.45s ease-out;
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s ease-out;
 }
 /* ---------- HERO SECTION (REFACTORIZADO) ---------- */
 
@@ -414,7 +418,9 @@ section[id] {
   /* Animación (mantenemos tu efecto) */
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 /* Estado visible cuando el JS agrega la clase .animate */
 .pill-item.animate {
@@ -586,7 +592,9 @@ section[id] {
 
   /* Interacción */
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .psico-img-clickable:hover {
@@ -655,7 +663,9 @@ section[id] {
 
   /* Rotación inicial (apuntando abajo) */
   transform: rotate(45deg);
-  transition: transform 0.3s ease, margin-top 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    margin-top 0.3s ease;
 
   cursor: pointer;
 }
@@ -716,7 +726,9 @@ section[id] {
   opacity: 0;
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  transition:
+    transform 0.3s ease-out,
+    opacity 0.3s ease-out;
 }
 
 /* Estado Activo (Visible y expandido) */
@@ -726,7 +738,8 @@ section[id] {
 
   /* Transición para cuando APARECE (se abre) */
   /* El cubic-bezier le da un efecto de "pincelada" más natural */
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.4s ease-in;
 }
 /* --- RESPONSIVE (Mobile First Mentalidad) --- */
@@ -784,7 +797,8 @@ section[id] {
   /* === VELOCIDAD DE CIERRE (Rápida) === */
   /* Se aplica cuando quitamos la clase .expanded */
   /* max-height: 0.3s es rápido para que no tarde en desaparecer */
-  transition: max-height 0.3s cubic-bezier(0, 1, 0, 1),
+  transition:
+    max-height 0.3s cubic-bezier(0, 1, 0, 1),
     /* Truco: curva rápida para evitar lag */ opacity 0.2s ease-out,
     margin-top 0.3s ease;
 }
@@ -798,7 +812,8 @@ section[id] {
 
   /* === VELOCIDAD DE APERTURA (Lenta/Suave) === */
   /* Se aplica cuando agregamos la clase .expanded */
-  transition: max-height 1s ease-in-out,
+  transition:
+    max-height 1s ease-in-out,
     /* Tiempo suficiente para leer el movimiento */ opacity 0.5s ease-in,
     margin-top 0.5s ease;
 }
@@ -896,7 +911,9 @@ section[id] {
   /* Tu animación de entrada (mantenida) */
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 /* Estado activo de la animación */
@@ -1038,7 +1055,9 @@ section[id] {
   border-radius: 160px; /* CLAVE: Para la forma ovalada */
   border: 4px solid white;
   padding: 3rem 4rem; /* CLAVE: Controla la altura y el ancho interno */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 
   /* Ajuste Flexbox para mejor control del contenido */
   display: flex;
@@ -1214,7 +1233,9 @@ section[id] {
   /* Animación de entrada */
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 /* EFECTO ESCALONADO (Solo Desktop) */
@@ -1316,7 +1337,9 @@ section[id] {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 
   /* Transición suave al pasar el mouse */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 /* Efecto Hover */
@@ -1533,7 +1556,9 @@ section[id] {
   margin-top: -185px;
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out;
   object-fit: contain; /* Asegura que la imagen no se deforme */
 
   z-index: 1;
@@ -1588,7 +1613,9 @@ section[id] {
   align-items: center;
   gap: 1rem; /* El espacio entre el ícono y el texto ahora va aquí */
   text-decoration: none; /* Quita el subrayado azul típico de los links */
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
   cursor: pointer;
 }
 
@@ -1767,7 +1794,9 @@ body.menu-open {
     pointer-events: none;
 
     /* 5. Transición suave para cuando cambia el texto (JS) */
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
   }
 
   /* Estado cuando cambia el texto (Animación JS) */
@@ -1836,54 +1865,78 @@ body.menu-open {
 @media (max-width: 900px) {
   /* ===== HERO (Pila vertical) ===== */
   .hero {
-    min-height: auto;
-    padding: 2rem 1.5rem 14rem 1.5rem;
+    /* Usamos tu variable JS calculada en lugar de vh puro para evitar el bug de iOS */
+    min-height: calc(var(--vh, 1vh) * 90);
+    padding: 2rem 1.5rem;
+    display: flex;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
 
+  /* Layout vertical: imagen arriba, texto debajo */
   .hero-content-wrapper {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 0rem;
+    width: 100%;
+    max-width: 600px;
   }
 
-  /* 1. Cambiamos el contenedor a GRID para poder superponer */
+  /* Imagen responsive y centrada */
+  .hero-image-block {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    animation: fade-in 1s ease-in-out forwards;
+    opacity: 1; /* Asegura buena legibilidad del texto */
+  }
+
+  /* Texto debajo de la imagen (sin superposición) */
   .hero-text-area {
-    min-height: auto;
-    margin-top: -300px;
+    position: relative;
+    z-index: 2;
+    margin-top: -50px;
+    width: 100%;
 
-    /* TRUCO GRID: */
+    /* ¡LA MAGIA!: Cambiamos Flexbox por Grid para superponer textos */
     display: grid;
-    place-items: center; /* Centra el contenido horizontal y verticalmente */
-    /* Ya no usamos flex-direction: column aquí */
+    place-items: center;
   }
 
-  /* 2. Superponemos los textos en la misma celda */
+  /* Fuerza que los textos no sean absolute y no se superpongan */
   .hero-text1,
   .hero-text2 {
-    /* Mágica de superposición: */
-    grid-area: 1 / 1; /* Ambos van a la fila 1, columna 1 */
+    /* Hacemos que AMBOS ocupen exactamente la misma "celda" invisible */
+    grid-area: 1 / 1;
 
-    position: relative; /* Mejor que static para el z-index si hiciera falta */
+    position: relative;
     transform: none;
+    top: auto;
+    left: auto;
     width: 100%;
     text-align: center;
-    margin: 0; /* Quitamos márgenes que puedan desalinear */
-
-    /* Tamaños de fuente (mantenemos los que tenías) */
+    margin: 0;
     line-height: 1.2;
   }
 
-  /* Aseguramos tamaños de fuente específicos */
+  /* (Tus tamaños de fuente se mantienen igual) */
   .hero-text1 {
     font-size: clamp(36px, 10vw, 45px);
   }
-
   .hero-text2 {
     font-size: clamp(20px, 5vw, 24px);
     line-height: 1.4;
-    /* Quitamos el margin-top extra para que quede centrado exacto */
-    margin-top: 0;
   }
 
   /* ===== GENERAL ===== */
@@ -2243,25 +2296,16 @@ body.menu-open {
     scroll-margin-top: 75px !important;
   }
 
+  /* En pantallas muy pequeñas, mantenemos la imagen fluida y eliminamos hacks que superponen texto */
   .hero-image {
     width: 100%;
-
-    /* Altura fija */
-    height: 300px !important;
-    margin-top: 0px;
-
-    /* Mantiene la proporción pero recorta lo que sobra */
-    object-fit: cover;
-
-    /* Opcional: enfoca la parte de abajo de la imagen */
-    object-position: bottom;
+    height: auto;
+    margin-top: 0;
+    object-fit: contain;
   }
-  .hero-text-area {
-    /* Ajusta este número hasta que quede a tu gusto.
-       Cuanto más negativo, más sube. */
-    margin-top: -400px !important;
 
-    /* Aseguramos que no tenga altura mínima que estorbe */
+  .hero-text-area {
+    margin-top: -100px !important;
     min-height: auto !important;
   }
 }
